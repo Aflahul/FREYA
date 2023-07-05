@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper-slide {
+  width: calc(100% / 3); /* Menampilkan 3 gambar per baris */
+}
+
+.swiper-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+/* Kustomisasi tombol prev dan next */
+#prevBtn,
+#nextBtn {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: #f9fafb;
+}
+
+#prevBtn:focus,
+#nextBtn:focus {
+  box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.5);
+}
+
+/* Kustomisasi tampilan gambar dan keterangan */
+.relative {
+  margin-left: -10px; /* Margin negatif pada elemen paling kiri */
+}
+
+.hidden {
+  display: none;
+}
