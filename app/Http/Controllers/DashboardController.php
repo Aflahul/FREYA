@@ -22,4 +22,11 @@ class DashboardController extends Controller
             "title" => "Dashboard"
         ]);
     }
+
+    public function index_pegawai()
+    {
+        return view('pegawai.dashboard.dashboard_pegawai', [
+            "title" => "Dashboard"
+        ]);
+    }
 }

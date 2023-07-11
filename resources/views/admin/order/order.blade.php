@@ -3,11 +3,14 @@
 @section('content')
     <div class="p-4 mt-20 sm:ml-72">
         <div class="p-4 drop-shadow-lg relative overflow-x-auto">
-            <button type="button"
+            <form action="/createOrder">
+                <button type="submit"
                 class="flex items-center gap-3 bg-kuning hover:bg-yellow-500 font-medium rounded-xl text-sm px-3 py-2">
                 <i class="fa-solid fa-circle-plus "></i>
                 <p>Tambah Orderan</p>
             </button>
+            </form>
+            
         </div>
         <!--pelanggan-->
         <div class="p-4 drop-shadow-lg relative overflow-x-auto">
@@ -28,6 +31,7 @@
                             <th scope="col" class="pt-6 pb-2 px-2">Pelanggan</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Jenis Laundry</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Waktu</th>
+                            <th scope="col" class="pt-6 pb-2 px-2">Durasi</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Qty</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Total Harga</th>
                             <th scope="col" class="pt-6 pb-2 px-2 ">Status</th>
@@ -49,6 +53,9 @@
                                 <p class="font-base text-base">Masuk : -</p>
                                 <p class="font-base text-base">Selesai : -</p>
                                 <p class="font-base text-base">Diambil : -</p>
+                            </td>
+                             <td class="p-2 text-left  bg-selesai">
+                                <p class="">3 Hari </p>
                             </td>
                             <td class="p-2 text-left ">
                                 <p class="font-base text-base">3 pcs</p>
