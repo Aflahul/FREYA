@@ -1,83 +1,89 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-4 mt-20 sm:ml-72">
-        <!--preview lpran Harian-->
-        <div class="p-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
-                <a href="#" class="overflow-hidden bg-white rounded-[4px] border-t drop-shadow-lg">
-                    <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] bg-kuning md:w-auto md:rounded-[4px]">
-                            <div class="w-11 py-3 flex justify-center text-white mx-auto">
-                                <div>
-                                    <i class="fas fa-water fa-2x" ></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center flex flex-col justify-between md:text-right">
-                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                            <p class="font-normal">Cucian</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="overflow-hidden bg-white rounded-[4px] border-t drop-shadow-lg">
-                    <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] bg-kuning md:w-auto md:rounded-[4px] flex justify-center">
-                            <div class="w-11 py-3 flex justify-center text-white mx-auto">
-                                <div>
-                                    <i class="fas fa-users fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center flex flex-col justify-between md:text-right">
-                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                            <p class="font-normal">Cucian</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="overflow-hidden bg-white rounded-[4px] border-t drop-shadow-lg">
-                    <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] bg-kuning md:w-auto md:rounded-[4px] flex justify-center">
-                            <div class="w-11 py-3 flex justify-center text-white mx-auto">
-                                <div>
-                                    <i class="fa-solid fa-chart-line fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center flex flex-col justify-between md:text-right">
-                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                            <p class="font-normal">Cucian</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="overflow-hidden bg-white rounded-[4px] border-t drop-shadow-lg">
-                    <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] text-white bg-kuning md:w-auto md:rounded-[4px] flex justify-center">
-                            <div class="w-11 py-3 flex justify-center mx-auto">
-                                <div>
-                                    <i class="fas fa-donate fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center flex flex-col justify-between md:text-right">
-                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                            <p class="font-normal">Cucian</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+    <div class="p-4 mt-8 sm:ml-72">
+        <div class="p-2 mb-2">
+            <p class="text-xl font-bold ">{{ $title }}</p>
+            <span></span>
+            <hr>
         </div>
-        <div class="p-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5 drop-shadow-lg">
+        <!--preview lpran Harian-->
+        <div class="px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
+                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
+                    <div class="flex flex-col justify-between p-2 md:flex-row">
+                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
+                            <div class="w-11 py-3 flex justify-center text-latar mx-auto">
+                                <div>
+                                    <i class="fas fa-water fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center flex flex-col justify-between md:text-right">
+                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
+                            <p class="font-normal">Cucian</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
+                    <div class="flex flex-col justify-between p-2 md:flex-row">
+                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
+                            <div class="w-11 py-3 flex justify-center text-latar mx-auto">
+                                <div>
+                                    <i class="fas fa-water fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center flex flex-col justify-between md:text-right">
+                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
+                            <p class="font-normal">Cucian</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
+                    <div class="flex flex-col justify-between p-2 md:flex-row">
+                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
+                            <div class="w-11 py-3 flex justify-center text-latar mx-auto">
+                                <div>
+                                    <i class="fas fa-water fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center flex flex-col justify-between md:text-right">
+                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
+                            <p class="font-normal">Cucian</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
+                    <div class="flex flex-col justify-between p-2 md:flex-row">
+                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
+                            <div class="w-11 py-3 flex justify-center text-latar mx-auto">
+                                <div>
+                                    <i class="fas fa-water fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center flex flex-col justify-between md:text-right">
+                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
+                            <p class="font-normal">Cucian</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 drop-shadow">
                 <!--preview Transaksi-->
                 <div class="relative overflow-x-auto">
-                    <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
+                    <div class="bg-tabel border-t-[3px] border-garis rounded-[4px]">
                         <table class="w-full text-sm text-left">
                             <thead>
                                 <div class="p-4 border-b-2 flex justify-between items-center">
                                     <h1 class="font-bold">Daftar Transaksi Harian</h1>
                                     <a href="/laporan"
-                                        class="bg-kuning hover:bg-yellow-500 font-medium rounded-xl text-sm px-5 py-2">Details</a>
+                                        class="bg-navbar text-latar hover:bg-yellow-500 font-medium rounded-xl text-sm px-5 py-2">Details</a>
                                 </div>
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
@@ -94,7 +100,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
                                         12/02/2023
                                     </th>
                                     <td class="px-6 py-4 text-center">
@@ -106,7 +112,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
                                         12/02/2023
                                     </th>
                                     <td class="px-6 py-4 text-center">
@@ -118,7 +124,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
                                         12/02/2023
                                     </th>
                                     <td class="px-6 py-4 text-center">
@@ -130,7 +136,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
                                         12/02/2023
                                     </th>
                                     <td class="px-6 py-4 text-center">
@@ -146,14 +152,14 @@
                 </div>
                 <!--pelanggan-->
                 <div class="relative overflow-x-auto">
-                    <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
+                    <div class="bg-tabel border-t-[3px] border-garis rounded-[4px]">
                         <table class="w-full text-sm text-left">
                             <thead>
                                 <div class="p-4 border-b-2 flex justify-between items-center">
                                     <h1 class="font-bold">Data Pelanggan</h1>
                                     <a href="/pelanggan"
-                                        class="bg-kuning hover:bg-yellow-500 font-medium rounded-xl text-sm px-5 py-2">Details</a>
-                                
+                                        class="bg-navbar hover:bg-yellow-500 font-medium text-latar rounded-xl text-sm px-5 py-2">Details</a>
+
                                 </div>
                             </thead>
                             <tbody>

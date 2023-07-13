@@ -20,10 +20,18 @@ module.exports = {
                 kuningpudar: "#FFF6D6",
                 kuning: "#FCD51E",
                 belum:"#FD5F0E",
-                sudah: "#0AB59E",
+                sudah: "#084A83",
                 sedang: "#99BBFF",
                 selesai: "#96FFF1",
-                gelap:"#393E46"
+                gelap: "#393E46",
+                tulisan: "#0B409C",
+                latar:"#F2F7FF",
+                garis:"#FFCE63",
+                card:"#FAFCFD",
+                navbar:"#539DDB",
+                sidebar: "#FAFCFD",
+                tabel:"#FAFCFD",
+                
             },
             screens: {
                 ss: '250px',

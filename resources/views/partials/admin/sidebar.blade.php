@@ -1,9 +1,10 @@
 <aside id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 w-72 h-screen pt-10 bg-white transition-transform -translate-x-full sidebar in-active sm:translate-x-0"
+    class="fixed top-0 left-0 z-40 w-72 h-screen pt-10 bg-sidebar drop-shadow-2xl transition-transform -translate-x-full sidebar in-active sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full px-2 overflow-y-auto bg-white">
+    <div class="h-full px-2 overflow-y-auto bg-sidebar">
         <div class="pb-2 w-full flex flex-col items-center justify-center border-b-2">
-            <i class="fas fa-user-circle fa-4x" style="color: #4c4c4b;"></i>
+            {{-- <img class="h-20 " src="{{ asset('asset/img/logo.jpg') }}" alt="logo"> --}}
+            <i class="fas fa-user-circle fa-4x" style="color: #0B409C;"></i>
             <p class="pt-2 font-normal">Hi! Selamat datang</p>
             <p class="font-bold text-lg text-sudah">Admin</p>
         </div>

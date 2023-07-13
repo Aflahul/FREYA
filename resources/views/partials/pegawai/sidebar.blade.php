@@ -1,5 +1,5 @@
 <aside id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 w-72 h-screen pt-10 bg-white transition-transform -translate-x-full sidebar in-active sm:translate-x-0"
+    class="fixed top-0 left-0 z-40 w-72 h-screen pt-10 bg-latar transition-transform -translate-x-full sidebar in-active sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full px-2 overflow-y-auto bg-white">
         <div class="pb-2 w-full flex flex-col items-center justify-center border-b-2">

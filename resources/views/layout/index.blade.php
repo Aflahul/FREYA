@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body class="bg-latar">
     @include('partials/admin/navbar')
     @include('partials/admin/sidebar')
     @yield('content')
