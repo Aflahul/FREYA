@@ -6,14 +6,18 @@ use App\Models\Order;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 class OrderController extends Controller
 {
     public function index()
     {
+        
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.order.order', [
             "title" => "Order"
-        ]);
+        ], compact('tanggal', 'jam'));
+        
     }
 
     public function create()

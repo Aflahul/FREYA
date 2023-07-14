@@ -1,18 +1,35 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-4 mt-8 sm:ml-72">
-        <div class="p-2 mb-2">
-            <p class="text-xl font-bold ">{{ $title }}</p>
-            <span></span>
+    <div class="p-3 mt-8 sm:ml-[17rem]">
+        <div class="p-2 mb-1 mt-10">
+            <p class="text-lg font-bold ">{{ $title }}</p>
+            <span class=" rounded justify-end text-sm font-base"><i>{{ $tanggal }}</i></span>
+            
+            <p class="py-2 font-normal text-2xl">Hi! <b><i>Admin,</i></b> Selamat datang</p>
             <hr>
         </div>
         <!--preview lpran Harian-->
         <div class="px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
-                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
+                <div class="relative overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                     <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
+                        <div class="w-full p-3 md:w-auto md:rounded-[3px]">
+                            <div class="w-11 py-3 flex justify-center text-kuning mx-auto">
+                                <div>
+                                    <i class="fas fa-water fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center flex flex-col justify-between md:text-right">
+                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
+                            <p class="font-normal">Cucian</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
+                    <div class="flex flex-col justify-between p-2 md:flex-row">
+                        <div class="w-full p-3  md:w-auto md:rounded-[3px]">
                             <div class="w-11 py-3 flex justify-center text-latar mx-auto">
                                 <div>
                                     <i class="fas fa-water fa-2x"></i>
@@ -25,9 +42,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
+                <div class="relative overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                     <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
+                        <div class="w-full p-3  md:w-auto md:rounded-[3px]">
                             <div class="w-11 py-3 flex justify-center text-latar mx-auto">
                                 <div>
                                     <i class="fas fa-water fa-2x"></i>
@@ -40,24 +57,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
+                <div class="relative overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                     <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
-                            <div class="w-11 py-3 flex justify-center text-latar mx-auto">
-                                <div>
-                                    <i class="fas fa-water fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center flex flex-col justify-between md:text-right">
-                            <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                            <p class="font-normal">Cucian</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative overflow-x-auto bg-card rounded-[4px] border-t drop-shadow">
-                    <div class="flex flex-col justify-between p-2 md:flex-row">
-                        <div class="w-full p-3 rounded-t-[4px] bg-navbar md:w-auto md:rounded-[4px]">
+                        <div class="w-full p-3  md:w-auto md:rounded-[3px]">
                             <div class="w-11 py-3 flex justify-center text-latar mx-auto">
                                 <div>
                                     <i class="fas fa-water fa-2x"></i>
@@ -77,13 +79,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 drop-shadow">
                 <!--preview Transaksi-->
                 <div class="relative overflow-x-auto">
-                    <div class="bg-tabel border-t-[3px] border-garis rounded-[4px]">
+                    <div class="bg-tabel   rounded-[8px]">
                         <table class="w-full text-sm text-left">
-                            <thead>
-                                <div class="p-4 border-b-2 flex justify-between items-center">
+                            <thead class="">
+                                <div class="p-4 border-b-2 flex justify-between items-center bg-head rounded-t">
                                     <h1 class="font-bold">Daftar Transaksi Harian</h1>
                                     <a href="/laporan"
-                                        class="bg-navbar text-latar hover:bg-yellow-500 font-medium rounded-xl text-sm px-5 py-2">Details</a>
+                                        class= "bg-tombol1 text-white drop-shadow-lg hover:bg-garis hover:text-tulisan font-medium rounded-xl text-sm px-5 py-2">Details</a>
                                 </div>
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
@@ -152,13 +154,13 @@
                 </div>
                 <!--pelanggan-->
                 <div class="relative overflow-x-auto">
-                    <div class="bg-tabel border-t-[3px] border-garis rounded-[4px]">
+                    <div class="bg-tabel border-t-[3px] border-garis rounded-[8px]">
                         <table class="w-full text-sm text-left">
                             <thead>
                                 <div class="p-4 border-b-2 flex justify-between items-center">
                                     <h1 class="font-bold">Data Pelanggan</h1>
                                     <a href="/pelanggan"
-                                        class="bg-navbar hover:bg-yellow-500 font-medium text-latar rounded-xl text-sm px-5 py-2">Details</a>
+                                        class="bg-tombol1 hover:bg-garis drop-shadow-lg hover:text-tulisan font-medium text-latar rounded-xl text-sm px-5 py-2">Details</a>
 
                                 </div>
                             </thead>
@@ -166,7 +168,22 @@
                                 <tr>
                                     <td class="w-10 py-4">
                                         <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x" style="color: #4c4c4b;"></i>
+                                            <i class="fas fa-user-circle fa-3x text-navbar" ></i>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 text-left px-2">
+                                        <p class="font-bold text-base ">Sebut Saja Mawar</p>
+                                        <p class="font-light">08114488396</p>
+                                    </td>
+                                    <td class="px-4 py-4 text-right">
+                                        <p class="font-bold text-base">99</p>
+                                        <p class="font-light">Total transaksi</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-10 py-4">
+                                        <div class="pl-4">
+                                            <i class="fas fa-user-circle fa-3x text-navbar" ></i>
                                         </div>
                                     </td>
                                     <td class="py-4 text-left px-2">
@@ -181,22 +198,7 @@
                                 <tr>
                                     <td class="w-10 py-4">
                                         <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x" style="color: #4c4c4b;"></i>
-                                        </div>
-                                    </td>
-                                    <td class="py-4 text-left px-2">
-                                        <p class="font-bold text-base">Sebut Saja Mawar</p>
-                                        <p class="font-light">08114488396</p>
-                                    </td>
-                                    <td class="px-4 py-4 text-right">
-                                        <p class="font-bold text-base">99</p>
-                                        <p class="font-light">Total transaksi</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-10 py-4">
-                                        <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x" style="color: #4c4c4b;"></i>
+                                            <i class="fas fa-user-circle fa-3x text-navbar" ></i>
                                         </div>
                                     </td>
                                     <td class="py-4 text-left px-2">

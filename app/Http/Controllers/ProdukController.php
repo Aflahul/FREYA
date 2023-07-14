@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class ProdukController extends Controller
 {
     //
     public function index()
     {
         $produk = Produk::all();
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.produk.produk', [
             'title' => 'Produk & Layanan',
             'produk' => $produk
-        ]);
+        ], compact('tanggal', 'jam'));
+        
+        
     }
     public function create()
     {
