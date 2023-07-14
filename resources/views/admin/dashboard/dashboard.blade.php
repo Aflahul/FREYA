@@ -13,8 +13,8 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mb-5">
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
-                            <div class="w-full p-3 md:w-auto md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-kuning mx-auto">
+                            <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
+                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
                                         <i class="fas fa-water fa-2x"></i>
                                     </div>
@@ -28,8 +28,8 @@
                     </div>
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
-                            <div class="w-full p-3 md:w-auto md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-kuning mx-auto">
+                            <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
+                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
                                         <i class="fas fa-water fa-2x"></i>
                                     </div>
@@ -43,8 +43,8 @@
                     </div>
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
-                            <div class="w-full p-3 md:w-auto md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-kuning mx-auto">
+                            <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
+                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
                                         <i class="fas fa-water fa-2x"></i>
                                     </div>
@@ -58,8 +58,8 @@
                     </div>
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
-                            <div class="w-full p-3 md:w-auto md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-kuning mx-auto">
+                            <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
+                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
                                         <i class="fas fa-water fa-2x"></i>
                                     </div>
@@ -76,7 +76,7 @@
                 <div class="drop-shadow overflow-x-auto">
                     <div class="bg-tabel  rounded-[8px]">
                         <table class="w-full text-sm text-left">
-                            <thead class="bg-head rounded-t-[8px] text-white">
+                            <thead class="bg-navbar1 rounded-t-[8px] text-white">
                                 <div class="px-4 pt-2 pb-1 flex justify-between items-center bg-gelap rounded-t-[8px]">
                                     <h1 class="font-bold text-white">Transaksi terakhir</h1>
                                 </div>

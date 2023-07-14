@@ -1,10 +1,10 @@
-@extends('landing.landing')
+@extends('layout.index_pelanggan')
 
 @section('content')
-    @include('landing.sections.home')
-    @include('landing.sections.paket')
-    @include('landing.sections.laundrycare')
-    @include('landing.sections.tracking')
-    @include('landing.sections.lokasi')
-    @include('landing.sections.about')
+    @include('sections.homes')
+    @include('sections.paket')
+    @include('sections.laundrycare')
+    @include('sections.tracking')
+    @include('sections.lokasi')
+    @include('sections.about')
 @endsection

@@ -13,7 +13,7 @@
 
 </head>
 
-<body class="bg-kuningpudar">
+<body class="">
     @include('partials/admin/navbar')
     @include('partials/admin/sidebar')
     @yield('content')

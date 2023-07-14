@@ -1,9 +1,9 @@
 <aside id="logo-sidebar"
-    class="  fixed top-5 left-3 bottom-3 z-40 w-64 h-screen pt-4 bg-navbar1 transition-transform -translate-x-full sidebar  rounded-t-[5px] in-active sm:translate-x-0"
+    class="  fixed top-5 left-3 bottom-3 z-40 w-64 h-screen pt-4 bg-gelap transition-transform -translate-x-full sidebar  rounded-t-[5px] in-active sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full  overflow-y-auto  ">
         <div class="pb-2 pl-2 w-full flex flex-col items-center justify-center ">
-            <img class="w-32 " src="{{ asset('asset/img/logo.jpg') }}" alt="logo">
+            <img class="w-32 rounded " src="{{ asset('asset/img/logo.jpg') }}" alt="logo">
             {{-- <i class="fas fa-user-circle fa-4x" style="color: #0B409C;"></i>
             <p class="pt-2 font-normal">Hi! Selamat datang</p>
             <p class="font-bold text-lg text-navbar">Admin</p> --}}
@@ -11,7 +11,7 @@
         <ul class="mt-2 pl-8 pt-2 space-y-1 font-normal">
             <li class=" list-none">
                 <a href="/dashboard"
-                    class="flex flex-row items-center rounded-lg {{ $title == 'Dashboard' ? 'text-black font-extrabold py-1.5  bg-kuningpudar  rounded-l-full' : 'text-white py-1.5 hover:text-kuning hover:font-bold' }}">
+                    class="flex flex-row items-center rounded-lg {{ $title == 'Dashboard' ? 'text-black font-extrabold py-1.5  bg-white  rounded-l-full' : 'text-white py-1.5 hover:text-kuning hover:font-bold' }}">
                     <div class="w-6 object-center pl-5 ">
                         <i id="icon-menu" class="fa-solid fa-house-chimney text-center"></i>
                     </div>
