@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ArtikelController;

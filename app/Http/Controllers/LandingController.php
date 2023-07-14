@@ -18,9 +18,8 @@ class LandingController extends Controller
     //     }
     public function index()
     {
-
-        return view('layout.index_pelanggan', [
-            "title" => "Home"
+        return view('landing.home', [
+            'title' => 'Home',
         ]);
     }
 }
