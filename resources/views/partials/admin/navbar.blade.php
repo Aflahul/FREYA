@@ -1,10 +1,10 @@
-<div class="fixed sm:pl-[18rem] top-3 w-full pr-8 px-4 ">
-    <nav class="bg-navbar1 rounded-[5px] drop-shadow">
-        <div class="max-w-screen-xl flex flex-wrap justify-between px-4 py-2 items-center">
-            <p class="text-2xl font-bold text-white">Freya Laundry</p>
+<div class="fixed top-0 w-full ">
+    <nav class="bg-kuning sm:pl-[18rem] drop-shadow text-gray-950 pr-8">
+        <div class="max-w-screen-xl flex flex-wrap justify-between py-2 items-center">
+            <p class="text-2xl font-bold ">{{ $title }}</p>
             <div class="flex items-center">
-                <i class="fas fa-user-circle fa-xl text-white px-4"></i>
-                <div class="text-xl font-semibold rounded-md p-1 text-white">{{ $jam }}</div>
+                <i class="fas fa-user-circle fa-xl"></i>
+                <div class="text-xl font-semibold rounded-md p-1 ">{{ $jam }}</div>
             </div>
         </div>
     </nav>

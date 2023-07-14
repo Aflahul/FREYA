@@ -22,7 +22,7 @@ module.exports = {
                 tombol1: "#FD5F0E",
                 w3: "#FFF6D6",
                 w4: "#FFF6D6",
-                kuning: "#FD5F0E",
+                kuning: "#FCD51E",
                 belum:"#FD5F0E",
                 sudah: "#084A83",
                 sedang: "#99BBFF",
