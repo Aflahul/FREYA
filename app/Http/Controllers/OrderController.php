@@ -11,8 +11,21 @@ class OrderController extends Controller
 {
     public function index()
     {
+
+        $order = DB::table('tb_order')
+                    ->join('tb_pelanggan', 'tb_order.id_pelanggan', '=', 'tb_pelanggan.id_pelanggan')
+                    ->select('tb_order.*', 'tb_pelanggan.namapel')
+                    ->paginate(10);
+
+            foreach ($order as $item) {
+                        $item->created_at = \Carbon\Carbon::parse($item->created_at)->locale('id')->isoFormat('D MMMM YYYY');
+            
+                    }
+        // dd($order);
+
         return view('admin.order.order', [
-            "title" => "Order"
+            "title" => "Order",
+            'data' => $order,
         ]);
     }
 
@@ -43,23 +56,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'kd_order' => 'required',
-        //     'nama_pelanggan' => 'required',
-        //     'jenis_laundry' => 'required',
-        //     'durasi' => 'required',
-        //     'qty' => 'required'
-
-
-        // ]);
-        // $datas = [
-        //     'kd_order' => $request->kd_order,
-        //     'id_pelanggan' => $request->nama_pelanggan,
-        //     'jenis_laundry' => $request->jenis_laundry,
-        //     'durasi' => $request->durasi,
-        //     'qty' => $request->qty,
-
-        // ];
+        
         $kd_order = $request->kd_order;
         $id_pelanggan = $request->id_pelanggan;
         $nama_layanan = $request->nama_layanan;
@@ -72,26 +69,14 @@ class OrderController extends Controller
         $order->kd_order = $request->kd_order;
         $order->durasi = $request->durasi;
         $order->id_pelanggan = $request->id_pelanggan;
-        $order->nama_layanan = $request->$nama_layanan;
+        $order->nama_layanan = $request->nama_layanan;
         $order->qty = $qty;
         $order->total = $total;
-        $order->status = 'belum bayar';
-        dd($order);
+        $order->status = 'Sedang Cuci';
+        // dd($order);
         $order->save();
 
-        // Produk::
-        // $order = Order::create($datas);
-
-        // Order::where('id', $id)->update([
-        //     'nilai_gab' => $nilaiGab
-        // ]);
-
-
-        // Simpan data ke dalam database
-        // Pengeluaran::create($datas);
-        // return redirect('/pengeluaran');
-        // return view('admin.order.order', [
-        //     "title" => "Order"
-        // ]);
+        return redirect('/order');
+        
     }
 }

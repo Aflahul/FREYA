@@ -30,7 +30,7 @@
                             <th scope="col" class="pt-6 pb-2 px-2 w-24 ">Kode Order</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Pelanggan</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Jenis Laundry</th>
-                            <th scope="col" class="pt-6 pb-2 px-2">Waktu</th>
+                            <th scope="col" class="pt-6 pb-2 px-2">Waktu Masuk</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Durasi</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Qty</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Total Harga</th>
@@ -38,35 +38,36 @@
                             <th scope="col" class="pt-6 pb-2 px-2 text-center">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>                    
-                       <tr>
+                    <tbody>  
+                        @foreach ($data as $item)
+                            <tr>
                             <td class="p-2 w-24 text-lg font-bold uppercase">
-                                <p class="text-sudah">c12345</p>
+                                <p class="text-sudah">{{ $item->kd_order }}</p>
                             </td>
                             <td class="p-2 text-left ">
-                                <p class="font-base text-base">Sebut Saja Angrek</p>
+                                <p class="font-base text-base">{{ $item->namapel }}</p>
                             </td>
                             <td class="p-2 text-left  bg-selesai">
-                                <p class="">Paket Lengkap</p>
+                                <p class="">{{ $item->nama_layanan }}</p>
                             </td>
                             <td class="px-2  text-left ">
-                                <p class="font-base text-base">Masuk : -</p>
-                                <p class="font-base text-base">Selesai : -</p>
-                                <p class="font-base text-base">Diambil : -</p>
+                                <p class="font-base text-base">{{ $item->created_at }}</p>
+                                {{-- <p class="font-base text-base">Selesai : -</p>
+                                <p class="font-base text-base">Diambil : -</p> --}}
                             </td>
                              <td class="p-2 text-left  bg-selesai">
-                                <p class="">3 Hari </p>
+                                <p class=""> <span>{{ $item->durasi }}</span> Hari </p>
                             </td>
                             <td class="p-2 text-left ">
-                                <p class="font-base text-base">3 pcs</p>
+                                <p class="font-base text-base"> <span>{{ $item->qty }}</span> pcs/kg</p>
                             </td>
                             <td class="p-2 text-left ">
-                                <p class="font-base text-base">Rp. -</p>
+                                <p class="font-base text-base">Rp. <span>{{ $item->total }}</span></p>
                             </td>
                             <td class="p-2 font-base text-white text-xs text-center ">
-                                <p class="m-1 px-3 pb-1 w-fit bg-sudah rounded-xl">Sedang Cuci</p>
-                                <p class="m-1 px-3 py-1 w-fit bg-sudah rounded-xl">Sudah Bayar</p>
-                                <p class="m-1 px-3 pt-1 w-fit bg-belum rounded-xl">Belum Ambil </p>
+                                <p class="m-1 px-3 pb-1 w-fit bg-sudah rounded-xl">{{ $item->status }}</p>
+                                {{-- <p class="m-1 px-3 py-1 w-fit bg-sudah rounded-xl">Sudah Bayar</p>
+                                <p class="m-1 px-3 pt-1 w-fit bg-belum rounded-xl">Belum Ambil </p> --}}
                             </td>
                             <td class="text-center text-belum">
                                 <div class="h-auto flex  justify-center gap-4 ">
@@ -75,6 +76,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

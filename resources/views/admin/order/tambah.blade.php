@@ -23,37 +23,43 @@
                     </div>
 
                     {{-- //dropdown jenis laundry// --}}
+
                     <div class="mb-4">
-                        <div class="mb-4">
-                        <label for="jenis_laundry" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Jenis Laundry</label>
-                        <select id="jenis_laundry" name="jenis_laundry" id="jenis_laundry" class="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 form-control @error('jenis_laundry') is-invalid @enderror">
-                            <option value="">Pilih Jenis Laundry..</option>
-                            @foreach($data_layanan as $datal)
-                                <option value="{{ $datal->nama_layanan }}" harga="{{ $datal->harga }}">{{ $datal->nama_layanan }}</option>
+                        <label for="nama_layanan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Jenis Layanan</label>
+                        <select id="nama_layanan" name="nama_layanan" id="nama_layanan" class="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 form-control @error('nama_layanan') is-invalid @enderror">
+                            <option value="">Pilih Jenis Layanan..</option>
+                            @foreach($data_layanan as $data)
+                                <option value="{{ $data->nama_layanan }}" >{{ $data->nama_layanan }}</option>
                             @endforeach
                         </select>
                     </div>
-                    </div>
+                    {{-- <div class="mb-4">
+                        <div class="mb-4">
+                        <label for="nama_layanan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Jenis Laundry</label>
+                        <select id="nama_layanan" name="nama_layanan" id="nama_layanan" class="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 form-control @error('jenis_laundry') is-invalid @enderror">
+                            <option value="">Pilih Jenis Laundry..</option>
+                            @foreach($data_layanan as $datal)
+                                <option value="{{ $datal->nama_layanan }}">{{ $datal->nama_layanan }}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div> --}}
 
 
                     <div class="mb-4">
                         <label for="durasi" class="block">Durasi:</label>
                         <input type="text" id="kontak" name="durasi" class="border rounded-md px-2 py-1">
                     </div>
-                    {{-- <div class="mb-4">
-                        <label for="qty" class="block">Qty:</label>
-                        <input type="text" id="kontak" name="qty" class="border rounded-md px-2 py-1">
-                    </div> --}}
 
                     <div class="mb-4">
                     <label for="qty" class="block">Qty:</label>
                     <input type="number" name="qty" id="qty" onchange="calculateTotal()" min="1" value="1">
                     </div>
 
-                    <div class="mb-4">
+                    {{-- <div class="mb-4">
                     <label for="total" class="block">Total:</label>
                     <input type="text" name="total" id="total" readonly>
-                    </div>
+                    </div> --}}
 
                     <div class="flex justify-end">
                         <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpan</button>

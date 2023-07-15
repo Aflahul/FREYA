@@ -12,4 +12,9 @@ class Order extends Model
     protected $fillable = ['kd_order','id_pelanggan','id_layanan','total','status','durasi','qty'];
     protected $primaryKey = 'id_order';
     public $timestamps = false;
+
+    public function pelanggan()
+    {
+        return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
+    }
 }
