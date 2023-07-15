@@ -1,12 +1,16 @@
-<div class="fixed z-50 pl-[310px] mt-2 w-full pr-8 ">
-    <nav class="bg-tabel rounded drop-shadow">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <p class="text-xl font-black">Freya Laundry</p>
-            
+<div class="fixed top-0 w-full ">
+    <nav class="bg-kuning sm:pl-[18rem] drop-shadow text-gray-950 pr-8">
+        <div class="max-w-screen-xl flex flex-wrap justify-between py-2 items-center">
+            <p class="text-2xl font-bold ">{{ $title }}</p>
+            <div class="flex items-center">
+                <i class="fas fa-user-circle fa-xl"></i>
+                <div class="text-xl font-semibold rounded-md p-1 ">{{ $jam }}</div>
+            </div>
         </div>
     </nav>
 </div>
-{{-- <nav class="overflow-x-auto border">
+
+{{-- < class="overflow-x-auto border">
             <div class="flex items-center rounded-md h-24 bg-navbar  lg:px-2 lg:pl-2">
                 <div>
                     <div class="flex items-center justify-start">
@@ -33,6 +37,3 @@
                             20</div>
                     </button>
                     {{-- <img class="h-10 pr-4" src="{{ asset('asset/img/logo.jpg') }}" alt="logo"> --}}
-</div>
-</div>
-</nav> --}}

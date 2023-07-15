@@ -1,123 +1,306 @@
-{{-- @php
-    $imageDirectory = 'asset/img/freya'; // Direktori gambar
-    $imageFiles = glob(public_path($imageDirectory . '/*.*')); // Mendapatkan daftar file gambar
-    
-    $images = [];
-    
-    foreach ($imageFiles as $imageFile) {
-        $imageName = basename($imageFile);
-        $imagePath = asset($imageDirectory . '/' . $imageName);
-    
-        $images[] = [
-            'src' => asset('asset/img/freya/1.jpeg' . $imageName),
-            'alt' => 'Image ' . $imageName,
-            'caption' => 'Caption for Image ' . $imageName,
-        ];
-    }
-@endphp --}}
+<section id="paket" class="bg-gelap ">
 
-<section id="paket" class="relative bg-gelap h-full">
-    <div class="container w-full py-10 items-center">
-        <h2 class="text-2xl text-center text-white font-semibold mb-5">Paket Laundry</h2>
-        <div class="border pt-9">
-            <div class="swiper-container">
-                <div class="swiper-wrapper space-x-1">
-                    {{-- @foreach ($images as $image) --}}
-                        <div class="swiper-slide">
-                            <div class="max-w-sm">
-                                <div class="relative pb-[75%]">
-                                    {{-- <img class="absolute inset-0 w-full h-full object-contain" src="{{ $image->src }}"
-                                        alt="{{ $image->alt }}"> --}}
-                                </div>
-                                {{-- <p class="text-center">{{ $image->caption }}</p> --}}
-                            </div>
-                        </div>
-                    {{-- @endforeach --}}
+    <div class="container  py-10 md:px-10 mx-auto h-fit">
+        <p class="py-2 font-semibold text-3xl text-center text-white">Produk dan Layanan</p>
+        <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan
+            kebutuhan anda.
+        <div class="flex justify-between  gap-5 relative transition-all duration-300  ">
+            <div
+                class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
+                <div class="flex items-baseline text-gray-900 dark:text-white">
+                    <span class="text-3xl font-semibold">$</span>
+                    <span class="text-5xl font-extrabold tracking-tight">49</span>
+                    <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
                 </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="flex space-x-3 items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">2 team
+                            members</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">20GB Cloud
+                            storage</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Integration
+                            help</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Sketch Files</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">API Access</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Complete documentation</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">24×7 phone & email
+                            support</span>
+                    </li>
+                </ul>
+                <button type="button"
+                    class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose
+                    plan</button>
             </div>
-            <div class="absolute top-14 right-20 mt-4 mr-4 flex items-center justify-between gap-2">
-                <button class="bg-white text-violet-500 h-8 w-8 rounded-full" id="prevBtn">
-                    <i class="fa-solid fa-arrow-left fa-md transform rotate-45"></i>
-                </button>
-                <button class="bg-belum text-violet-500 h-8 w-8 rounded-full" id="nextBtn">
-                    <i class="fa-solid fa-arrow-right fa-md transform -rotate-45"></i>
-                </button>
+            <div
+                class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
+                <div class="flex items-baseline text-gray-900 dark:text-white">
+                    <span class="text-3xl font-semibold">$</span>
+                    <span class="text-5xl font-extrabold tracking-tight">49</span>
+                    <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
+                </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="flex space-x-3 items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">2 team
+                            members</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">20GB Cloud
+                            storage</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Integration
+                            help</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Sketch Files</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">API Access</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Complete documentation</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">24×7 phone & email
+                            support</span>
+                    </li>
+                </ul>
+                <button type="button"
+                    class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose
+                    plan</button>
+            </div>
+            <div
+                class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
+                <div class="flex items-baseline text-gray-900 dark:text-white">
+                    <span class="text-3xl font-semibold">$</span>
+                    <span class="text-5xl font-extrabold tracking-tight">49</span>
+                    <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
+                </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="flex space-x-3 items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">2 team
+                            members</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">20GB Cloud
+                            storage</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Integration
+                            help</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Sketch Files</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">API Access</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Complete documentation</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">24×7 phone & email
+                            support</span>
+                    </li>
+                </ul>
+                <button type="button"
+                    class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose
+                    plan</button>
+            </div>
+            <div
+                class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
+                <div class="flex items-baseline text-gray-900 dark:text-white">
+                    <span class="text-3xl font-semibold">$</span>
+                    <span class="text-5xl font-extrabold tracking-tight">49</span>
+                    <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
+                </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="flex space-x-3 items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">2 team
+                            members</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">20GB Cloud
+                            storage</span>
+                    </li>
+                    <li class="flex space-x-3">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Integration
+                            help</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Sketch Files</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">API Access</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">Complete documentation</span>
+                    </li>
+                    <li class="flex space-x-3 line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500">24×7 phone & email
+                            support</span>
+                    </li>
+                </ul>
+                <button type="button"
+                    class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose
+                    plan</button>
             </div>
         </div>
     </div>
-
-
-
-    {{-- <div class="absolute top-14 right-20 mt-4 mr-4 flex items-center justify-between gap-2">
-                    <button class="bg-white text-violet-500 h-8 w-8 rounded-full" id="prevSlideBtn">
-                        <i class="fa-solid fa-arrow-left fa-md transform rotate-45"></i>
-                    </button>
-                    <button class="bg-belum text-violet-500 h-8 w-8  rounded-full" id="nextSlideBtn">
-                        <i class="fa-solid fa-arrow-right fa-md transform -rotate-45"></i>
-                    </button>
-                </div> --}}
-
-    <script>
-        // Kode JavaScript untuk galeri
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mendapatkan elemen tombol next dan back
-            const nextBtn = document.getElementById('nextBtn');
-            const prevBtn = document.getElementById('prevBtn');
-
-            // Mendapatkan elemen gambar dan keterangan
-            const images = document.querySelectorAll('.relative > img');
-            const captions = document.querySelectorAll('.relative > p');
-
-            // Mengatur jumlah gambar yang ingin ditampilkan
-            const numVisibleImages = 3;
-
-            // Mengatur indeks awal dan indeks batas atas
-            let startIndex = 0;
-            let endIndex = numVisibleImages - 1;
-
-            // Mengubah gambar dan keterangan sesuai indeks saat ini
-            function showImages(start, end) {
-                // Menampilkan gambar dan keterangan sesuai indeks
-                images.forEach((image, i) => {
-                    if (i >= start && i <= end) {
-                        image.classList.remove('hidden');
-                    } else {
-                        image.classList.add('hidden');
-                    }
-                });
-
-                // Menampilkan keterangan sesuai indeks
-                captions.forEach((caption, i) => {
-                    if (i >= start && i <= end) {
-                        caption.classList.remove('hidden');
-                    } else {
-                        caption.classList.add('hidden');
-                    }
-                });
-            }
-
-            // Mengatur event listener untuk tombol next
-            nextBtn.addEventListener('click', () => {
-                // Memeriksa apakah masih ada gambar yang belum ditampilkan
-                if (endIndex < images.length - 1) {
-                    startIndex++;
-                    endIndex++;
-                    showImages(startIndex, endIndex);
-                }
-            });
-
-            // Mengatur event listener untuk tombol back
-            prevBtn.addEventListener('click', () => {
-                // Memeriksa apakah masih ada gambar yang belum ditampilkan
-                if (startIndex > 0) {
-                    startIndex--;
-                    endIndex--;
-                    showImages(startIndex, endIndex);
-                }
-            });
-
-            // Menampilkan gambar dan keterangan pertama saat halaman dimuat
-            showImages(startIndex, endIndex);
-        });
-    </script>
 </section>

@@ -6,7 +6,7 @@ use App\Models\Order;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 class OrderController extends Controller
 {
     public function index()
@@ -14,19 +14,37 @@ class OrderController extends Controller
 
         $order = DB::table('tb_order')
                     ->join('tb_pelanggan', 'tb_order.id_pelanggan', '=', 'tb_pelanggan.id_pelanggan')
-                    ->select('tb_order.*', 'tb_pelanggan.namapel')
+                    ->join('tb_layanan', 'tb_order.nama_layanan', '=', 'tb_layanan.nama_layanan')
+                    ->select('tb_order.*', 'tb_pelanggan.namapel', 'tb_layanan.satuan')
                     ->paginate(10);
+
+        // $order = DB::table('tb_order')
+        //             ->join('tb_pelanggan', 'tb_order.id_pelanggan', '=', 'tb_pelanggan.id_pelanggan')
+        //             ->select('tb_order.*', 'tb_pelanggan.namapel')
+        //             ->paginate(10);
+
+        // dd($order);
 
             foreach ($order as $item) {
                         $item->created_at = \Carbon\Carbon::parse($item->created_at)->locale('id')->isoFormat('D MMMM YYYY');
-            
+
+                        
                     }
-        // dd($order);
+                    $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+                    $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+                    // return view('admin.order.order', [
+                    //     "title" => "Order"
+                    //     ], compact('tanggal', 'jam'));
+        
 
         return view('admin.order.order', [
             "title" => "Order",
             'data' => $order,
+            'tanggal' => $tanggal,
+            'jam' => $jam,
         ]);
+        
+        
     }
 
     public function create()

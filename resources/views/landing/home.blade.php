@@ -1,7 +1,6 @@
-@extends('landing.landing')
-
+@extends('layout.index_pelanggan')
 @section('content')
-    @include('landing.sections.home')
+    @include('landing.sections.homes')
     @include('landing.sections.paket')
     @include('landing.sections.laundrycare')
     @include('landing.sections.tracking')

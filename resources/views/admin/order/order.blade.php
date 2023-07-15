@@ -59,7 +59,8 @@
                                 <p class=""> <span>{{ $item->durasi }}</span> Hari </p>
                             </td>
                             <td class="p-2 text-left ">
-                                <p class="font-base text-base"> <span>{{ $item->qty }}</span> pcs/kg</p>
+                                <p class="font-base text-base"> <span>{{ $item->qty }}</span> 
+                                <span>{{ $item->satuan }}</span></p>
                             </td>
                             <td class="p-2 text-left ">
                                 <p class="font-base text-base">Rp. <span>{{ $item->total }}</span></p>

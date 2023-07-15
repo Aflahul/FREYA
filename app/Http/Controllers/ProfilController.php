@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profil;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class ProfilController extends Controller
 {
     //
@@ -12,10 +12,14 @@ class ProfilController extends Controller
     {
         $profil = Profil::first();
         // dd($profil);
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.profil.profil', [
             'title' => 'Profil Laundry',
             'profil' => $profil
-        ]);
+        ], compact('tanggal', 'jam'));
+        
+      
     }
 
     // public function edit($id_laundry)

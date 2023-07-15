@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ArtikelController;
@@ -16,7 +17,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PengeluaranController;
 
 //Halaman Landing
-Route::view('/', [LandingController::class, 'index'])->name('landing.home');
+Route::get('/', [LandingController::class, 'index']);
 //Halaman Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');

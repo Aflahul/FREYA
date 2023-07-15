@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 
 class PelangganController extends Controller
 {
@@ -13,10 +13,14 @@ class PelangganController extends Controller
     {
         $pelanggan = Pelanggan::all();
         // dd($pelanggan) ;
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.pelanggan.pelanggan', [
             'title' => 'Pelanggan',
-            'pelanggan'=>$pelanggan,
-        ]);
+            'pelanggan' => $pelanggan,
+        ], compact('tanggal', 'jam'));
+        
+       
     }
 
     public function create()
