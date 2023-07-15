@@ -1,8 +1,8 @@
 <section id="tracking" class="bg-kuningpudar h-1/2">
-    <div class="container  py-10 md:px-10 mx-auto h-fit">
+    <div class="container  w-screen   py-10 md:px-10 mx-auto h-fit">
         <p class="py-2 font-semibold text-3xl ">Tracking</p>
         <p class="py-1 text-lg"> Cek Status Laundry anda disini</p>
-        <form class="py-6">
+        <form class="py-6 ">
             <label for="default-search"
                 class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">
@@ -21,10 +21,10 @@
             </div>
         </form>
 
-        <div class="grid place-content-center relative transition-all duration-300  ">
-            <ol class="flex items-center w-full justify-between ">
+        <div class="grid place-content-center ">
+            {{-- <ol class="flex items-center w-screen justify-content-between ">
                 <li
-                    class="flex w-80 items-center text-white dark:text-blue-500 after:content-[''] after:w-80 after:h-1 after:border-b after:border-sudah after:border-4 after:inline-block dark:after:border-blue-800">
+                    class="flex sm:w-80 w-44 items-center text-white dark:text-blue-500 after:content-[''] after:w-80 after:h-1 after:border-b after:border-sudah after:border-4 after:inline-block dark:after:border-blue-800">
                     <span
                         class="flex items-center justify-center w-10 h-10 bg-sudah rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
                         <svg class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300" aria-hidden="true"
@@ -35,7 +35,7 @@
                     </span>
                 </li>
                 <li
-                    class="flex w-80 items-center after:content-[''] after:w-80 after:h-1 after:border-b after:border-belum after:border-4 after:inline-block dark:after:border-gray-700">
+                    class="flex sm:w-80 w-44 items-center after:content-[''] after:w-80 after:h-1 after:border-b after:border-belum after:border-4 after:inline-block dark:after:border-gray-700">
                     <span
                         class="flex items-center justify-center w-10 h-10 bg-belum rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
                         <svg class="w-4 h-4 text-black lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true"
@@ -46,7 +46,7 @@
                     </span>
                 </li>
                 <li
-                    class="flex w-80 items-center after:content-[''] after:w-80 after:h-1 after:border-b after:border-belum after:border-4 after:inline-block dark:after:border-gray-700">
+                    class="flex sm:w-80 w-44 items-center after:content-[''] after:w-80 after:h-1 after:border-b after:border-belum after:border-4 after:inline-block dark:after:border-gray-700">
 
                     <span
                         class="flex items-center justify-center w-10 h-10 bg-belum rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
@@ -57,7 +57,7 @@
                         </svg>
                     </span>
                 </li>
-                <li class="flex items-center w-full">
+                <li class="flex items-center w-fitt">
                     <span
                         class="flex items-center justify-center w-10 h-10 bg-belum rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
                         <svg class="w-4 h-4 text-black lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true"
@@ -67,7 +67,7 @@
                         </svg>
                     </span>
                 </li>
-            </ol>
+            </ol> --}}
         </div>
 
 

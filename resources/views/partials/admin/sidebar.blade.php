@@ -3,7 +3,7 @@
     aria-label="Sidebar">
     <div class="h-full  overflow-y-auto  ">
         <div class="pb-2 pl-2 w-full flex flex-col items-center justify-center ">
-            <img class="w-32 rounded " src="{{ asset('asset/img/logo.jpg') }}" alt="logo">
+            <img class="w-32 rounded " src="{{ asset('asset/img/logo2.jpg') }}" alt="logo">
             {{-- <i class="fas fa-user-circle fa-4x" style="color: #0B409C;"></i>
             <p class="pt-2 font-normal">Hi! Selamat datang</p>
             <p class="font-bold text-lg text-navbar">Admin</p> --}}
@@ -16,7 +16,6 @@
                         <i id="icon-menu" class="fa-solid fa-house-chimney text-center"></i>
                     </div>
                     <span class="ml-6">Dashboard</span>
-
                 </a>
             </li>
             <li class=" list-none">
