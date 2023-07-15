@@ -2,21 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Profil;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
 
     public function index()
     {
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+        $profil = Profil::first();
         $users = User::all();
         // dd($users);
         return view('admin.user.user', [
             'title' => 'Setting-User',
-            'users' => $users
+            'users' => $users,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
         ]);
+       
     }
 
     public function create()

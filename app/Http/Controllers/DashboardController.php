@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profil;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,11 +20,15 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $profil = Profil::first();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y'); 
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.dashboard.dashboard', [
-            "title" => "Dashboard"
-        ], compact('tanggal','jam'));
+            'title' => 'Dashboard',
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
+        ]);
     }
 
     public function index_pegawai()

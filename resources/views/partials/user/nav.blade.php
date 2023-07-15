@@ -1,7 +1,11 @@
 <nav class="bg-kuningpudar fixed top-0 left-0 w-screen z-50">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-7 py-2">
     <a href="/" class="flex items-center">
-        <img src="asset/img/logo2.jpg" class="h-8 mr-3" alt="Flowbite Logo" />
+       @if ($profil->logo)
+                <img class="h-8 mr-3" src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}" alt="logo">
+            @else
+                <img class="h-8 mr-3" src="{{ asset('assets/img/default-logo.jpg') }}" alt="default logo">
+            @endif
     </a>
     <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>

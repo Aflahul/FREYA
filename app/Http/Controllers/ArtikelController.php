@@ -2,48 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Exception;
+
+use Carbon\Carbon;
+use App\Models\Profil;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
-use Exception;
+use App\Http\Controllers\Controller;
 
 class ArtikelController extends Controller
 {
     public function index()
     {
+        $profil = Profil::first();
         $artikel = Artikel::all();
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         // dd($artikel);
         return view('admin.artikel.artikel', [
             'title' => 'Artikel',
-            'artikel' => $artikel
-            
+            'artikel' => $artikel,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
         ]);
-        
     }
     public function create()
     {
 
-       
+
         return view('admin.artikel.tambah', [
             'title' => 'Artikel',
         ]);
     }
     public function store(Request $request)
     {
-       
-         $request->validate([
+
+        $request->validate([
             'judul' => 'required',
             'Isi' => 'required',
             'status' => 'required',
             // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'waktu' => 'required|date_format:Y-m-d',
         ]);
-        
+
         // Mengambil file gambar yang diunggah
         // $foto = $request->file('foto');
         // Menyimpan file gambar ke direktori yang diinginkan
         // $fotoPath = $foto->store('public/asset/img');
-        
+
         $datas = [
             'judul' => $request->judul,
             'Isi' => $request->Isi,
@@ -53,7 +60,7 @@ class ArtikelController extends Controller
         ];
 
         // Simpan data ke dalam database
-        
+
         Artikel::create($datas);
         // dd($datas);
         return redirect('/artikel');
@@ -65,7 +72,7 @@ class ArtikelController extends Controller
     }
 
 
-    
+
     public function update(Request $request, $id_artikel)
     {
         $artikel = Artikel::find($id_artikel);

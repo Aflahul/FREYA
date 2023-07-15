@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profil;
 use App\Models\Order;
 use App\Models\Produk;
 use Illuminate\Http\Request;
@@ -32,14 +33,16 @@ class OrderController extends Controller
                     }
                     $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
                     $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+        $profil = Profil::first();
                     // return view('admin.order.order', [
                     //     "title" => "Order"
                     //     ], compact('tanggal', 'jam'));
         
 
         return view('admin.order.order', [
-            "title" => "Order",
+            'title' => 'Order',
             'data' => $order,
+            'profil' => $profil,
             'tanggal' => $tanggal,
             'jam' => $jam,
         ]);
@@ -49,6 +52,10 @@ class OrderController extends Controller
 
     public function create()
     {
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+        $profil = Profil::first();
+
         $namapel = DB::table('tb_pelanggan')
         ->select(
             'id_pelanggan',
@@ -68,6 +75,9 @@ class OrderController extends Controller
         return view('admin.order.tambah', [
             "title" => "Order",
             'datapel' => $namapel,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam,
             'data_layanan' => $nama_layanan
         ]);
     }

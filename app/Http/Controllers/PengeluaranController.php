@@ -4,18 +4,22 @@ namespace App\Http\Controllers;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Profil;
 class PengeluaranController extends Controller
 {
     //
     public function index(){
+        $profil = Profil::first();
         $pengeluaran = Pengeluaran::all();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.pengeluaran.pengeluaran', [
             'title' => 'Pengeluaran',
-            'pengeluaran' => $pengeluaran
-        ], compact('tanggal', 'jam'));
-        
+            'pengeluaran' => $pengeluaran,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
+        ]);
      
     }
     public function create()

@@ -7,7 +7,15 @@
                 <div class="flex flex-col justify-between md:flex-row gap-5  ">
                     <div class="flex flex-col justify-between md:flex-row gap-5 mb-3 md:mb-0 ">
                         <a href="#" class="">
-                            <img src="asset/img/logo2.jpg" class=" h-32 " alt="Logo" /></a>
+                            @if ($profil->logo)
+                                <img class="h-32"
+                                    src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}" alt="logo">
+                            @else
+                                <img class="h-32" src="{{ asset('assets/img/default-logo.jpg') }}"
+                                    alt="default logo">
+                            @endif
+                           
+                        </a>
                         <div>
                             <p>Bersih, Wangi, Rapi, Cepat, <br>
                                 dan Profesional</p>

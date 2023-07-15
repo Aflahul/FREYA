@@ -3,30 +3,31 @@
     <div class="container mt-5 w-screen py-10 md:px-10 mx-auto h-fit">
         <div class="flex flex-col">
             <div class="pt-5 flex justify-between gap-5">
-                <figure class="overflow-hidden">
+                <figure class="">
                     <a href="#">
-                        <img class="object-cover rounded" src="asset/img/freya/2.jpeg" alt="image description">
+                        <img class="object-cover rounded drop-shadow-md" src="asset/img/freya/2.jpeg" alt="image description">
                     </a>
                 </figure>
-                <figure class="mt-10 overflow-hidden ">
+                <figure class="mt-10  ">
                     <a href="#">
-                        <img class="object-cover rounded" src="asset/img/freya/3.jpeg" alt="image description">
+                        <img class="object-cover rounded drop-shadow-md" src="asset/img/freya/3.jpeg" alt="image description">
                     </a>
                 </figure>
-                <figure class="overflow-hidden ">
+                <figure class=" ">
                     <a href="#">
-                        <img class="object-cover rounded" src="asset/img/freya/6.jpeg" alt="image description">
+                        <img class="object-cover rounded drop-shadow-md" src="asset/img/freya/6.jpeg" alt="image description">
                     </a>
                 </figure>
-                <figure class="mt-10 overflow-hidden ">
+                <figure class="mt-10  ">
                     <a href="#">
-                        <img class="object-cover rounded" src="asset/img/freya/5.jpeg" alt="image description">
+                        <img class="object-cover rounded drop-shadow-md" src="asset/img/freya/5.jpeg" alt="image description">
                     </a>
                 </figure>
             </div>
             <div class=" ">
-                <p class="py-5 font-semibold text-5xl">Freya Laundry</p>
-                <p class="py-2 font-medium  text-lg">Jasa laundry dengan pelayanan maksimal dan profesional. Pakaian
+            <p class="py-5 font-semibold text-5xl">{{ $profil->nama_laundry }}</p>
+                <p class="py-2 font-medium  text-lg">{{ $profil->tagline }} <br>
+                    {{ $profil->desk }} <br> Jasa laundry dengan pelayanan maksimal dan profesional. Pakaian
                     anda rapi, bersih, dan wangi sepanjang hari.
                     <br>Tunggu apalagi ?
                 </p>

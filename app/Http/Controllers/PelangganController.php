@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use App\Models\Profil;
 class PelangganController extends Controller
 {
     public function index()
     {
+        $profil = Profil::first();
         $pelanggan = Pelanggan::all();
         // dd($pelanggan) ;
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
@@ -18,9 +19,10 @@ class PelangganController extends Controller
         return view('admin.pelanggan.pelanggan', [
             'title' => 'Pelanggan',
             'pelanggan' => $pelanggan,
-        ], compact('tanggal', 'jam'));
-        
-       
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
+        ]);
     }
 
     public function create()

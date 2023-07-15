@@ -23,7 +23,7 @@ module.exports = {
                 navbar3: "#FFF1C1",
                 
                 tombol1: "#FD5F0E",
-                w3: "#FCD51E",
+                w3: "#068FFF",
                 w4: "#FFF6D6",
                 kuning: "#FCD51E",
                 belum:"#FD5F0E",

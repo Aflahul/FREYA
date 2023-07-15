@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profil;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -10,20 +11,29 @@ class ProdukController extends Controller
     //
     public function index()
     {
+        $profil = Profil::first();
         $produk = Produk::all();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.produk.produk', [
             'title' => 'Produk & Layanan',
-            'produk' => $produk
-        ], compact('tanggal', 'jam'));
-        
+            'produk' => $produk,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
+        ]);
         
     }
     public function create()
     {
+        $profil = Profil::first();
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.produk.tambah', [
             'title' => 'Produk & Layanan',
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
         ]);
     }
     public function store(Request $request)
