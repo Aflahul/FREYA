@@ -1,8 +1,8 @@
 <aside id="logo-sidebar"
-    class="  fixed top-5 left-3 bottom-3 z-40 w-64 h-screen pt-4 bg-gelap transition-transform -translate-x-full sidebar  rounded-t-[5px] in-active sm:translate-x-0"
+    class="  fixed top-5 left-3 bottom-3 z-40 w-64 h-screen bg-gelap transition-transform -translate-x-full sidebar  rounded-t-[5px] in-active sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full  overflow-y-auto  ">
-        <div class="pb-2 pl-2 w-full flex flex-col items-center justify-center">
+    <div class="h-full overflow-y-auto  ">
+        <div class="pb-2 pl-2 pt-4 w-full flex flex-col items-center justify-center rounded-t-[5px]">
             @if ($profil->logo)
                 <img class="w-32 rounded" src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}" alt="logo">
             @else

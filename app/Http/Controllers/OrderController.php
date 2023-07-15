@@ -67,7 +67,8 @@ class OrderController extends Controller
         ->select(
             'id_layanan',
             'nama_layanan',
-            'harga'
+            'harga',
+            'durasi'
         )
         ->get();
 
@@ -88,14 +89,14 @@ class OrderController extends Controller
         $kd_order = $request->kd_order;
         $id_pelanggan = $request->id_pelanggan;
         $nama_layanan = $request->nama_layanan;
-        $durasi = $request->durasi;
         $harga = Produk::where('nama_layanan', $nama_layanan)->value('harga');
+        $Durasi= Produk::where('nama_layanan',$nama_layanan)->value('durasi');
         $qty = $request->qty;
         $total = $harga * $qty;
 
         $order = new Order;
         $order->kd_order = $request->kd_order;
-        $order->durasi = $request->durasi;
+        $order->durasi = $Durasi;
         $order->id_pelanggan = $request->id_pelanggan;
         $order->nama_layanan = $request->nama_layanan;
         $order->qty = $qty;

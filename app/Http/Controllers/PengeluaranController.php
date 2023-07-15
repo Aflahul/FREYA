@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -13,12 +16,15 @@ class PengeluaranController extends Controller
         $pengeluaran = Pengeluaran::all();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+
+        $user = Auth::user();
         return view('admin.pengeluaran.pengeluaran', [
             'title' => 'Pengeluaran',
             'pengeluaran' => $pengeluaran,
             'profil' => $profil,
             'tanggal' => $tanggal,
-            'jam' => $jam
+            'jam' => $jam,
+            'operator'=>$user
         ]);
      
     }

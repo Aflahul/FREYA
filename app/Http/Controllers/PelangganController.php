@@ -27,8 +27,14 @@ class PelangganController extends Controller
 
     public function create()
     {
+        $profil = Profil::first();
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.pelanggan.tambah', [
             'title' => 'Pelanggan',
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
         ]);
     }
     public function store(Request $request)

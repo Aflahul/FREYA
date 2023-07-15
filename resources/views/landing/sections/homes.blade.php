@@ -26,13 +26,10 @@
             </div>
             <div class=" ">
             <p class="py-5 font-semibold text-5xl">{{ $profil->nama_laundry }}</p>
-                <p class="py-2 font-medium  text-lg">{{ $profil->tagline }} <br>
-                    {{ $profil->desk }} <br> Jasa laundry dengan pelayanan maksimal dan profesional. Pakaian
-                    anda rapi, bersih, dan wangi sepanjang hari.
-                    <br>Tunggu apalagi ?
+                <p class="py-2 font-medium  text-lg">{{ $profil->tagline }}
+            
                 </p>
-                <p class="pb-5 font-normal text-sm">Ayo bawa pakaian kotor kamu ke Freya Laundry! <br>
-                    atau hubungi kami dari rumah anda! </p>
+                <p class="pb-5 font-normal text-sm">{{ $profil->desk }} </p>
                 <a class=" p-2 bg-belum rounded-md  text-white " href="">Pesan Sekarang</a>
             </div>
         </div>

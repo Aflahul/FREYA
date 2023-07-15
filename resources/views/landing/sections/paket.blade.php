@@ -3,9 +3,7 @@
         <div class="flex flex-col md:flex-row justify-between">
             <div class="max-w-screen-ss pt-4">
                 <p class="py-2 font-semibold text-3xl text-white">Produk dan Layanan</p>
-                <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry
-                    sesuaikan
-                    kebutuhan anda.
+                <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
                 <div class="flex place-content-start place-items-start pt-10 gap-5 text-belum ">
                     <div class="scroll-arrow left bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap ">
                         <i class="fas fa-chevron-circle-left fa-2xl "></i>
@@ -33,10 +31,8 @@
                                 <span
                                     class="ml-1 text-md font-normal text-gray-500 dark:text-gray-400">/{{ $cards->satuan }}</span>
                             </div>
-                            <div class="">
-                                <p class=" text-md overflow-wrap: break-word">{{ $cards->desk }}</p>
-                            </div>
-                            <ul role="list" class="space-y-5 my-3">
+                            
+                            <ul role="list" class="space-y-5 my-3 pt-4">
                                 <li class="flex space-x-3 items-center">
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -44,9 +40,7 @@
                                         <path
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">2
-                                        team
-                                        members</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">{{ $cards->desk }}</span>
                                 </li>
                                 <li class="flex space-x-3">
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500"
@@ -56,9 +50,7 @@
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
                                     <span
-                                        class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">20GB
-                                        Cloud
-                                        storage</span>
+                                        class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">{{ $cards->desk2 }}</span>
                                 </li>
                                 <li class="flex space-x-3">
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500"
@@ -68,8 +60,7 @@
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
                                     <span
-                                        class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Integration
-                                        help</span>
+                                        class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">{{ $cards->desk3 }}</span>
                                 </li>
 
                             </ul>

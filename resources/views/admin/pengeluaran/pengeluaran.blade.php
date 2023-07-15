@@ -47,7 +47,7 @@
                                     <p class="">{{ $data->desk }}</p>
                                 </td>
                                 <td class="p-2 text-left  ">
-                                    <p class="">{{ $data->operator }}</p>
+                                    <p class="">{{ $operator }}</p>
                                 </td>
                                 <td class="p-2 text-left ">
                                     <p class="font-base text-base">{{ $data->waktu }}</p>
