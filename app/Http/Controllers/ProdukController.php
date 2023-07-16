@@ -42,13 +42,19 @@ class ProdukController extends Controller
         $request->validate([ 
             'nama_layanan'=> 'required', 
             'desk'=> 'required', 
+            'desk2'=> 'required', 
+            'desk3'=> 'required', 
             'satuan'=> 'required', 
+            'durasi'=> 'required', 
             'harga'=> 'required', 
         
         ]);
         $datas = [
             'nama_layanan'=> $request->nama_layanan , 
             'desk'=> $request->desk, 
+            'desk2'=> $request->desk2, 
+            'desk3'=> $request->desk3, 
+            'durasi'=> $request->durasi, 
             'satuan'=> $request->satuan , 
             'harga'=> $request->harga , 
             
@@ -73,6 +79,9 @@ class ProdukController extends Controller
         $produk->kd_layanan = $request->input('kd_layanan');
         $produk->nama_layanan = $request->input('nama_layanan');
         $produk->desk = $request->input('desk');
+        $produk->desk2 = $request->input('desk2');
+        $produk->desk3 = $request->input('desk3');
+        $produk->durasi = $request->input('durasi');
         $produk->satuan = $request->input('satuan');
         $produk->harga = $request->input('harga');
 

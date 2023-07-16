@@ -1,17 +1,14 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-4 mt-20 sm:ml-72">
-        <div class="p-4 drop-shadow-lg relative overflow-x-auto">
-            <a type="button" id="tambahArtikelButton"
-                class="flex items-center gap-3 bg-kuning hover:bg-yellow-500 font-medium rounded-xl text-sm px-4 py-2 w-fit"
-                href="/createArtikel">
-                <i class="fa-solid fa-circle-plus"></i>
-                <p>Tambah Artikel</p>
-            </a>
+    <div class="p-4 mt-20 sm:ml-72 flex flex-col sm:flex-row place-content-between">
+        <div class="p-4 drop-shadow-lg w-fit ">
+            <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+                <h2 class="font-medium pt-5 py-2">Tambah Artikel</h2>
+            </div>
         </div>
         <!--Artikel-->
-        <div class="p-4 drop-shadow-lg relative overflow-x-auto">
+        <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
             <div class="mb-3 flex items-center">
                 <label for="rows" class="mr-2">Show :</label>
                 <select id="rows" class="px-2 py-1 border rounded-[4px]">

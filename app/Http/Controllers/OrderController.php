@@ -13,6 +13,21 @@ class OrderController extends Controller
     public function index()
     {
 
+        $namapel = DB::table('tb_pelanggan')
+        ->select(
+            'id_pelanggan',
+            'namapel',
+        )
+            ->get();
+
+        $nama_layanan = DB::table('tb_layanan')
+        ->select(
+            'id_layanan',
+            'nama_layanan',
+            'harga',
+            'durasi'
+        )
+            ->get();
         $order = DB::table('tb_order')
                     ->join('tb_pelanggan', 'tb_order.id_pelanggan', '=', 'tb_pelanggan.id_pelanggan')
                     ->join('tb_layanan', 'tb_order.nama_layanan', '=', 'tb_layanan.nama_layanan')
@@ -45,6 +60,8 @@ class OrderController extends Controller
             'profil' => $profil,
             'tanggal' => $tanggal,
             'jam' => $jam,
+            'datapel' => $namapel,
+            'data_layanan' => $nama_layanan
         ]);
         
         

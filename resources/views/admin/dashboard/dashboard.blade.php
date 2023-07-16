@@ -3,9 +3,8 @@
 @section('content')
     <div class="p-3 mt-1 sm:ml-[17rem]">
         <div class="px-4 mb-1 mt-10">
-            <span class=" rounded justify-end text-sm font-base"><i>{{ $tanggal }}</i></span>
-
-            <p class="py-2 font-normal text-2xl">Hi! <b><i>Admin,</i></b> Selamat datang</p>
+            <span class="py-1 rounded justify-end text-xs"><i>{{ $tanggal }}</i></span>
+            <p class="pb-4 font-normal ">Hi! <b><i>Admin,</i></b> Selamat datang</p>
             <hr>
         </div>
         <div class="px-4 flex gap-5 mt-5 ">
@@ -16,13 +15,13 @@
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
                                 <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
-                                        <i class="fas fa-water fa-2x"></i>
+                                        <i class="fa-solid fa-users fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                                <p class="font-normal">Cucian</p>
+                                <h5 class="text-2xl font-bold tracking-tight pt-1">{{ count($pelanggan) }}</h5>
+                                <p class="font-normal">Pelanggan</p>
                             </div>
                         </div>
                     </div>
@@ -31,13 +30,13 @@
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
                                 <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
-                                        <i class="fas fa-water fa-2x"></i>
+                                        <i class="fa-solid fa-tags fa-2x "></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                                <p class="font-normal">Cucian</p>
+                                <h5 class="text-2xl font-bold tracking-tight pt-1">{{ count($produk) }}</h5>
+                                <p class="font-normal">Layanan</p>
                             </div>
                         </div>
                     </div>
@@ -46,13 +45,13 @@
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
                                 <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
-                                        <i class="fas fa-water fa-2x"></i>
+                                        <i class="fa-solid fa-cash-register fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                                <p class="font-normal">Cucian</p>
+                                <h5 class="text-2xl font-bold tracking-tight pt-1">1</h5>
+                                <p class="font-normal">Transaksi</p>
                             </div>
                         </div>
                     </div>
@@ -61,13 +60,13 @@
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
                                 <div class="w-11 py-3 flex justify-center text-black mx-auto">
                                     <div>
-                                        <i class="fas fa-water fa-2x"></i>
+                                         <i class="fa-solid fa-comments-dollar fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-3xl font-bold tracking-tight pt-1">1</h5>
-                                <p class="font-normal">Cucian</p>
+                                <h5 class="text-2xl font-bold tracking-tight pt-1">1</h5>
+                                <p class="font-normal">Income</p>
                             </div>
                         </div>
                     </div>
@@ -105,42 +104,7 @@
                                         Rp. 00000
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
-                                        12/02/2023
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        Masuk Pembayaran Laundry
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        Rp. 00000
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
-                                        12/02/2023
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        0
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        Rp. 00000
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
-                                        12/02/2023
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        0
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        Rp. 00000
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -163,101 +127,27 @@
                                 <div class="p-4 border-b-2 flex justify-between items-center ">
                                     <h1 class="font-bold">Data Pelanggan</h1>
                                     <a href="/pelanggan"
-                                        class="bg-kuning hover:bg-kuning drop-shadow-lg hover:text-white font-medium text-black rounded-xl text-sm px-5 py-2">Details</a>
-
+                                        class="bg-kuning hover:bg-kuning drop-shadow-lg hover:text-white font-medium text-black rounded-xl text-sm px-5 py-2">Lihat Semua</a>
                                 </div>
                             </thead>
                             <tbody>
+                                 @foreach ($pelanggan as $pel)
                                 <tr>
-                                    <td class="w-10 py-4">
+                                    <td class="w-10 ">
                                         <div class="pl-4">
                                             <i class="fas fa-user-circle fa-3x text-navbar"></i>
                                         </div>
                                     </td>
-                                    <td class="py-4 text-left px-2">
-                                        <p class="font-bold text-base ">Sebut Saja Mawar</p>
-                                        <p class="font-light">08114488396</p>
+                                    <td class="text-left px-2">
+                                        <p class="font-bold text-base ">{{ $pel->namapel }}</p>
+                                        <p class="font-light">{{ $pel->kontak }}</p>
                                     </td>
-                                    <td class="px-4 py-4 text-right">
-                                        <p class="font-bold text-base">99</p>
-                                        <p class="font-light">Total transaksi</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-10 py-4">
-                                        <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x text-navbar"></i>
-                                        </div>
-                                    </td>
-                                    <td class="py-4 text-left px-2">
-                                        <p class="font-bold text-base">Sebut Saja Mawar</p>
-                                        <p class="font-light">08114488396</p>
-                                    </td>
-                                    <td class="px-4 py-4 text-right">
-                                        <p class="font-bold text-base">99</p>
-                                        <p class="font-light">Total transaksi</p>
+                                    <td class="py-1 text-right pr-4">
+                                        <p class="font-medium">Alamat</p>
+                                        <p class="font-light text-base">{{ $pel->alamat }}</p>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="w-10 py-4">
-                                        <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x text-navbar"></i>
-                                        </div>
-                                    </td>
-                                    <td class="py-4 text-left px-2">
-                                        <p class="font-bold text-base">Sebut Saja Mawar</p>
-                                        <p class="font-light">08114488396</p>
-                                    </td>
-                                    <td class="px-4 py-4 text-right">
-                                        <p class="font-bold text-base">99</p>
-                                        <p class="font-light">Total transaksi</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-10 py-4">
-                                        <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x text-navbar"></i>
-                                        </div>
-                                    </td>
-                                    <td class="py-4 text-left px-2">
-                                        <p class="font-bold text-base">Sebut Saja Mawar</p>
-                                        <p class="font-light">08114488396</p>
-                                    </td>
-                                    <td class="px-4 py-4 text-right">
-                                        <p class="font-bold text-base">99</p>
-                                        <p class="font-light">Total transaksi</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-10 py-4">
-                                        <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x text-navbar"></i>
-                                        </div>
-                                    </td>
-                                    <td class="py-4 text-left px-2">
-                                        <p class="font-bold text-base">Sebut Saja Mawar</p>
-                                        <p class="font-light">08114488396</p>
-                                    </td>
-                                    <td class="px-4 py-4 text-right">
-                                        <p class="font-bold text-base">99</p>
-                                        <p class="font-light">Total transaksi</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-10 py-4">
-                                        <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x text-navbar"></i>
-                                        </div>
-                                    </td>
-                                    <td class="py-4 text-left px-2">
-                                        <p class="font-bold text-base">Sebut Saja Mawar</p>
-                                        <p class="font-light">08114488396</p>
-                                    </td>
-                                    <td class="px-4 py-4 text-right">
-                                        <p class="font-bold text-base">99</p>
-                                        <p class="font-light">Total transaksi</p>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

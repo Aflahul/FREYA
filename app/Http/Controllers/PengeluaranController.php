@@ -63,9 +63,19 @@ class PengeluaranController extends Controller
     public function edit($id_pengeluaran)
     {
         $pengeluaran = Pengeluaran::where('id_pengeluaran', $id_pengeluaran)->first();
-        return view('admin.pengeluaran.edit', [
+        $profil = Profil::first();
+        $pengeluaran = Pengeluaran::all();
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+
+        $user = Auth::user();
+        return view('admin.pengeluaran.pengeluaran', [
             'title' => 'Pengeluaran',
-            'pengeluaran' => $pengeluaran
+            'pengeluaran' => $pengeluaran,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam,
+            'operator' => $user
         ]);
     }
     public function update(Request $request, $id_pengeluaran)

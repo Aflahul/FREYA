@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Profil;
 use Carbon\Carbon;
+use App\Models\Produk;
 use Illuminate\Http\Request;
+use App\Models\Pelanggan;
 // use Illuminate\Support\Facades\DB;
 // try {
 //     DB::connection()->getPdo();
@@ -17,13 +19,17 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $produk = Produk::all();
+        $pelanggan = Pelanggan::all();
         $profil = Profil::first();
-        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y'); 
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.dashboard.dashboard', [
             'title' => 'Dashboard',
             'profil' => $profil,
+            'produk' => $produk,
             'tanggal' => $tanggal,
+            'pelanggan' => $pelanggan,
             'jam' => $jam
         ]);
     }

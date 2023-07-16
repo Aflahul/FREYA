@@ -9,7 +9,7 @@ class Produk extends Model
 {
     use HasFactory;
     protected $table = 'tb_layanan';
-    protected $fillable = ['kd_layanan', 'durasi', 'nama_layanan', 'desk', 'satuan', 'harga', 'aktif'];
+    protected $fillable = ['kd_layanan', 'durasi', 'nama_layanan', 'desk', 'desk2', 'desk3', 'satuan', 'harga', 'aktif'];
     protected $primaryKey = 'id_layanan';
     public $timestamps = false;
 

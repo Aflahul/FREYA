@@ -10,8 +10,8 @@
             @endif
         </div>
         
-        <ul class="mt-2 pl-8 pt-2 space-y-1 font-normal">
-            <li class=" list-none">
+        <ul class="mt-2 pl-8 pt-2 space-y-1 border-t-2 font-normal">
+            <li class=" list-none ">
                 <a href="/dashboard"
                     class="flex flex-row items-center rounded-lg {{ $title == 'Dashboard' ? 'text-white font-bold drop-shadow-lg py-1' : 'text-white py-1 hover:text-kuning hover:font-bold' }}">
                     <div class="w-6 object-center pl-5 ">

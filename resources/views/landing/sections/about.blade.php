@@ -8,13 +8,12 @@
                     <div class="flex flex-col justify-between md:flex-row gap-5 mb-3 md:mb-0 ">
                         <a href="#" class="">
                             @if ($profil->logo)
-                                <img class="h-32"
-                                    src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}" alt="logo">
+                                <img class="h-32" src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}"
+                                    alt="logo">
                             @else
-                                <img class="h-32" src="{{ asset('assets/img/default-logo.jpg') }}"
-                                    alt="default logo">
+                                <img class="h-32" src="{{ asset('assets/img/default-logo.jpg') }}" alt="default logo">
                             @endif
-                           
+
                         </a>
                         <div>
                             <p>Bersih, Wangi, Rapi, Cepat, <br>
@@ -28,36 +27,30 @@
                             <h2 class="mb-3 text-lg font-bold">Produk & Layanan
                             </h2>
                             <ul class="">
+                                @foreach ($produk as $cards)
                                 <li class="">
-                                    <a href="#" class="hover:underline">Paket 1</a>
+                                    <a href="#" class="hover:underline">{{ $cards->nama_layanan }}</a>
                                 </li>
-                                <li>
-                                    <a href="#" class="hover:underline">Paket 2</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" class="hover:underline">Paket 3</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="hover:underline">Paket 4</a>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div>
-                            <h2 class="mb-3 text-lg font-bold">Produk & Layanan
+                            <h2 class="mb-3 text-lg font-bold">Kontak
                             </h2>
                             <ul class="">
                                 <li class="">
-                                    <a href="#" class="hover:underline">Paket 1</a>
+                                    <a href="#" class="hover:underline">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </a>
+                                    <span> 0811488396</span>
                                 </li>
                                 <li>
-                                    <a href="#" class="hover:underline">Paket 2</a>
+                                    <a href="#" class="hover:underline">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span>{{ $profil->alamat }}</span>
+                                    </a>
                                 </li>
-                                <li class="">
-                                    <a href="#" class="hover:underline">Paket 3</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="hover:underline">Paket 4</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>

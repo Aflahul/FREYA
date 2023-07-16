@@ -10,9 +10,6 @@
     <link href="{{ asset('asset/css/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-
 </head>
 
 <body class="">
