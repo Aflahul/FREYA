@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produk extends Model
 {
-    use HasFactory;
     protected $table = 'tb_layanan';
-    protected $fillable = ['kd_layanan', 'durasi', 'nama_layanan', 'desk', 'desk2', 'desk3', 'satuan', 'harga', 'aktif'];
     protected $primaryKey = 'id_layanan';
-    public $timestamps = false;
+    protected $fillable = [ 'durasi', 'nama_layanan', 'desk', 'desk2', 'desk3', 'satuan', 'harga'];
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'nama_layanan');
+    }
 }

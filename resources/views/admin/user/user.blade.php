@@ -23,7 +23,7 @@
                     </div> 
                     <div class="flex py-2">
                         <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpan</button>
-                        <a href="/user" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a>
+                        {{-- <a href="/user" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a> --}}
                     </div>
                 </form>
             </div>

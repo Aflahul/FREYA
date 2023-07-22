@@ -22,19 +22,7 @@
                     </div>
                     <div class="flex flex-col justify-end md:flex-row gap-5">
 
-
-                        <div>
-                            <h2 class="mb-3 text-lg font-bold">Produk & Layanan
-                            </h2>
-                            <ul class="">
-                                @foreach ($produk as $cards)
-                                <li class="">
-                                    <a href="#" class="hover:underline">{{ $cards->nama_layanan }}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div>
+                        <div class="max-w-[14rem]">
                             <h2 class="mb-3 text-lg font-bold">Kontak
                             </h2>
                             <ul class="">
@@ -44,15 +32,27 @@
                                     </a>
                                     <span> 0811488396</span>
                                 </li>
-                                <li>
-                                    <a href="#" class="hover:underline">
+                                <li class="">
+                                    <a href="#" class="hover:underline ">
                                         <i class="fa-solid fa-location-dot"></i>
-                                        <span>{{ $profil->alamat }}</span>
+                                        <span class=" break-words">{{ $profil->alamat }}</span>
                                     </a>
                                 </li>
 
                             </ul>
                         </div>
+                        <div>
+                            <h2 class="mb-3 text-lg font-bold">Produk & Layanan
+                            </h2>
+                            <ul class="">
+                                @foreach ($produk as $cards)
+                                    <li class="">
+                                        <a href="#" class="hover:underline">{{ $cards->nama_layanan }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
 

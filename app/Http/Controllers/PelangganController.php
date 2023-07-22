@@ -44,28 +44,40 @@ class PelangganController extends Controller
             'namapel' => 'required',
             'kontak' => 'required',
             'alamat' => 'required'
-
         ]);
-        $datas = [
-            'namapel' => $request->namapel,
-            'kontak' => $request->kontak,
-            'alamat' => $request->alamat,
-        ];
 
-       
-        // Simpan data  ke dalam database
-        Pelanggan::create($datas);
+        // Buat instance objek Pelanggan
+        $pelanggan = new Pelanggan;
+
+        // Atur nilai kolom pada objek Pelanggan
+        $pelanggan->namapel = $request->namapel;
+        $pelanggan->kontak = $request->kontak;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->sedang_cuci = 'Tidak';
+
+        // Simpan data ke dalam database
+        $pelanggan->save();
+
         return redirect('/pelanggan');
     }
 
 
     public function edit($id_pelanggan)
     {
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+        $profil = Profil::first();
+        $pelanggans = Pelanggan::all();
         $pelanggan = Pelanggan::where('id_pelanggan', $id_pelanggan)->first();
         return view('admin.pelanggan.edit', [
             'title' => 'Pelanggan',
-            'pelanggan' => $pelanggan
+            'pelanggan' => $pelanggan,
+            'pelanggans' => $pelanggans,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
         ]);
+        
     }
 
     public function update(Request $request, $id_pelanggan)

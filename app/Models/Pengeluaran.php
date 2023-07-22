@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Pengeluaran extends Model
@@ -12,5 +13,13 @@ class Pengeluaran extends Model
     protected $table = 'tb_pengeluaran';
     protected $fillable = ['kd_pengeluaran', 'pengeluaran', 'desk', 'jumlah', 'operator', 'waktu'];
     protected $primaryKey = 'id_pengeluaran';
-    public $timestamps = false;
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    public function operator()
+    {
+        return $this->belongsTo(User::class, 'operator', 'id');
+    }
+
+
 }

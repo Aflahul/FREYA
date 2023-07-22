@@ -15,9 +15,9 @@
                     </div>
                     <div class="mb-6">
                         <label for="tagline" class="block mb-2 text-base font-medium text-sudah">Tagline Laundry</label>
-                        <input type="text" id="tagline" name="tagline"
+                        <textarea type="text" id="tagline" name="tagline"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                            value="{{ old('tagline', $profil->tagline) }}" required>
+                            placeholder="{{ old('tagline', $profil->tagline) }}" required></textarea>
                     </div>
                     <div class="mb-6 w-64">
                         <label for="kontak" class="block mb-2 text-base font-medium text-sudah">Kontak</label>
@@ -62,9 +62,9 @@
                         </div>
                         <div class="mb-6">
                             <label for="desk" class="block mb-2 text-base font-medium text-sudah">Deskripsi</label>
-                            <input type="text" id="desk" name="desk"
+                            <textarea type="text" id="desk" name="desk"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                                value="{{ old('desk', $profil->desk) }}" required>
+                                placeholder="{{ old('desk', $profil->desk) }}" required></textarea>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ class Artikel extends Model
 {
     use HasFactory;
     protected $table = 'tb_artikel';
-    protected $fillable = ['judul', 'Isi', 'waktu', 'status', 'foto'];
+    protected $fillable = ['judul', 'Isi', 'foto'];
     protected $primaryKey = 'id_artikel';
-    public $timestamps = false;
+    
 }

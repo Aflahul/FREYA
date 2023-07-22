@@ -22,7 +22,7 @@
                 <table class="w-full text-sm text-left">
                     <thead>
                         <tr class="border-b-2">
-                            <th scope="col" class="pt-6 pb-2 px-2 w-24 ">Kode Transaksi</th>
+                            <th scope="col" class="pt-6 pb-2 px-2 w-24 ">Kode x</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Waktu</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Asal</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Arus</th>

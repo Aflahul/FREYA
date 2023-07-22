@@ -1,4 +1,4 @@
-<nav class="bg-kuningpudar fixed top-0 left-0 w-screen z-50">
+<nav class="bg-kuningpudar fixed top-0 left-0 w-screen z-50 drop-shadow">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-7 py-2">
     <a href="/" class="flex items-center">
        @if ($profil->logo)

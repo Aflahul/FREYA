@@ -1,28 +1,12 @@
 <section id="paket" class="bg-gelap shadow-2xl inset-y ">
     <div class="container  py-2 md:px-10 mx-auto h-fit">
-        <div class="flex flex-col md:flex-row justify-between">
-            <div class="max-w-screen-ss pt-4">
-                <p class="py-2 font-semibold text-3xl text-white">Produk dan Layanan</p>
-                <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
-                <div class="flex place-content-start place-items-start pt-10 gap-5 text-belum ">
-                    <div class="scroll-arrow left bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap ">
-                        <i class="fas fa-chevron-circle-left fa-2xl "></i>
-                    </div>
-                    <!-- Konten lainnya -->
-                    <div class="scroll-arrow right bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap  ">
-                       <i class="fas fa-chevron-circle-right fa-2xl "></i>
-                    </div>
-                </div>
-
-            </div>
+        <div class="flex flex-col md:flex-row gap-5 justify-between">
             <div
                 class="flex justify-between gap-5 overflow-x-auto overscroll-none min-h-[18rem] max-h-[18rem] py-5 max-w-screen-md drop-shadow-2xl inset-y hide-scrollbar">
-
-
                 @foreach ($produk as $cards)
-                    <div class="w-screen ">
+                    <div class="w-screen drop-shadow-2xl inset-x-auto">
                         <div
-                            class="  min-w-[18rem] shadow-gl max-w-[18rem] max-h-[16rem] min-h-[16rem] p-4 bg-white border border-gray-200 rounded-lg  hover:border-blue-500 hover:bg-blue-100 hover:-mt-2 hover:drop-shadow-xl">
+                            class="  min-w-[18rem] shadow-gl max-w-[18rem] max-h-[16rem] min-h-[16rem] p-4 bg-slate-300 border border-gray-200 rounded-lg  hover:border-blue-500 hover:bg-blue-100 hover:-mt-2 hover:drop-shadow-xl">
                             <h5 class="mb-1 font-medium text-gray-500 dark:text-gray-400">{{ $cards->nama_layanan }}
                             </h5>
                             <div class="flex items-baseline text-gray-900 dark:text-white">
@@ -68,6 +52,20 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="max-w-screen-sm pt-4">
+                <p class="py-2 font-semibold text-3xl text-white">Produk dan Layanan</p>
+                <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
+                <div class="flex place-content-start place-items-start pt-10 gap-5 text-belum ">
+                    <div class="scroll-arrow left bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap ">
+                        <i class="fas fa-chevron-circle-left fa-2xl "></i>
+                    </div>
+                    <!-- Konten lainnya -->
+                    <div class="scroll-arrow right bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap  ">
+                       <i class="fas fa-chevron-circle-right fa-2xl "></i>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

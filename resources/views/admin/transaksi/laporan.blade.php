@@ -47,23 +47,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class=" ">
-                            <td class="px-2 text-lg font-bold uppercase">
-                                <p class="text-sudah">a12345</p>
-                            </td>
-                            <td class="px-2 py-4  ">
-                                <p class="">Sebut Saja Mawar</p>
-                            </td>
-                            <td class="px-2">
-                                <p>12/12/2033</p>
-                            </td>
-                            <td class="px-2">
-                                <p class="font-bold text-base">Rp. 99</p>
-                            </td>
-                            <td class="text-center text-belum">
-                                <i class="fa-solid fa-print fa-2x"></i>
-                            </td>
-                        </tr>
+                        @foreach ($transaksi as $item)
+                            <tr class=" ">
+                                <td class="px-2 text-lg font-bold uppercase">
+                                    <p class="text-sudah">{{ $item->kd_order }}</p>
+                                </td>
+                                <td class="px-2 py-4  ">
+                                    <p class="">{{ $item->pelanggan->namapel }}</p>
+                                </td>
+                                <td class="px-2">
+                                    <p>{{ $item->created_at }}</p>
+                                </td>
+                                <td class="px-2">
+                                    <p class="font-bold text-base">Rp. {{ $item->total }}</p>
+                                </td>
+                                <td class="text-center text-belum">
+                                    <i class="fa-solid fa-print fa-2x"></i>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

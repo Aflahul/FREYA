@@ -7,14 +7,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
     protected $table = 'tb_order';
-    protected $fillable = ['kd_order','id_pelanggan','id_layanan','total','status','durasi','qty'];
     protected $primaryKey = 'id_order';
-    public $timestamps = false;
-
+    public $incrementing = false;
+    protected $keyType = 'string';
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
+    }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'id_layanan');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($order) {
+            // Mengubah kolom "sedang cuci" menjadi "nyuci" di tabel tb_pelanggan
+            $order->pelanggan->sedang_cuci = 'Sedang Cuci';
+            $order->pelanggan->save();
+
+            // Mengupdate kolom "total order" di tabel tb_pelanggan
+            $order->pelanggan->total_order = $order->pelanggan->orders->count();
+            $order->pelanggan->save();
+        });
     }
 }

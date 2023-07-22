@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body class="">
+<body class="bg-latar">
     @include('partials/admin/navbar')
     @include('partials/admin/sidebar')
     @yield('content')

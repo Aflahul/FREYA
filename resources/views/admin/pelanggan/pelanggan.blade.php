@@ -2,14 +2,7 @@
 
 @section('content')
     <div class="p-4 mt-20 sm:ml-72 flex flex-col sm:flex-row place-content-between">
-        {{-- <div class="p-4 drop-shadow-lg">
-            <a type="button" id="tambahPelangganButton"
-                class="flex items-center gap-3 bg-kuning hover:bg-yellow-500 font-medium rounded-xl text-sm px-4 py-2 w-fit"
-                href="/createPelanggan">
-                <i class="fa-solid fa-circle-plus"></i>
-                <p>Tambah Pelanggan</p>
-            </a>
-        </div> --}}
+        
         <div class="p-4 drop-shadow-lg w-fit ">
             <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-2 m-4">Tambah Pelanggan</h2>
@@ -55,7 +48,7 @@
                             <th scope="col" class="py-5 text-left">Pelanggan</th>
                             <th scope="col" class="py-5">Alamat</th>
                             <th scope="col" class="py-5">Sedang Cuci</th>
-                            <th scope="col" class="py-5">Total Transaksi</th>
+                            <th scope="col" class="py-5">Total Order</th>
                             <th scope="col" class="py-5">Aksi</th>
                         </tr>
                     </thead>
@@ -75,10 +68,10 @@
                                     <p>{{ $data->alamat }}</p>
                                 </td>
                                 <td class="text-center">
-                                    <p>{{ $data->sedang_cuci ? 'Ya' : 'Tidak' }}</p>
+                                    <p>{{ $data->sedang_cuci }}</p>
                                 </td>
                                 <td class="text-center">
-                                    <p class="font-bold text-base">{{ $data->total_cuci }}</p>
+                                    <p class="font-bold text-base">{{ $data->total_order }}</p>
                                 </td>
                                 <form action="/deletePelanggan/{{ $data->id_pelanggan }}" method="post">
                                     <td class="py-2 text-center text-belum flex gap-2">

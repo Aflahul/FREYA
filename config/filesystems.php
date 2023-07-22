@@ -43,7 +43,12 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
-
+        'freya_path' => [
+            'driver' => 'local',
+            'root' => public_path('asset/img/freya/uploads'),
+            'url' => env('APP_URL') . '/asset/img/freya',
+            'visibility' => 'public',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

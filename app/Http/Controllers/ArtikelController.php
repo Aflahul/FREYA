@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Exception;
-
 use Carbon\Carbon;
 use App\Models\Profil;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Pelanggan;
 
 class ArtikelController extends Controller
 {
@@ -37,41 +37,49 @@ class ArtikelController extends Controller
     }
     public function store(Request $request)
     {
-
         $request->validate([
             'judul' => 'required',
             'Isi' => 'required',
-            'status' => 'required',
-            // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'waktu' => 'required|date_format:Y-m-d',
+            'foto' =>
+            'required|image',
         ]);
 
-        // Mengambil file gambar yang diunggah
-        // $foto = $request->file('foto');
-        // Menyimpan file gambar ke direktori yang diinginkan
-        // $fotoPath = $foto->store('public/asset/img');
+        // Mengambil informasi gambar yang diunggah
+        $foto = $request->file('foto');
+        $foto_path = $foto->storeAs('public', $foto->getClientOriginalName(), 'public');
+        // $foto = time() . '.' . $request->foto->extension();
 
-        $datas = [
+        // $request->foto->move(public_path('asset/img/freya/uploads'), $foto);
+        $data = [
             'judul' => $request->judul,
             'Isi' => $request->Isi,
-            'status' => $request->status,
-            // 'foto' => $fotoPath,
-            'waktu' => $request->waktu,
+            'foto' => $foto_path,
         ];
-
         // Simpan data ke dalam database
-
-        Artikel::create($datas);
-        // dd($datas);
-        return redirect('/artikel');
-        // if ($result) {
-        //     return redirect('/artikel')->with('success', 'Artikel berhasil ditambahkan.');
-        // } else {
-        //     return redirect()->back()->with('error', 'Gagal menambahkan artikel. Silakan coba lagi.');
-        // }
+        // dd($data);
+        Artikel::create($data);
+        // dd($data);
+        return redirect('/artikel')->with('success', 'Artikel berhasil ditambahkan.');
     }
 
+    public function edit($id_artikel)
+    {
 
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+        $profil = Profil::first();
+        $artikels = Artikel::all();
+        $artikel = Artikel::where('id_artikel', $id_artikel)->first();
+        // dd($artikels);
+        return view('admin.artikel.edit', [
+            'title' => 'Setting-User',
+            'artikel' => $artikel,
+            'artikels' => $artikels,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
+        ]);
+    }
 
     public function update(Request $request, $id_artikel)
     {
@@ -79,13 +87,18 @@ class ArtikelController extends Controller
 
         $artikel->judul = $request->input('judul');
         $artikel->Isi = $request->input('Isi');
-        $artikel->status = $request->input('status');
-        // $artikel->foto = $request->input('foto');
 
-
+        // Mengambil informasi gambar yang diunggah
+        $foto = $request->file('foto');
+        if ($foto) {
+            $foto_path = $foto->storeAs('public', $foto->getClientOriginalName(), 'public');
+            $artikel->foto = $foto_path;
+        }
+       
         $artikel->save();
 
-        return redirect('/artikel');
+        // dd($data);
+        return redirect('/artikel')->with('success', 'Artikel berhasil ditambahkan.');
     }
 
     public function destroy($id_artikel)
@@ -95,4 +108,5 @@ class ArtikelController extends Controller
         $artikel->delete();
         return redirect('/artikel');
     }
+    
 }

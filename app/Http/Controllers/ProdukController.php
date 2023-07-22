@@ -49,19 +49,21 @@ class ProdukController extends Controller
             'harga'=> 'required', 
         
         ]);
-        $datas = [
-            'nama_layanan'=> $request->nama_layanan , 
-            'desk'=> $request->desk, 
-            'desk2'=> $request->desk2, 
-            'desk3'=> $request->desk3, 
-            'durasi'=> $request->durasi, 
-            'satuan'=> $request->satuan , 
-            'harga'=> $request->harga , 
-            
-        ];
+        $produk = new Produk;
+
+        // Atur nilai kolom pada objek Pelanggan
+        $produk->nama_layanan = $request->nama_layanan;
+        $produk->desk = $request->desk;
+        $produk->desk2 = $request->desk2;
+        $produk->desk3 = $request->desk3;
+        $produk->satuan = $request->satuan;
+        $produk->harga = $request->harga;
+        $produk->durasi = $request->durasi;
+        $produk->total_order = '0';
 
         // Simpan data ke dalam database
-        Produk::create($datas);
+        $produk->save();
+
         return redirect('/produk');
     }
 

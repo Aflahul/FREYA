@@ -43,10 +43,13 @@ Route::delete('/deletePengeluaran/{id_pengeluaran}', [PengeluaranController::cla
 //Halaman Order
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/createOrder', [OrderController::class, 'create']);
-Route::post('/storeOrder', [OrderController::class, 'store']);
+Route::post('/storeOrder', [OrderController::class, 'store'])->name('storeOrder');
+// Route::get('/EditOrder/{id_order}', [OrderController::class, 'edit']);
+Route::delete('/deleteOrder/{id_order}', [OrderController::class, 'destroy']);
 Route::get('/EditOrder/{id_order}', [OrderController::class, 'edit']);
 Route::put('/UpdateOrder/{id_order}', [OrderController::class, 'update'])->name('UpdateOrder.update');
-Route::delete('/deleteOrder/{id_order}', [OrderController::class, 'destroy']);
+
+// Route::get('/orderSelesai/{id_order}', [OrderController::class, 'selesai']);
 //Halaman Transaksi
 Route::get('/laporan', [TransaksiController::class, 'index']);
 Route::get('/createTransaksi', [TransaksiController::class, 'create']);
@@ -82,8 +85,7 @@ Route::delete('/deleteProduk/{id_layanan}', [ProdukController::class, 'destroy']
 //Halaman Artikel
 Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/createArtikel', [ArtikelController::class, 'create']);
-// Route::post('/createArtikel', [ArtikelController::class, 'store']);
-Route::post('/storeArtikel', [ArtikelController::class, 'store']);
+Route::post('/storeArtikel', [ArtikelController::class, 'store'])->name('artikel.store');
 Route::get('/EditArtikel/{id_artikel}', [ArtikelController::class, 'edit']);
 Route::put('/UpdateArtikel/{id_artikel}', [ArtikelController::class, 'update'])->name('UpdateArtikel.update');
 Route::delete('/deleteArtikel/{id_artikel}', [ArtikelController::class, 'destroy']);

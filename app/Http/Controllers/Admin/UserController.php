@@ -67,11 +67,22 @@ class UserController extends Controller
 
     public function edit($id_user)
     {
+
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+        $profil = Profil::first();
+        $users = User::all();
         $user = User::where('id_user', $id_user)->first();
+        // dd($users);
         return view('admin.user.edit', [
             'title' => 'Setting-User',
-            'user' => $user
+            'user' => $user,
+            'users' => $users,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
         ]);
+        
     }
 
     public function update(Request $request, $id_user)

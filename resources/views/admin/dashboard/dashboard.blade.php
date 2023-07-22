@@ -13,7 +13,7 @@
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
+                                <div class="w-11 py-3 flex justify-center text-garis mx-auto">
                                     <div>
                                         <i class="fa-solid fa-users fa-2x"></i>
                                     </div>
@@ -28,7 +28,7 @@
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
+                                <div class="w-11 py-3 flex justify-center text-garis mx-auto">
                                     <div>
                                         <i class="fa-solid fa-tags fa-2x "></i>
                                     </div>
@@ -43,24 +43,24 @@
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
+                                <div class="w-11 py-3 flex justify-center text-garis mx-auto">
                                     <div>
-                                        <i class="fa-solid fa-cash-register fa-2x"></i>
+                                     <img src="asset\icn\aa.png" class="min-h-[2rem] max-h-[2rem]" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
                                 <h5 class="text-2xl font-bold tracking-tight pt-1">1</h5>
-                                <p class="font-normal">Transaksi</p>
+                                <p class="font-normal">Proses</p>
                             </div>
                         </div>
                     </div>
                     <div class="overflow-x-auto bg-card rounded-[8px] border-t drop-shadow">
                         <div class="flex flex-col justify-between p-2 md:flex-row">
                             <div class="w-full p-3 md:w-auto bg-kuning md:rounded-[3px]">
-                                <div class="w-11 py-3 flex justify-center text-black mx-auto">
+                                <div class="w-11 py-3 flex justify-center text-garis mx-auto">
                                     <div>
-                                         <i class="fa-solid fa-comments-dollar fa-2x"></i>
+                                        <i class="fa-solid fa-comments-dollar fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
@@ -70,14 +70,15 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="drop-shadow overflow-x-auto">
                     <div class="bg-tabel  rounded-[8px]">
                         <table class="w-full text-sm text-left">
-                            <thead class="bg-navbar1 rounded-t-[8px] text-white">
-                                <div class="px-4 pt-2 pb-1 flex justify-between items-center bg-gelap rounded-t-[8px]">
-                                    <h1 class="font-bold text-white">Transaksi terakhir</h1>
+                            <thead class=" border-b-2 rounded-t-[8px] ">
+                                <div
+                                    class="px-4 pt-2 pb-1 flex justify-between items-center bg-white border-t-4 border-sudah rounded-t-[8px]">
+                                    <h1 class="font-bold ">Transaksi terakhir</h1>
                                 </div>
                                 <tr class=" ">
                                     <th scope="col" class="px-6 py-2">
@@ -104,14 +105,13 @@
                                         Rp. 00000
                                     </td>
                                 </tr>
-                                
+
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="3" class="hover:bg-kuning text-center text-black drop-shadow-lg  font-medium rounded-b-[8px] text-sm px-2 py-1">
-                                        <a href="/laporan"
-                                            class=""
-                                            type="button">Lihat Semua</a>
+                                    <td colspan="3"
+                                        class="hover:bg-kuning text-center text-garis drop-shadow-lg  font-medium rounded-b-[8px] text-sm px-2 py-1">
+                                        <a href="/laporan" class="" type="button">Lihat Semua</a>
                                     </td>
                                 </tr>
                             </tfoot>
@@ -121,38 +121,39 @@
             </div>
             <div class="w-1/3">
                 <div class=" drop-shadow overflow-x-auto">
-                    <div class="bg-tabel border-t-[3px] border-sudah rounded-[8px]">
+                    <div class="bg-tabel border-t-4 border-sudah rounded-[8px]">
                         <table class="w-full text-sm text-left ">
                             <thead>
                                 <div class="p-4 border-b-2 flex justify-between items-center ">
                                     <h1 class="font-bold">Data Pelanggan</h1>
                                     <a href="/pelanggan"
-                                        class="bg-kuning hover:bg-kuning drop-shadow-lg hover:text-white font-medium text-black rounded-xl text-sm px-5 py-2">Lihat Semua</a>
+                                        class="bg-kuning hover:bg-kuning drop-shadow-lg hover:text-white font-medium text-garis rounded-xl text-sm px-5 py-2">Lihat
+                                        Semua</a>
                                 </div>
                             </thead>
                             <tbody>
-                                 @foreach ($pelanggan as $pel)
-                                <tr>
-                                    <td class="w-10 ">
-                                        <div class="pl-4">
-                                            <i class="fas fa-user-circle fa-3x text-navbar"></i>
-                                        </div>
-                                    </td>
-                                    <td class="text-left px-2">
-                                        <p class="font-bold text-base ">{{ $pel->namapel }}</p>
-                                        <p class="font-light">{{ $pel->kontak }}</p>
-                                    </td>
-                                    <td class="py-1 text-right pr-4">
-                                        <p class="font-medium">Alamat</p>
-                                        <p class="font-light text-base">{{ $pel->alamat }}</p>
-                                    </td>
-                                </tr>
+                                @foreach ($pelanggan->sortByDesc('created_at')->take(10) as $pel)
+                                    <tr>
+                                        <td class="w-8 ">
+                                            <div class="pl-4">
+                                                <i class="fas fa-user-circle fa-3x text-sudah"></i>
+                                            </div>
+                                        </td>
+                                        <td class="text-left px-2">
+                                            <p class="font-bold text-sudah text-base ">{{ $pel->namapel }}</p>
+                                            <p class="font-light">{{ $pel->kontak }}</p>
+                                        </td>
+                                        <td class="py-0.5 text-right pr-4">
+                                            <p class="font-medium">Alamat</p>
+                                            <p class="font-light text-base">{{ $pel->alamat }}</p>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-          
+
         </div>
     @endsection
