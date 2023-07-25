@@ -74,7 +74,7 @@
                                     <p class="font-bold text-base">{{ $data->total_order }}</p>
                                 </td>
                                 <form action="/deletePelanggan/{{ $data->id_pelanggan }}" method="post">
-                                    <td class="py-2 text-center text-belum flex gap-2">
+                                    <td class="py-2 text-center text-belum  flex gap-2">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">

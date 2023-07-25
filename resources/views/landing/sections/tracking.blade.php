@@ -60,7 +60,7 @@
                     <li class="w-full">
                         <div class="flex justify-center flex-col">
                             <div
-                                class="flex w-full items-baseline text-blue-600  after:content-[''] after:w-full after:h-1 after:border-b after:{{ $status['status'] === 'Selesai' ? 'border-green-500' : 'border-gray-200' }} after:border-4 after:inline-block ">
+                                class="flex w-full items-baseline text-blue-600  after:content-[''] after:w-full after:h-1 after:border-b after:{{ $status['status_pembayaran'] === 'Sudah Dibayar' ? 'border-green-500' : 'border-gray-200' }} after:border-4 after:inline-block ">
                                 <div class="flex flex-col justify-center">
                                     <span
                                         class="flex items-center justify-center w-10 h-10 {{ $status['status_pembayaran'] === 'Sudah Dibayar' ? 'bg-green-500' : 'bg-gray-200' }} rounded-full lg:h-12 lg:w-12  shrink-0">

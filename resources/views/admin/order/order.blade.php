@@ -43,8 +43,9 @@
                         <div class="mb-4">
                             <label for="qty" class="block pt-2">Qty:</label>
                             <input class="border rounded-md px-2 py-1" type="number" name="qty" id="qty"
-                                onchange="calculateTotal()" min="1" value="1">
+                                onchange="calculateTotal()" min="0.01" step="0.01" value="1">
                         </div>
+
                         <div class="py-2 place-content-end flex flex-col">
                             <div class="flex items-center mr-4">
                                 <input checked id="teal-checkbox" type="checkbox" name="status_pembayaran" value=""
@@ -65,83 +66,91 @@
                 <table class="w-full text-sm text-left">
                     <thead>
                         <tr class="border-b-2">
-                            <th scope="col" class="pt-6 pb-2 px-2 w-24 ">Kode Order</th>
+                            <th scope="col" class="pt-6 pb-2 px-2 w-24">Kode Order</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Pelanggan</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Jenis Laundry</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Waktu Masuk</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Durasi</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Qty</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Total Harga</th>
-                            <th scope="col" class="pt-6 pb-2 px-2 ">Status</th>
+                            <th scope="col" class="pt-6 pb-2 px-2">Status</th>
                             <th scope="col" class="pt-6 pb-2 px-2 text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
-                            <form action="">
-                                <tr>
-                                    <td class="px-2 w-24  font-bold uppercase">
-                                        <p class="text-sudah">{{ $item->kd_order }}</p>
-                                    </td>
-                                    <td class="px-2 text-left ">
-                                        <p class="font-base text-base">{{ $item->pelanggan->namapel }}</p>
-                                    </td>
-                                    <td class="px-2 text-left  bg-selesai">
-                                        <p class="">{{ $item->produk->nama_layanan }}</p>
-                                    </td>
-                                    <td class="px-2  text-left ">
-                                        <p class="font-base text-base">{{ $item->created_at }}</p>
-                                    </td>
-                                    <td class="px-2 text-left  bg-selesai">
-                                        <p class=""> <span>{{ $item->durasi }}</span> Hari </p>
-                                    </td>
-                                    <td class="px-2 text-left  ">
-                                        <p class="font-base text-base"> <span>{{ $item->qty }}</span>
-                                            <span>{{ $item->satuan }}</span>
+                            <tr>
+                                <td class="px-2 w-24 font-bold uppercase">
+                                    <p class="text-sudah">{{ $item->kd_order }}</p>
+                                </td>
+                                <td class="px-2 text-left ">
+                                    <p class="font-base text-base">{{ $item->pelanggan->namapel }}</p>
+                                </td>
+                                <td class="px-2 text-left bg-selesai">
+                                    <p class="">{{ $item->produk->nama_layanan }}</p>
+                                </td>
+                                <td class="px-2 text-left ">
+                                    <p class="font-base text-base">{{ $item->created_at }}</p>
+                                </td>
+                                <td class="px-2 text-left bg-selesai">
+                                    <p class=""><span>{{ $item->durasi }}</span> Hari</p>
+                                </td>
+                                <td class="px-2 text-left ">
+                                    <p class="font-base text-base">
+                                        <span>{{ $item->qty }}</span>
+                                        <span>{{ $item->satuan }}</span>
+                                    </p>
+                                </td>
+                                <td class="px-2 text-left ">
+                                    <p class="font-base text-base">Rp. <span>{{ $item->total }}</span></p>
+                                </td>
+                                <td class="px-2 font-base text-white text-xs text-center flex gap-2 w-fit">
+                                    @if ($item->status == 'Sedang Cuci')
+                                        <form action="/selesai/{{ $item->id_order }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="px-3 py-0.5 w-fit bg-w3 rounded-xl"
+                                                onclick="return confirm('Yakin ingin ubah Status?')">
+                                                {{ $item->status }}
+                                            </button>
+                                        </form>
+                                    @else
+                                        <p class="px-3 py-0.5 w-fit bg-sudah rounded-xl">{{ $item->status }}</p>
+                                    @endif
+                                    @if ($item->status_pembayaran == 'Belum Dibayar')
+                                        <form action="/sudahdibayar/{{ $item->id_order }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="px-3 py-0.5 w-fit bg-w3 rounded-xl"
+                                                onclick="return confirm('Yakin ingin ubah Status?')">
+                                                {{ $item->status_pembayaran }}
+                                            </button>
+                                        </form>
+                                    @else
+                                        <p class="px-3 py-0.5 w-fit bg-sudah rounded-xl">{{ $item->status_pembayaran }}
                                         </p>
+                                    @endif
+                                </td>
+                                <form action="/deleteOrder/{{ $item->id_order }}" method="post">
+                                    <td class="py-2 text-left  text-belum w-fit">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
+                                            <i class="fa-solid fa-trash-can fa-xl"></i>
+                                        </button>
+                                        <a href="/EditOrder/{{ $item->id_order }}">
+                                            <i class="fa-solid fa-edit fa-xl"></i>
+                                        </a>
                                     </td>
-                                    <td class="px-2 text-left  ">
-                                        <p class="font-base text-base">Rp. <span>{{ $item->total }}</span></p>
-                                    </td>
-                                    <td class="px-2 font-base text-white text-xs text-center flex gap-2 ">
-                                        @if ($item->status == 'Sedang Cuci')
-                                            <button class="">
-                                                <p class="px-3 py-0.5 w-fit  bg-w3 rounded-xl">
-                                                    {{ $item->status }}
-                                                </p>
-                                            </button>
-                                        @else
-                                            <p class="px-3 py-0.5 w-fit bg-sudah rounded-xl">{{ $item->status }}</p>
-                                        @endif
-
-                                        @if ($item->status_pembayaran == 'Belum Dibayar')
-                                            <button class="">
-                                                <p class="px-3 py-0.5 w-fit  bg-w3 rounded-xl">
-                                                    {{ $item->status_pembayaran }}
-                                                </p>
-                                            </button>
-                                        @else
-                                            <p class="px-3 py-0.5 w-fit bg-sudah rounded-xl">{{ $item->status_pembayaran }}
-                                            </p>
-                                        @endif
-                                    </td>
-                                    <td class="text-center text-belum">
-                                        <div class="h-auto  ">
-                                            <a href="/EditOrder/{{ $item->id_order }}">
-                                                <i class="fa-solid fa-edit fa-xl"></i>
-                                            </a>
-                                        </div>
-                                </tr>
-                            </form>
+                                </form>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
+    </div>
 
-        {{-- <script>
-        // Ambil elemen input dan dropdown untuk nama pelanggan
-        const inputPelanggan = document.getElementById('nama_pelanggan');
+    <script>
+        // Ambil elemen dropdown untuk nama pelanggan
         const dropdownPelanggan = document.getElementById('id_pelanggan');
         const dataPelanggan = @json($datapel);
 
@@ -154,13 +163,6 @@
             });
         }
 
-        // Fungsi untuk mencari nama pelanggan berdasarkan keyword
-        function cariPelanggan(keyword) {
-            const hasilPencarian = dataPelanggan.filter(pelanggan => pelanggan.namapel.toLowerCase().includes(keyword
-                .toLowerCase()));
-            tampilkanDaftarPelanggan(hasilPencarian);
-        }
-
         // Fungsi untuk mengurutkan daftar nama pelanggan berdasarkan tanggal pembuatan terbaru
         function urutkanPelangganTerbaru() {
             const dataTerbaru = dataPelanggan.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -168,37 +170,7 @@
             tampilkanDaftarPelanggan(dataSepuluhTerbaru);
         }
 
-        // Tambahkan event listener untuk memanggil fungsi cariPelanggan setiap kali input berubah
-        inputPelanggan.addEventListener('input', function() {
-            cariPelanggan(inputPelanggan.value);
-        });
-
         // Panggil fungsi untuk mengisi dropdown dengan daftar nama pelanggan saat halaman dimuat
         urutkanPelangganTerbaru();
-    </script> --}}
-
-        <script>
-            // Ambil elemen dropdown untuk nama pelanggan
-            const dropdownPelanggan = document.getElementById('id_pelanggan');
-            const dataPelanggan = @json($datapel);
-
-            // Fungsi untuk menampilkan daftar nama pelanggan dalam dropdown
-            function tampilkanDaftarPelanggan(data) {
-                dropdownPelanggan.innerHTML = '<option value="">Pilih Nama Pelanggan..</option>';
-                data.forEach(pelanggan => {
-                    dropdownPelanggan.innerHTML +=
-                        `<option value="${pelanggan.id_pelanggan}">${pelanggan.namapel}</option>`;
-                });
-            }
-
-            // Fungsi untuk mengurutkan daftar nama pelanggan berdasarkan tanggal pembuatan terbaru
-            function urutkanPelangganTerbaru() {
-                const dataTerbaru = dataPelanggan.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                const dataSepuluhTerbaru = dataTerbaru.slice(0, 10);
-                tampilkanDaftarPelanggan(dataSepuluhTerbaru);
-            }
-
-            // Panggil fungsi untuk mengisi dropdown dengan daftar nama pelanggan saat halaman dimuat
-            urutkanPelangganTerbaru();
-        </script>
-    @endsection
+    </script>
+@endsection

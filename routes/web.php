@@ -49,6 +49,10 @@ Route::post('/storeOrder', [OrderController::class, 'store'])->name('storeOrder'
 Route::delete('/deleteOrder/{id_order}', [OrderController::class, 'destroy']);
 Route::get('/EditOrder/{id_order}', [OrderController::class, 'edit']);
 Route::put('/UpdateOrder/{id_order}', [OrderController::class, 'update'])->name('UpdateOrder.update');
+// Route::post('/selesai/{id_order}', 'OrderController@markAsSelesai')->name('updateStatus');
+Route::post('/selesai/{id_order}',[OrderController::class, 'markAsSelesai']);
+Route::post('/sudahdibayar/{id_order}',[OrderController::class, 'markAsSudahDibayar']);
+
 
 // Route::get('/orderSelesai/{id_order}', [OrderController::class, 'selesai']);
 //Halaman Transaksi

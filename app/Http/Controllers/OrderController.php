@@ -13,6 +13,39 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    // Fungsi lain di sini ...
+
+    public function markAsSelesai($id_order)
+    {
+        $order = Order::find($id_order);
+
+        if (!$order) {
+            return redirect('/order')->with('error', 'Data order tidak ditemukan.');
+        }
+
+        $order->status = 'Selesai';
+        $order->save();
+
+        return redirect('/order')->with('success', 'Order berhasil diubah menjadi "Selesai".');
+    }
+
+    public function markAsSudahDibayar($id_order)
+    {
+        $order = Order::find($id_order);
+
+        if (!$order) {
+            return redirect('/order')->with('error', 'Data order tidak ditemukan.');
+        }
+
+        $order->status_pembayaran = 'Sudah Dibayar';
+        $order->save();
+
+        return redirect('/order')->with('success', 'Status pembayaran berhasil diubah menjadi "Sudah Dibayar".');
+    }
+
+    // Fungsi lain di sini ...
+
+
     public function index()
 
     {
@@ -31,7 +64,7 @@ class OrderController extends Controller
                 $query->where('status', '!=', 'Selesai')
                     ->orWhere('status_pembayaran', '!=', 'Sudah Dibayar');
             })
-            ->orderBy('created_at', 'desc') // Tambahkan baris ini untuk mengurutkan berdasarkan tanggal pembuatan terbaru
+            // ->orderBy('created_at', 'desc') // Tambahkan baris ini untuk mengurutkan berdasarkan tanggal pembuatan terbaru
             ->get();
         // dd($order);
 
@@ -57,19 +90,17 @@ class OrderController extends Controller
         $request->validate([
             'id_pelanggan' => 'required',
             'id_layanan' => 'required',
-            'qty' => 'required|integer|min:1',
+            'qty' => 'required|numeric|min:0.1', // Mengizinkan angka desimal dengan nilai minimal 0.1
         ]);
 
         //Generate kode order
         $lastCode = Order::max('kd_order');
-        // dd($lastCode);
         $nextCode = 'INV0001'; // Kode awal
         if ($lastCode) {
             $numericPart = (int) substr($lastCode, 3); // Ambil bagian angka dari kode terakhir
             $nextNumericPart = $numericPart + 1;
             $nextCode = 'INV' . str_pad($nextNumericPart, 4, '0', STR_PAD_LEFT); // Format ulang kode dengan tambahan angka
         }
-
 
         // Cari data layanan
         $layanan = Produk::find($request->id_layanan);
@@ -79,10 +110,8 @@ class OrderController extends Controller
             // Menghitung total harga
             $harga = $layanan->harga;
             $durasi = $layanan->durasi;
-            $qty = $request->qty;
+            $qty = (float) $request->qty; // Ubah nilai qty menjadi float
             $total = $harga * $qty;
-
-
 
             // Periksa status pembayaran
             $statusPembayaran = $request->has('status_pembayaran') ? 'Sudah Dibayar' : 'Belum Dibayar';
@@ -148,7 +177,7 @@ class OrderController extends Controller
                 $query->where('status', '!=', 'Selesai')
                     ->orWhere('status_pembayaran', '!=', 'Sudah Dibayar');
             })
-            ->orderBy('created_at', 'desc')
+            // ->orderBy('created_at', 'desc')
             ->get();
         if (!$order) {
             return redirect('/order')->with('error', 'Data pengeluaran tidak ditemukan.');
@@ -169,23 +198,30 @@ class OrderController extends Controller
 
     public function update(Request $request, $id_order)
     {
-
+        // Validasi data
         $request->validate([
-            'desk' => 'id_pelanggan',
-            'jumlah' => 'id_layanan',
-            'waktu' => 'qty'
+            'id_pelanggan' => 'required',
+            'id_layanan' => 'required',
+            'qty' => 'required|numeric|min:0.1', // Gunakan rule 'numeric' dan tambahkan minimal nilai 0.1
         ]);
 
+        // Ambil data order berdasarkan id_order
         $order = Order::find($id_order);
 
         if (!$order) {
             // Handle jika data tidak ditemukan, misalnya redirect atau tampilkan pesan error.
             return redirect('/order')->with('error', 'Data order tidak ditemukan.');
         }
+
+        // Mengubah nilai qty menjadi float sebelum disimpan ke dalam database
+        $qty = (float) $request->qty;
+
+        // Update data order
         $order->id_pelanggan = $request->id_pelanggan;
         $order->id_layanan = $request->id_layanan;
-        $order->qty = $request->qty;
+        $order->qty = $qty; // Simpan nilai qty yang sudah diubah menjadi float
         $order->save();
-        return redirect('/order')->with('success', 'Data pengeluaran berhasil diperbarui.');
+
+        return redirect('/order')->with('success', 'Data order berhasil diperbarui.');
     }
 }
