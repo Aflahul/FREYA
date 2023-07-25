@@ -26,8 +26,8 @@ class ProfilController extends Controller
     {
         $profil = Profil::find($id_laundry);
         $profil->nama_laundry = $request->input('nama_laundry');
-        $profil->tagline = $request->input('tagline');
-        $profil->desk = $request->input('desk');
+        $profil->tagline = htmlspecialchars($request->input('tagline'));
+        $profil->desk = htmlspecialchars($request->input('desk'));
         $profil->alamat = $request->input('alamat');
         $profil->kontak = $request->input('kontak');
 

@@ -14,13 +14,12 @@ class PengeluaranController extends Controller
     public function index()
     {
         $profil = Profil::first();
-        $pengeluaran = Pengeluaran::with('operator')->get();
+        //$pengeluaran = Pengeluaran::with('operator')->get();
+        $pengeluaran = Pengeluaran::orderBy('created_at','desc')->get();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
-
         $user = Auth::user();
         $operator = $user ? $user->username : '';
-
         return view('admin.pengeluaran.pengeluaran', [
             'title' => 'Pengeluaran',
             'pengeluaran' => $pengeluaran,
@@ -30,7 +29,6 @@ class PengeluaranController extends Controller
             'operator' => $operator
         ]);
     }
-
 
     public function create()
     {
@@ -80,7 +78,7 @@ class PengeluaranController extends Controller
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         $user = Auth::user();
-        $pengeluarans = Pengeluaran::all();
+        $pengeluarans = Pengeluaran::orderBy('created_at', 'desc')->get();
         if (!$pengeluaran) {
             return redirect('/pengeluaran')->with('error', 'Data pengeluaran tidak ditemukan.');
         }

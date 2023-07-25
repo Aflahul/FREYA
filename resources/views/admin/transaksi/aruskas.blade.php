@@ -22,35 +22,33 @@
                 <table class="w-full text-sm text-left">
                     <thead>
                         <tr class="border-b-2">
-                            <th scope="col" class="pt-6 pb-2 px-2 w-24 ">Kode x</th>
-                            <th scope="col" class="pt-6 pb-2 px-2">Waktu</th>
-                            <th scope="col" class="pt-6 pb-2 px-2">Asal</th>
+                            <th scope="col" class="pt-6 pb-2 px-2 w-24 ">Kode Arus</th>
+                            <th scope="col" class="pt-6 pb-2 px-2">Nama Aktivitas</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Arus</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Total </th>
                             <th scope="col" class="pt-6 pb-2 px-2">Saldo</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="p-2 w-40 text-lg font-bold uppercase">
-                                <p class="text-sudah">a12345</p>
-                            </td>
-                            <td class="p-2 text-left ">
-                                <p class="">Sebut Saja Mawar</p>
-                            </td>
-                            <td class="p-2 text-left  ">
-                                <p class="">12345678</p>
-                            </td>
-                            <td class="p-2 text-left ">
-                                <p class="">0</p>
-                            </td>
-                            <td class="p-2 text-left ">
-                                <p class="">Rp. </p>
-                            </td>
-                            <td class="p-2 text-left font-base  text-xs ">
-                                <p class="">Sedang Cuci</p>
-                            </td>
-                        </tr>
+                        @foreach ($arus as $item)
+                            <tr>
+                                <td class="p-2 w-40 text-lg font-bold uppercase">
+                                    <p class="text-sudah">{{ $item->kode }}</p>
+                                </td>
+                                <td class="p-2 text-left ">
+                                    <p class="">{{ $item->nama }}</p>
+                                </td>
+                                <td class="p-2 text-left  ">
+                                    <p class="">{{ $item->arus }}</p>
+                                </td>
+                                <td class="p-2 text-left ">
+                                    <p class="">Rp. {{ $item->total }}</p>
+                                </td>
+                                <td class="p-2 text-left ">
+                                    <p class="">Rp. {{ $item->Saldo }}</p>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

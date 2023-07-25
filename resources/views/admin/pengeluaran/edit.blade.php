@@ -43,7 +43,6 @@
                         <input type="number" id="jumlah" name="jumlah" class="border w-full rounded-md px-2 py-1"
                             value="{{ old('jumlah', $pengeluaran->jumlah) }}">
                     </div>
-
                     <div class="flex justify-start py-2">
                         <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpannn</button>
                         <a href="/pengeluaran" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a>

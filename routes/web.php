@@ -17,7 +17,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PengeluaranController;
 
 //Halaman Landing
-Route::get('/', [LandingController::class, 'index']);
+Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+Route::post('/search-invoice', [LandingController::class, 'searchInvoice'])->name('landing.search-invoice');
 //Halaman Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');

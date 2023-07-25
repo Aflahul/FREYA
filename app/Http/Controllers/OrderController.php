@@ -25,13 +25,14 @@ class OrderController extends Controller
         // ->where('status_pembayaran', '!=', 'Sudah Dibayar')
         // ->paginate(10);
 
+        // Ambil data order dari database dan urutkan berdasarkan tanggal pembuatan (created_at) terbaru
         $order = Order::with(['pelanggan', 'produk'])
             ->where(function ($query) {
                 $query->where('status', '!=', 'Selesai')
-            ->orWhere('status_pembayaran', '!=', 'Sudah Dibayar');
-        })
-        ->get();
-
+                    ->orWhere('status_pembayaran', '!=', 'Sudah Dibayar');
+            })
+            ->orderBy('created_at', 'desc') // Tambahkan baris ini untuk mengurutkan berdasarkan tanggal pembuatan terbaru
+            ->get();
         // dd($order);
 
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
@@ -81,7 +82,7 @@ class OrderController extends Controller
             $qty = $request->qty;
             $total = $harga * $qty;
 
-            
+
 
             // Periksa status pembayaran
             $statusPembayaran = $request->has('status_pembayaran') ? 'Sudah Dibayar' : 'Belum Dibayar';
@@ -119,14 +120,14 @@ class OrderController extends Controller
         }
     }
 
-    public function selesai($id_order){
+    public function selesai($id_order)
+    {
 
         // SAAT NI TIDAK DIGUNAKAN
         $pelanggan = Order::where('id_order', $id_order)->first();
         // dd($pelanggan);
         $pelanggan->status = 'Selesai';
         $pelanggan->save();
-
         return redirect('/order');
     }
 
@@ -134,17 +135,21 @@ class OrderController extends Controller
     {
         $datapel = Pelanggan::all();
         $data_layanan = Produk::all();
-
-        $order = Order::with(['pelanggan', 'produk'])
-                ->find($id_order);
-
-
+        // $order = Order::with(['pelanggan', 'produk'])
+        //         ->find($id_order);
+        $order = Order::with(['pelanggan', 'produk'])->findOrFail($id_order);
         // dd($datapel);
         $profil = Profil::first();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         $user = Auth::user();
-        $orders = Order::all();
+        $orders = Order::with(['pelanggan', 'produk'])
+            ->where(function ($query) {
+                $query->where('status', '!=', 'Selesai')
+                    ->orWhere('status_pembayaran', '!=', 'Sudah Dibayar');
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
         if (!$order) {
             return redirect('/order')->with('error', 'Data pengeluaran tidak ditemukan.');
         }
@@ -160,7 +165,6 @@ class OrderController extends Controller
             'data_layanan' => $data_layanan,
             'operator' => $user ? $user->username : ''
         ]);
-
     }
 
     public function update(Request $request, $id_order)
@@ -178,15 +182,10 @@ class OrderController extends Controller
             // Handle jika data tidak ditemukan, misalnya redirect atau tampilkan pesan error.
             return redirect('/order')->with('error', 'Data order tidak ditemukan.');
         }
-
         $order->id_pelanggan = $request->id_pelanggan;
         $order->id_layanan = $request->id_layanan;
         $order->qty = $request->qty;
-
         $order->save();
-
         return redirect('/order')->with('success', 'Data pengeluaran berhasil diperbarui.');
     }
-
-    
 }

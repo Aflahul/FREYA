@@ -54,7 +54,7 @@
                 @endforeach
             </div>
             <div class="max-w-screen-sm pt-4">
-                <p class="py-2 font-semibold text-3xl text-white">Produk dan Layanan</p>
+                <p class="py-2 font-semibold text-2xl text-white">Produk dan Layanan</p>
                 <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
                 <div class="flex place-content-start place-items-start pt-10 gap-5 text-belum ">
                     <div class="scroll-arrow left bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap ">

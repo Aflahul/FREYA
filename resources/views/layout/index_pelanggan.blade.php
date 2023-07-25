@@ -23,6 +23,9 @@
     <title>Freya Laundry | {{ $title }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('asset/css/fontawesome.css') }}" rel="stylesheet">
+    
+   <script src="{{ asset('asset/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
 
 </head>

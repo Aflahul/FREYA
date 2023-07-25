@@ -14,11 +14,12 @@
                             value="{{ old('nama_laundry', $profil->nama_laundry) }}" required>
                     </div>
                     <div class="mb-6">
-                        <label for="tagline" class="block mb-2 text-base font-medium text-sudah">Tagline Laundry</label>
-                        <textarea type="text" id="tagline" name="tagline"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                            placeholder="{{ old('tagline', $profil->tagline) }}" required></textarea>
-                    </div>
+                            <label for="alamat" class="block mb-2 text-base font-medium text-sudah">Alamat</label>
+                            <input type="text" id="alamat" name="alamat"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
+                                value="{{ old('alamat', $profil->alamat) }}" required>
+                        </div>
+                    
                     <div class="mb-6 w-64">
                         <label for="kontak" class="block mb-2 text-base font-medium text-sudah">Kontak</label>
                         <input type="tel" id="kontak" name="kontak"
@@ -54,17 +55,17 @@
             <div class="grid grid-cols-1 drop-shadow-md">
                 <div class="">
                     <div>
-                        <div class="mb-6">
-                            <label for="alamat" class="block mb-2 text-base font-medium text-sudah">Alamat</label>
-                            <input type="text" id="alamat" name="alamat"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                                value="{{ old('alamat', $profil->alamat) }}" required>
-                        </div>
+                        <div class="mb-6 ">
+                        <label for="tagline" class="block mb-2 text-base font-medium text-sudah">Tagline Laundry</label>
+                        <textarea type="text" id="tagline" name="tagline"
+                            class=" bg-gray-50 h-[40px] border border-gray-300 text-gray-900 text-sm rounded-lg tinymce-editor focus:ring-sudah focus:border-sudah block w-full p-2.5"
+                            required>{!! $profil->tagline !!}</textarea>
+                    </div>
                         <div class="mb-6">
                             <label for="desk" class="block mb-2 text-base font-medium text-sudah">Deskripsi</label>
                             <textarea type="text" id="desk" name="desk"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                                placeholder="{{ old('desk', $profil->desk) }}" required></textarea>
+                                class="tinymce-editor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
+                                 required>{!! $profil->desk !!}</textarea>
                         </div>
                     </div>
                 </div>

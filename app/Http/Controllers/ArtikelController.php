@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Str;
 use Exception;
 use Carbon\Carbon;
 use App\Models\Profil;
@@ -27,14 +29,7 @@ class ArtikelController extends Controller
             'jam' => $jam
         ]);
     }
-    public function create()
-    {
 
-
-        return view('admin.artikel.tambah', [
-            'title' => 'Artikel',
-        ]);
-    }
     public function store(Request $request)
     {
         $request->validate([
@@ -52,7 +47,8 @@ class ArtikelController extends Controller
         // $request->foto->move(public_path('asset/img/freya/uploads'), $foto);
         $data = [
             'judul' => $request->judul,
-            'Isi' => $request->Isi,
+            // 'Isi' => htmlspecialchars_decode($request->Isi),
+            'Isi' => htmlspecialchars($request->Isi),
             'foto' => $foto_path,
         ];
         // Simpan data ke dalam database
@@ -86,7 +82,7 @@ class ArtikelController extends Controller
         $artikel = Artikel::find($id_artikel);
 
         $artikel->judul = $request->input('judul');
-        $artikel->Isi = $request->input('Isi');
+        $artikel->Isi = htmlspecialchars($request->input('Isi_artikel'));
 
         // Mengambil informasi gambar yang diunggah
         $foto = $request->file('foto');
@@ -94,7 +90,7 @@ class ArtikelController extends Controller
             $foto_path = $foto->storeAs('public', $foto->getClientOriginalName(), 'public');
             $artikel->foto = $foto_path;
         }
-       
+
         $artikel->save();
 
         // dd($data);
@@ -108,5 +104,4 @@ class ArtikelController extends Controller
         $artikel->delete();
         return redirect('/artikel');
     }
-    
 }
