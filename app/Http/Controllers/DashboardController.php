@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profil;
 use Carbon\Carbon;
 use App\Models\Produk;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Pelanggan;
 // use Illuminate\Support\Facades\DB;
@@ -19,6 +20,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $order = Order::all();
+        $orderModel = new Order();
+        // Filter data order berdasarkan status "Sedang Cuci" dan/atau status pembayarannya "Belum Dibayar"
+        $proses = $orderModel->where('status', 'Sedang Cuci')
+        ->orWhere('status_pembayaran', 'Belum Dibayar')
+        ->get();
         $produk = Produk::all();
         $pelanggan = Pelanggan::all();
         $profil = Profil::first();
@@ -27,6 +34,8 @@ class DashboardController extends Controller
         return view('admin.dashboard.dashboard', [
             'title' => 'Dashboard',
             'profil' => $profil,
+            'order' => $order,
+            'proses' => $proses,
             'produk' => $produk,
             'tanggal' => $tanggal,
             'pelanggan' => $pelanggan,

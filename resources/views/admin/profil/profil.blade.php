@@ -5,7 +5,7 @@
         <form action="{{ route('UpdateProfil.update', $profil->id_laundry) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 drop-shadow-md">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 ">
                 <div class="order-end md:order-first">
                     <div class="mb-6">
                         <label for="nama_laundry" class="block mb-2 text-base font-medium text-sudah">Nama Laundry</label>
@@ -13,18 +13,19 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
                             value="{{ old('nama_laundry', $profil->nama_laundry) }}" required>
                     </div>
-                    <div class="mb-6">
-                            <label for="alamat" class="block mb-2 text-base font-medium text-sudah">Alamat</label>
-                            <input type="text" id="alamat" name="alamat"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                                value="{{ old('alamat', $profil->alamat) }}" required>
-                        </div>
+                    
                     
                     <div class="mb-6 w-64">
                         <label for="kontak" class="block mb-2 text-base font-medium text-sudah">Kontak</label>
                         <input type="tel" id="kontak" name="kontak"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
                             value="{{ old('kontak', $profil->kontak) }}" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="alamat" class="block mb-2 text-base font-medium text-sudah">Alamat</label>
+                        <input type="text" id="alamat" name="alamat"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
+                            value="{{ old('alamat', $profil->alamat) }}" required>
                     </div>
                 </div>
 
@@ -52,20 +53,37 @@
                 </div>
 
             </div>
-            <div class="grid grid-cols-1 drop-shadow-md">
+            <div class="flex justify-between gap-2 ">
+                    <div class="mb-6 w-full">
+                        <label for="latitude" class="block mb-2 text-base font-medium text-sudah">Latitude</label>
+                        <input type="text" id="latitude" name="latitude"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
+                            value="{{ old('latitude', $profil->latitude) }}" required>
+                    </div>
+
+                    <div class="mb-6  w-full">
+                        <label for="longitude" class="block mb-2 text-base font-medium text-sudah">Longitude</label>
+                        <input type="text" id="longitude" name="longitude"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
+                            value="{{ old('longitude', $profil->longitude) }}" required>
+                    </div>
+
+                </div>
+            <div class="grid grid-cols-1 ">
                 <div class="">
                     <div>
                         <div class="mb-6 ">
-                        <label for="tagline" class="block mb-2 text-base font-medium text-sudah">Tagline Laundry</label>
-                        <textarea type="text" id="tagline" name="tagline"
-                            class=" bg-gray-50 h-[40px] border border-gray-300 text-gray-900 text-sm rounded-lg tinymce-editor focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                            required>{!! $profil->tagline !!}</textarea>
-                    </div>
+                            <label for="tagline" class="block mb-2 text-base font-medium text-sudah">Tagline
+                                Laundry</label>
+                            <textarea type="text" id="tagline" name="tagline"
+                                class=" bg-gray-50 h-[40px] border border-gray-300 text-gray-900 text-sm rounded-lg tinymce-editor focus:ring-sudah focus:border-sudah block w-full p-2.5"
+                                required>{!! $profil->tagline !!}</textarea>
+                        </div>
                         <div class="mb-6">
                             <label for="desk" class="block mb-2 text-base font-medium text-sudah">Deskripsi</label>
                             <textarea type="text" id="desk" name="desk"
                                 class="tinymce-editor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
-                                 required>{!! $profil->desk !!}</textarea>
+                                required>{!! $profil->desk !!}</textarea>
                         </div>
                     </div>
                 </div>

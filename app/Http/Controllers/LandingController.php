@@ -11,6 +11,7 @@ use App\Models\Order;
 
 use Illuminate\Support\Facades\Session;
 use App\Models\Produk;
+
 class LandingController extends Controller
 
 {
@@ -36,6 +37,7 @@ class LandingController extends Controller
         return view('landing.home', [
             'title' => 'Home',
             'artikel' => $artikel,
+
             'produk' => $produk,
             'profil' => $profil,
             'tanggal' => $tanggal,
@@ -44,7 +46,7 @@ class LandingController extends Controller
             'error' => $error, // Kirimkan data pesan error ke view
         ]);
     }
-   
+
 
     public function searchInvoice(Request $request)
     {
@@ -69,6 +71,5 @@ class LandingController extends Controller
         }
     }
 
-
-
+    
 }

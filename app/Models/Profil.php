@@ -9,7 +9,7 @@ class Profil extends Model
 {
     use HasFactory;
     protected $table = 'tb_profil';
-    protected $fillable = ['nama_laundry', 'tagline', 'desk', 'alamat', 'logo','kontak'];
+    protected $fillable = ['nama_laundry', 'tagline', 'desk', 'alamat', 'logo','kontak', 'latitude', 'longitude'];
     protected $primaryKey = 'id_laundry';
    
 }

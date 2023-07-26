@@ -29,6 +29,8 @@ class ProfilController extends Controller
         $profil->tagline = htmlspecialchars($request->input('tagline'));
         $profil->desk = htmlspecialchars($request->input('desk'));
         $profil->alamat = $request->input('alamat');
+        $profil->latitude = $request->input('latitude');
+        $profil->longitude = $request->input('longitude');
         $profil->kontak = $request->input('kontak');
 
         if ($request->hasFile('logo')) {
