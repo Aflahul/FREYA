@@ -2,16 +2,16 @@
     <div class="container  py-2 md:px-10 mx-auto h-fit">
         <div class="flex flex-col md:flex-row gap-5 justify-between">
             <div
-                class="flex justify-between gap-5 overflow-x-auto overscroll-none min-h-[18rem] max-h-[18rem] py-5 max-w-screen-md drop-shadow-2xl inset-y hide-scrollbar">
+                class="flex justify-between gap-5 overflow-x-auto overscroll-none min-h-[18rem] max-h-[18rem] py-5 w-2/3 drop-shadow-2xl inset-y hide-scrollbar">
                 @foreach ($produk as $cards)
                     <div class="w-screen drop-shadow-2xl inset-x-auto">
                         <div
-                            class="  min-w-[18rem] shadow-gl max-w-[18rem] max-h-[16rem] min-h-[16rem] p-4 bg-slate-300 border border-gray-200 rounded-lg  hover:border-blue-500 hover:bg-blue-100 hover:-mt-2 hover:drop-shadow-xl">
-                            <h5 class="mb-1 font-medium text-gray-500 dark:text-gray-400">{{ $cards->nama_layanan }}
+                            class="  min-w-[18rem] shadow-gl max-w-[18rem] max-h-[16rem] min-h-[16rem] p-4 bg-white border border-gray-200 rounded-lg  hover:border-blue-500 hover:bg-blue-100 hover:-mt-2 hover:drop-shadow-xl">
+                            <h5 class="mb-2 text-blue-700 text-xl uppercase font-bold">{{ $cards->nama_layanan }}
                             </h5>
-                            <div class="flex items-baseline text-gray-900 dark:text-white">
+                            <div class="pt-2 flex items-baseline text-gray-900 dark:text-white">
                                 <span class="text-lg pr-2 font-semibold">Rp</span>
-                                <span class="text-3xl font-bold tracking-tight">{{ $cards->harga }}</span>
+                                <span class="text-5xl font-bold tracking-tight">{{ $cards->harga }}</span>
                                 <span
                                     class="ml-1 text-md font-normal text-gray-500 dark:text-gray-400">/{{ $cards->satuan }}</span>
                             </div>
@@ -53,7 +53,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="max-w-screen-sm pt-4">
+            <div class="w-1/3 pt-4">
                 <p class="py-2 font-semibold text-2xl text-white">Produk dan Layanan</p>
                 <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
                 <div class="flex place-content-start place-items-start pt-10 gap-5 text-belum ">

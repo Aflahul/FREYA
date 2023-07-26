@@ -54,7 +54,7 @@
                                     Sekarang</label>
                             </div>
                             <button type="submit"
-                                class="px-3 h-fit py-1 bg-green-500 text-white rounded-md mr-2">Simpan</button>
+                                class="px-3 h-fit py-1 bg-green-500 text-white rounded-md mr-2">Tambahkan</button>
                         </div>
                     </div>
                 </form>

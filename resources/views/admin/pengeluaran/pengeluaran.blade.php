@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="flex justify-start py-2">
-                        <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpan</button>
+                        <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Tambahkan</button>
                         {{-- <a href="/pengeluaran" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a> --}}
                     </div>
                 </form>
@@ -55,30 +55,30 @@
                     <tbody>
                         @foreach ($pengeluaran as $data)
                             <tr>
-                                <td class="p-2 w-24 text-lg font-bold ">
+                                <td class="px-1 w-24 text-lg font-bold ">
                                     <p class="text-sudah">{{ $data->kd_pengeluaran }}</p>
                                 </td>
-                                <td class="p-2 text-left ">
+                                <td class="px-1 text-left ">
                                     <p class="font-base text-base">{{ $data->pengeluaran }}</p>
                                 </td>
-                                <td class="p-2 text-left text-xs font-light ">
+                                <td class="px-1 text-left text-xs font-light ">
                                     <p class="">{{ \Illuminate\Support\Str::limit($data->desk, 15) }}</p>
                                 </td>
-                                <td class="p-2 text-left  ">
+                                <td class="px-1 text-left  ">
                                     @if ($operator !== '')
                                         <p>{{ $operator }}</p>
                                     @else
                                         <p>Operator tidak tersedia</p>
                                     @endif
                                 </td>
-                                <td class="p-2 text-left ">
+                                <td class="px-1 text-left ">
                                     <p class="font-base text-base">{{ $data->waktu }}</p>
                                 </td>
-                                <td class="p-2 text-left ">
+                                <td class="px-1 text-left ">
                                     <p class="font-base text-base">Rp. {{ $data->jumlah }}</p>
                                 </td>
                                 <form action="/deletePengeluaran/{{ $data->id_pengeluaran }}" method="post">
-                                    <td class="py-2 text-center text-belum flex gap-2 ">
+                                    <td class=" text-center text-belum flex gap-2 ">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
