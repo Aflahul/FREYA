@@ -45,7 +45,7 @@
                                     <p class="">Rp. {{ $item->total }}</p>
                                 </td>
                                 <td class="p-2 text-left ">
-                                    <p class="">Rp. {{ $item->Saldo }}</p>
+                                    <p class="">Rp. {{ $item->saldo }}</p>
                                 </td>
                             </tr>
                         @endforeach

@@ -10,12 +10,18 @@ class PengeluaranObserver
 
     public function created(Pengeluaran $pengeluaran)
     {
+        // Temukan saldo terakhir dari tabel tb_arus berdasarkan urutan waktu atau ID terbesar
+        $lastArus = Arus::orderBy('id_arus', 'desc')->first();
+
+        // Hitung saldo baru dengan menambahkan nilai total dari model $order dengan nilai saldo terakhir
+        $saldoBaru = $lastArus->saldo - $pengeluaran->jumlah;
+
         Arus::create([
             'kode' => $pengeluaran->kd_pengeluaran,
             'nama' => $pengeluaran->pengeluaran,
             'arus' => 'Keluar',
             'total' => $pengeluaran->jumlah,
-            'saldo' => 0
+            'saldo' => $saldoBaru
         ]);
     }
 

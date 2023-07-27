@@ -2,8 +2,9 @@
 
 namespace App\Observers;
 
-use App\Models\Order;
 use App\Models\Arus;
+use App\Models\Order;
+use Illuminate\Support\Facades\Log;
 
 
 class OrderObserver
@@ -11,13 +12,28 @@ class OrderObserver
 
     public function updated(Order $order)
     {
-        if ($order->status_cuci === 'Selesai' && $order->status_pembayaran === 'Sudah Dibayar') {
+        
+        //coba ketiga
+        // Temukan saldo terakhir dari tabel tb_arus berdasarkan urutan waktu atau ID terbesar
+        $lastArus = Arus::orderBy('id_arus', 'desc')->first();
+
+        // Hitung saldo baru dengan menambahkan nilai total dari model $order dengan nilai saldo terakhir
+        if ($order->status === 'Selesai' && $order->status_pembayaran === 'Sudah Dibayar') {
+            Log::info('Kondisi terpenuhi.');
+
+            // Hitung saldo baru dengan menambahkan nilai total dari model $order dengan nilai saldo terakhir
+            $saldoBaru = $order->total + $lastArus->saldo;
+
+            // Simpan data ke tabel tb_arus
             Arus::create([
                 'kode' => $order->kd_order,
                 'arus' => 'Masuk',
+                'nama' => 'Order',
                 'total' => $order->total,
-                'saldo' => 0
+                'saldo' => $saldoBaru
             ]);
+        } else {
+            Log::info('Kondisi tidak terpenuhi.');
         }
     }
 
