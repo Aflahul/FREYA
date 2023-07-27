@@ -1,6 +1,6 @@
-<section id="home" class="bg-kuningpudar ">
+<section id="home" class="bg-kuningpudar w-screen ">
     <!-- Konten Home -->
-    <div class="container mt-5 w-screen py-10 md:px-10 mx-auto h-fit">
+    <div class="container mt-5 max-w-screen-xl py-10 items-center justify-between mx-auto px-7 h-fit">
         <div class="flex flex-col">
             <div class="pt-5 flex justify-between gap-5">
                 <figure class="">

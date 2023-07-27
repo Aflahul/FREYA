@@ -1,11 +1,11 @@
-<section id="lokasi" class=" ">
-    <div class="container  py-2 md:px-10 mx-auto h-fit ">
+<section id="lokasi" class=" w-screen ">
+    <div class="container  py-2 max-w-screen-xl items-center justify-between mx-auto px-7 h-fit ">
         <div class="max-w-screen  ">
             <p class="py-1 font-semibold text-2xl ">Lokasi Kami</p>
             <p class=" font-medium   text-lg">Lokasi kami mudah dijangkau.
-            <div class="flex place-content-start place-items-center py-2 gap-5  ">
+            <div class="flex place-content-start place-items-center h-full py-2 gap-5  ">
                 {{-- <img src="asset\img\freya\aaa.jpg" class="cover border" alt=""> --}}
-                <div id="map" class="w-full h-64"></div>
+                <div id="map" class="w-screen z-10 h-96"></div>
             </div>
         </div>
         <script>

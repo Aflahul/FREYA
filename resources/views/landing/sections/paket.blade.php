@@ -1,8 +1,8 @@
-<section id="paket" class="bg-gelap shadow-2xl inset-y ">
-    <div class="container  py-2 md:px-10 mx-auto h-fit">
-        <div class="flex flex-col md:flex-row gap-5 justify-between">
-            <div
-                class="flex justify-between gap-5 overflow-x-auto overscroll-none min-h-[18rem] max-h-[18rem] py-5 w-2/3 drop-shadow-2xl inset-y hide-scrollbar">
+<section id="paket" class="bg-gelap shadow-2xl inset-y w-screen ">
+    <div class="container  py-4 max-w-screen-xl items-center justify-between mx-auto px-7 h-fit">
+        <div class="flex flex-col lg:flex-row gap-5 justify-between">
+            <div id="kartunya" 
+                class="flex order-2 justify-between gap-5 overflow-x-auto overscroll-none min-h-[18rem] max-h-[18rem] py-5 wscreen lg:w-2/3 drop-shadow-2xl inset-y hide-scrollbar">
                 @foreach ($produk as $cards)
                     <div class="w-screen drop-shadow-2xl inset-x-auto">
                         <div
@@ -53,11 +53,11 @@
                     </div>
                 @endforeach
             </div>
-            <div class="w-1/3 pt-4">
+            <div id="keterngan" class="w-screen lg:w-1/3 pt-4 order-1">
                 <p class="py-2 font-semibold text-2xl text-white">Produk dan Layanan</p>
                 <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
-                <div class="flex place-content-start place-items-start pt-10 gap-5 text-belum ">
-                    <div class="scroll-arrow left bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap ">
+                <div class="lg:flex hidden justify-start items-start pt-10 gap-5 text-belum ">
+                    <div class="scroll-arrow left bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap  ">
                         <i class="fas fa-chevron-circle-left fa-2xl "></i>
                     </div>
                     <!-- Konten lainnya -->

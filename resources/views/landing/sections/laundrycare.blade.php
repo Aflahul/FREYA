@@ -1,10 +1,10 @@
-<section id="laundrycare" class="bg-white shadow-2xl inset-y ">
-    <div class="container  py-2 md:px-10 mx-auto h-fit ">
+<section id="laundrycare" class="bg-white shadow-2xl inset-y w-screen ">
+    <div class="container py-3 max-w-screen-xl items-center justify-between mx-auto px-7 h-fit ">
         <div class="max-w-screen ">
             <p class="py-2 font-semibold text-2xl ">LaundryCare</p>
             <p class="py-1 font-medium   text-lg">Menyajikan informasi tips & trick menjaga keawetan hubungan.
             <div class="flex place-content-start place-items-center pt-10 gap-5 text-white ">
-                <div id="panahkiri" class="scroll-arrow left text-gray-200 hover:text-sudah   ">
+                <div id="panahkiri" class="scroll-arrow left text-gray-200 hover:text-sudah hidden lg:block   ">
                     <i class="fa-solid fa-chevron-left fa-2xl"></i>
                 </div>
                 <div id="cardartikel"
@@ -34,7 +34,7 @@
                         </a>
                     @endforeach
                 </div>
-                <div id="panahkanan" class="scroll-arrow right text-gray-200 hover:text-sudah  ">
+                <div id="panahkanan" class="scroll-arrow right text-gray-200 hover:text-sudah hidden lg:block  ">
                     <i class="fa-solid fa-chevron-right fa-2xl object-cover"></i>
                 </div>
             </div>

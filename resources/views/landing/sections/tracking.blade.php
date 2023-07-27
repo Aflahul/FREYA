@@ -1,5 +1,5 @@
-<section id="tracking" class="bg-kuningpudar h-1/2">
-    <div class="container w-screen py-10 md:px-10 mx-auto h-fit">
+<section id="tracking" class="bg-kuningpudar w-screen h-1/2">
+    <div class="container max-w-screen-xl items-center justify-between mx-auto px-7 h-fit">
         <p class="py-2 font-semibold text-2xl">Tracking</p>
         <p class="py-1 text-lg">Cek Status Laundry anda disini</p>
         <form class="py-3 pt-1 flex flex-col items-center" action="{{ route('landing.search-invoice') }}" method="POST">
