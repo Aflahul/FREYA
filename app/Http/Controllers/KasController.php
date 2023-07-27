@@ -15,7 +15,7 @@ class KasController extends Controller
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
 
-        $arus = Arus::all();
+        $arus = Arus::latest('id_arus')->get();
         
         // dd($arus);
         return view('admin.transaksi.aruskas', [
