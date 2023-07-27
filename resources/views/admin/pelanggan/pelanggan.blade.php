@@ -23,8 +23,8 @@
                         <input type="text" id="alamat" name="alamat" class="border rounded-md px-2 py-1">
                     </div>
                     <div class="flex justify-start py-2">
-                        <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpan</button>
-                        <a href="/pelanggan" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a>
+                        <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Tambahkan</button>
+                        {{-- <a href="/pelanggan" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a> --}}
                     </div>
                 </form>
             </div>
@@ -47,7 +47,7 @@
                             <th></th>
                             <th scope="col" class="py-5 text-left">Pelanggan</th>
                             <th scope="col" class="py-5">Alamat</th>
-                            <th scope="col" class="py-5">Sedang Cuci</th>
+                            {{-- <th scope="col" class="py-5">Sedang Cuci</th> --}}
                             <th scope="col" class="py-5">Total Order</th>
                             <th scope="col" class="py-5">Aksi</th>
                         </tr>
@@ -67,9 +67,9 @@
                                 <td class="text-center">
                                     <p>{{ $data->alamat }}</p>
                                 </td>
-                                <td class="text-center">
+                                {{-- <td class="text-center">
                                     <p>{{ $data->sedang_cuci }}</p>
-                                </td>
+                                </td> --}}
                                 <td class="text-center">
                                     <p class="font-bold text-base">{{ $data->total_order }}</p>
                                 </td>

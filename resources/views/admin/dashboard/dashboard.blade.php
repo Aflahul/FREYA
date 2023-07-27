@@ -188,8 +188,8 @@
                                             <p class="font-light">{{ $pel->kontak }}</p>
                                         </td>
                                         <td class="py-0.5 text-right pr-4">
-                                            <p class="font-medium">Alamat</p>
-                                            <p class="font-light text-base">{{ $pel->alamat }}</p>
+                                            <p class="font-light">Total Transaksi : {{ $pel->total_order }}</p>
+                                            <p class="font-base text-base">{{ $pel->alamat }}</p>
                                         </td>
                                     </tr>
                                 @endforeach

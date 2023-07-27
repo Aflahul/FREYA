@@ -224,4 +224,10 @@ class OrderController extends Controller
 
         return redirect('/order')->with('success', 'Data order berhasil diperbarui.');
     }
+    public function destroy($id_order)
+    {
+        $order=Order::find($id_order);
+        $order->delete();
+        return redirect('/order');
+    }
 }

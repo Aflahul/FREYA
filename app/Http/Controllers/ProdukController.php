@@ -12,12 +12,12 @@ class ProdukController extends Controller
     public function index()
     {
         $profil = Profil::first();
-        $produk = Produk::all();
+        $produks = Produk::all();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         return view('admin.produk.produk', [
             'title' => 'Produk & Layanan',
-            'produk' => $produk,
+            'produks' => $produks,
             'profil' => $profil,
             'tanggal' => $tanggal,
             'jam' => $jam
@@ -42,8 +42,6 @@ class ProdukController extends Controller
         $request->validate([ 
             'nama_layanan'=> 'required', 
             'desk'=> 'required', 
-            'desk2'=> 'required', 
-            'desk3'=> 'required', 
             'satuan'=> 'required', 
             'durasi'=> 'required', 
             'harga'=> 'required', 
@@ -69,7 +67,24 @@ class ProdukController extends Controller
 
     public function edit($id_layanan)
     {
-        $produk = Produk::where('id_layanan', $id_layanan)->first();
+        $produk = Produk::find( $id_layanan);
+        $profil = Profil::first();
+        $produks = Produk::all();
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
+
+        if (!$produk){
+            return redirect('/produk')->with('error', 'Data produk tidak ditemukan.');
+        }
+        return view('admin.produk.edit', [
+            'title' => 'Produk & Layanan',
+            'produks' => $produks,
+            'produk' => $produk,
+            'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam
+        ]);
+        
         return view('admin.produk.edit', [
             'title' => 'Produk & Layanan',
             'produk' => $produk
@@ -78,7 +93,6 @@ class ProdukController extends Controller
     public function update(Request $request, $id_layanan)
     {
         $produk = Produk::find($id_layanan);
-        $produk->kd_layanan = $request->input('kd_layanan');
         $produk->nama_layanan = $request->input('nama_layanan');
         $produk->desk = $request->input('desk');
         $produk->desk2 = $request->input('desk2');

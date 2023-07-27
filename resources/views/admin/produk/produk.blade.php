@@ -4,13 +4,14 @@
     <div class="p-4 mt-20 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
             <div class="p-4 drop-shadow-lg w-fit ">
                 <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
-                    <h2 class="font-medium pt-4 py-1">Tambah Layanan</h2>
+                    <h2 class="font-medium pt-4 py-1">Tambah Produk & Layanan</h2>
                     <form action="/storeProduk" method="POST">
                         @csrf
                         <div class="mb-3 border-t-2 pt-2">
                             <label for="nama_layanan" class="block">Nama Layanan:</label>
                             <input type="text" id="nama_layanan" name="nama_layanan"
-                                class="border rounded-md w-full px-2 py-0.5">
+                                class="border rounded-md w-full px-2 py-0.5"
+                                >
                         </div>
                         <div class="mb-3">
                             <label for="desk" class="block">Deskripsi:</label>
@@ -27,14 +28,14 @@
                         </div>
                         <div class="mb-3">
                             <label for="harga" class="block">harga:</label>
-                            <input type="number" id="harga" name="harga" class="border rounded-md w-full px-2 py-0.5">
+                            <input type="number" id="harga" name="harga" class="border rounded-md w-full px-2 py-0.5" min="1000" step="1000" >
                         </div>
                         <div class="mb-3">
                             <label for="durasi" class="block">Durasi:</label>
                             <input type="number" id="durasi" name="durasi" class="border rounded-md w-full px-2 py-0.5">
                         </div>
                         <div class="flex justify-end py-2">
-                            <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpannn</button>
+                            <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Tambahkan</button>
                             
                         </div>
                     </form>
@@ -56,7 +57,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($produk as $data)
+                        @foreach ($produks as $data)
                             <tr class=" object-center">
                                 <td class="px-2 py-1">
                                     <p class="font-bold text-sudah">{{ $data->nama_layanan }}</p>
@@ -84,7 +85,7 @@
                                         <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
                                             <i class="fa-solid fa-trash-can fa-xl"></i>
                                         </button>
-                                        <a href="/EditEditProduk/{{ $data->id_layanan }}">
+                                        <a href="/EditProduk/{{ $data->id_layanan }}">
                                             <i class="fa-solid fa-edit fa-xl"></i>
                                         </a>
                                     </td>
