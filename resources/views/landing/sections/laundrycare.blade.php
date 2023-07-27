@@ -13,7 +13,7 @@
                         <a href="#"
                             class="min-w-[18rem] max-w-[18rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 article-link"
                             data-title="{{ $data->judul }}" data-date="{{ $data->created_at }}"
-                            data-content="{{ htmlspecialchars_decode($data->Isi) }}">
+                            data-content="{{ html_entity_decode($data->Isi) }}">
                             <div id="gambar">
                                 @if ($data->foto)
                                     <img class=" min-w-[18rem] max-w-[18rem] rounded-t-lg max-h-32 min-h-32"
@@ -29,7 +29,7 @@
                                     {{ $data->judul }}</p>
                                 <p id="tanggal" class="mb-1 text-[9px] font-light font-italic ">
                                     {{ $data->created_at }}</p>
-                                <p id="Isi">{!! Str::limit(htmlspecialchars_decode($data->Isi), 150) !!}</p>
+                                <p id="Isi">{!! Str::limit(html_entity_decode($data->Isi), 150) !!}</p>
                             </div>
                         </a>
                     @endforeach
@@ -41,16 +41,17 @@
         </div>
     </div>
     <!-- Komponen Modal -->
-    <div id="modal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white p-8 rounded-lg shadow-lg max-w-[60rem] min-w-[50rem] max-h-[35rem] overflow-y-auto">
+    <div id="modal" class="fixed inset-0 z-10 flex justify-center items-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-[80rem] min-w-[50rem] max-h-[36rem] overflow-y-auto">
             <!-- Konten Modal -->
-            <p id="modalTitle" class="text-2xl font-semibold mb-4"></p>
+            
+            <p id="modalTitle" class="text-2xl font-semibold mb-4 "></p>
             <p id="modalDate" class="text-xs mb-2"></p>
-            <div id="modalImage" class="mb-4">
+            <div id="modalImage" class="mb-4 flex items-center justify-center">
                 <img src="" alt="Modal Image"
-                    class=" w-full overflow-y-hidden object-cover max-h-[15rem] rounded-lg">
+                    class=" max-w-[40] overflow-y-hidden object-top object-cover max-h-[20rem] rounded-lg">
             </div>
-            <p id="modalContent"></p>
+            <div id="modalContent"></div>
 
             <!-- Tombol Tutup -->
             <button id="modalClose" class="mt-4 py-2 px-4 bg-gray-800 text-white rounded-lg">Tutup</button>

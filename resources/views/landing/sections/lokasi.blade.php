@@ -5,7 +5,7 @@
             <p class=" font-medium   text-lg">Lokasi kami mudah dijangkau.
             <div class="flex place-content-start place-items-center h-full py-2 gap-5  ">
                 {{-- <img src="asset\img\freya\aaa.jpg" class="cover border" alt=""> --}}
-                <div id="map" class="w-screen z-10 h-96"></div>
+                <div id="map" class="w-screen z-0 h-96"></div>
             </div>
         </div>
         <script>
@@ -23,10 +23,4 @@
 </section>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
-
-
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    // Skrip JavaScript sebelumnya yang telah diberikan sebelumnya
-</script>

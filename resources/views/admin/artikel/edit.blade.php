@@ -15,7 +15,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="Isi" class="block">Isi Artikel</label>
-                        <textarea contenteditable="true" type="text" id="Isi" name="Isi_artikel" class="tinymce-editor border rounded-md w-full px-2 " >{{ $artikel->Isi }}</textarea>
+                        <textarea contenteditable="true" type="text" id="Isi" name="Isi_artikel" class="tinymce-editor border rounded-md w-full px-2 " >{{ html_entity_decode($artikel->Isi) }}</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="foto" class="block">Gambar</label>

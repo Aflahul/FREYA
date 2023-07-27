@@ -6,7 +6,7 @@
             <div class="mx-auto max-w-screen-xl">
                 <div class="flex flex-col justify-between md:flex-row gap-5  ">
                     <div class="flex flex-col justify-between md:flex-row gap-5 mb-1 md:mb-0 ">
-                        <a href="#" class="">
+                        <a href="#home" class="">
                             @if ($profil->logo)
                                 <img class="h-32" src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}"
                                     alt="logo">
@@ -31,7 +31,7 @@
                                     <span> 0811488396</span>
                                 </li>
                                 <li class="">
-                                    <a href="#" class="hover:underline ">
+                                    <a href="https://www.google.com/maps/place/Hidroponik+Bikaru+Farm/@-3.3747353,120.3137375,19.58z/data=!4m14!1m7!3m6!1s0x2d96a57f8fa5b39d:0x822ba9f8d81fd3e9!2sHidroponik+Bikaru+Farm!8m2!3d-3.3746462!4d120.3139374!16s%2Fg%2F11rsfc11ps!3m5!1s0x2d96a57f8fa5b39d:0x822ba9f8d81fd3e9!8m2!3d-3.3746462!4d120.3139374!16s%2Fg%2F11rsfc11ps?entry=ttu" class="hover:underline ">
                                         <i class="fa-solid fa-location-dot"></i>
                                         <span class=" break-words">{{ $profil->alamat }}</span>
                                     </a>
@@ -45,7 +45,7 @@
                             <ul class="">
                                 @foreach ($produk as $cards)
                                     <li class="">
-                                        <a href="#" class="hover:underline">{{ $cards->nama_layanan }}</a>
+                                        <a href="#paket" class="hover:underline">{{ $cards->nama_layanan }}</a>
                                     </li>
                                 @endforeach
                             </ul>

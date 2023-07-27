@@ -15,14 +15,7 @@ use App\Models\Produk;
 class LandingController extends Controller
 
 {
-    // public function index(){
-    //     $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
-    //     $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
-    //     return view('landing.landing',[
-    //        "title" => "Home"],
-    //      compact('tanggal', 'jam')); 
-
-    //     }
+    
     public function index($status = null)
     {
         // Mengambil pesan error dari session flash data (jika ada)
@@ -37,7 +30,6 @@ class LandingController extends Controller
         return view('landing.home', [
             'title' => 'Home',
             'artikel' => $artikel,
-
             'produk' => $produk,
             'profil' => $profil,
             'tanggal' => $tanggal,
