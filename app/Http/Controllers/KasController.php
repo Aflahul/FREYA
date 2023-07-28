@@ -15,14 +15,15 @@ class KasController extends Controller
         $profil = Profil::first();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
-        $filter = Session::get('filtered_data');
-        $arus = Arus::latest('id_arus')->paginate(20);
 
+        $arus = Session::get('filtered_data');
+        if (!$arus) {
+            $arus = Arus::latest('id_arus')->paginate(20);
+        }
         // dd($arus);
         return view('admin.transaksi.aruskas', [
             'title' => 'Arus Kas',
             'profil' => $profil,
-            'filter' => $filter,
             'tanggal' => $tanggal,
             'jam' => $jam,
             'arus' => $arus,
