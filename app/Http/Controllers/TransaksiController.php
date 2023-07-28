@@ -35,8 +35,17 @@ class TransaksiController extends Controller
             'jam' => $jam,
             'transaksi' => $transaksi,
         ]);
-       
-     
+    }
+
+    public function cetakPDF($id_order)
+    {
+        $transaksi = Order::with(['pelanggan', 'produk'])
+            ->where('id_order',$id_order)
+            ->first();
+
+        return view('admin.transaksi.laporan', [
+            'transaksi' => $transaksi,
+        ]);
     }
     public function filterData(Request $request)
     {
