@@ -86,7 +86,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data
+        // Validasi data    
         $request->validate([
             'id_pelanggan' => 'required',
             'id_layanan' => 'required',

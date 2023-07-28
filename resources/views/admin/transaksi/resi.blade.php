@@ -69,7 +69,7 @@
     </div>
     <div class="px-10 flex items-center">
         <div class="rounded-full text-left w-fit h-auto border bg-gray-100 pl-2 p-0.5">
-            <p>Kode Order: INV0001</p>
+            <p>Kode Order: {{ $transaksi->kd_order }}</p>
         </div>
         <div class="ml-5">
             <p class="text-base font-semibold text-slate-800">Siap Antar Jemput!!! | wa: 082296690898</p>
@@ -83,21 +83,21 @@
                 <p>No. HP</p>
             </div>
             <div class="col-span-4">
-                <p>: ...................................</p>
-                <p>: ...................................</p>
-                <p>: ...................................</p>
+                <p>: {{ $transaksi->namapel }}</p>
+                <p>: {{ $transaksi->alamat }}</p>
+                <p>: {{ $transaksi->kontak }}</p>
             </div>
         </div>
         <div class="grid grid-cols-5 gap-2 text-left">
             <div class="col-span-2">
                 <p>Tgl Masuk</p>
                 <p>Tgl Selesai</p>
-                <p>Pembayaran</p>
+                {{-- <p>Pembayaran</p> --}}
             </div>
             <div class="col-span-3">
-                <p>: <span>23 / 07 / 2023</span></p>
-                <p>: <span>27 / 07 / 2023</span></p>
-                <p>: <span>Tunai / Transfer</span></p>
+                <p>: <span>{{ $transaksi->created_at }}</span></p>
+                <p>: <span>{{ $transaksi->updated_at }}</span></p>
+                {{-- <p>: <span>Tunai / Transfer</span></p> --}}
             </div>
         </div>
     </div>
@@ -130,21 +130,22 @@
                     <tr class="bg-white border-b ">
                         <th scope="row"
                             class="px-4 py-4 font-medium border-b-white text-gray-900 whitespace-nowrap ">
+                            1
                         </th>
                         <td class="px-6 py-4">
-
+                            {{ $transaksi->nama_layanan }}
                         </td>
                         <td class="px-6 py-4">
-
+                            {{ $transaksi->qty }}
                         </td>
                         <td class="px-6 py-4">
-
+                            {{ $transaksi->satuan }}
                         </td>
                         <td class="px-6 py-4">
-
+                            {{ $transaksi->harga }}
                         </td>
                         <td class="px-6 py-4">
-
+                            {{ $transaksi->total }}
                         </td>
                     </tr>
 
@@ -171,17 +172,13 @@
         </div>
         <div class="col-span-2 grid grid-cols-2">
             <div class="text-sm font-medium">
-                <p class="pl-5">Total (Rp):</p>
                 <div class="bg-amber-400 w-full h-8 flex items-center pl-5 mt-2">
-                    <p class="text-base font-bold">Bayar </p>
+                    <p class="text-base font-bold">TOTAL </p>
                 </div>
-                <p> (Emm berarti ada form input untuk masukkan pembayaran)
-                </p>
             </div>
             <div class="text-sm font-medium">
-                <p>-</p>
                 <div class="bg-amber-400 w-full h-8 items-center mt-2">
-                    <p class="text-base font-bold">-</p>
+                    <p class="text-base font-bold"> Rp. <span>{{ $transaksi->total }}</span></p>
                 </div>
             </div>
         </div>

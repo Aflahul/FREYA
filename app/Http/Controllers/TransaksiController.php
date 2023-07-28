@@ -56,16 +56,10 @@ class TransaksiController extends Controller
     public function cetak ($id_order)
     {
 
-        // $transaksi = Order::with(['pelanggan', 'produk'])
-        //     ->where('id_order',$id_order)
-        //     ->get();
-
-        // $penguji1 = Proposal::where('tb_proposal.id', $id)
-        // ->join('tb_nilai', 'tb_nilai.id_user', '=', 'tb_proposal.penguji1')
-
         $transaksi = Order::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_order.id_pelanggan')
+            ->join('tb_layanan', 'tb_layanan.id_layanan', '=', 'tb_order.id_layanan')
             ->where('id_order',$id_order)
-            ->get();
+            ->first();
             
         // dd($transaksi);
 
