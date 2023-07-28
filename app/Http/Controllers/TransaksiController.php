@@ -37,16 +37,7 @@ class TransaksiController extends Controller
         ]);
     }
 
-    public function cetakPDF($id_order)
-    {
-        $transaksi = Order::with(['pelanggan', 'produk'])
-            ->where('id_order',$id_order)
-            ->first();
 
-        return view('admin.transaksi.laporan', [
-            'transaksi' => $transaksi,
-        ]);
-    }
     public function filterData(Request $request)
     {
         $tgl_awal = $request->input('tgl_awal');
@@ -61,8 +52,25 @@ class TransaksiController extends Controller
         // Redirect ke halaman tujuan (laporan)
         return redirect('/laporan');
     }
-    public function cetak ()
+
+    public function cetak ($id_order)
     {
-        return view('admin.transaksi.resi');
+
+        // $transaksi = Order::with(['pelanggan', 'produk'])
+        //     ->where('id_order',$id_order)
+        //     ->get();
+
+        // $penguji1 = Proposal::where('tb_proposal.id', $id)
+        // ->join('tb_nilai', 'tb_nilai.id_user', '=', 'tb_proposal.penguji1')
+
+        $transaksi = Order::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_order.id_pelanggan')
+            ->where('id_order',$id_order)
+            ->get();
+            
+        // dd($transaksi);
+
+        return view('admin.transaksi.resi', [
+            'transaksi' => $transaksi,
+        ]);
     }
 }

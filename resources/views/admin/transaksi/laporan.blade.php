@@ -43,7 +43,7 @@
                                     <p class="font-bold text-base">Rp. {{ $item->total }}</p>
                                 </td>
                                 <td class="text-belum text-center">
-                                    <a href="/cetakINV">
+                                    <a href="/cetakINV/{{ $item->id_order }}">
                                         <i class="fa-solid fa-print fa-lg"></i>
                                     </a>
                                 </td>
