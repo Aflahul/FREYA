@@ -20,6 +20,7 @@ class TransaksiController extends Controller
         $transaksi = Order::with(['pelanggan', 'produk'])
             ->where('status', '=', 'Selesai')
             ->where('status_pembayaran', '=', 'Sudah Dibayar')
+            // ->get();
             ->paginate(10);
 
             // dd($transaksi);
@@ -31,7 +32,16 @@ class TransaksiController extends Controller
             'jam' => $jam,
             'transaksi' => $transaksi,
         ]);
-       
-     
+    }
+
+    public function cetakPDF($id_order)
+    {
+        $transaksi = Order::with(['pelanggan', 'produk'])
+            ->where('id_order',$id_order)
+            ->first();
+
+        return view('admin.transaksi.laporan', [
+            'transaksi' => $transaksi,
+        ]);
     }
 }
