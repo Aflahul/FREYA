@@ -34,13 +34,13 @@ class KasController extends Controller
         $tgl_akhir = $request->input('tgl_akhir');
 
         // Mengambil data sesuai dengan rentang tanggal
-        $data = Arus::whereBetween('updated_at', [$tgl_awal, $tgl_akhir])->latest('id_order')->paginate(20);
+        $data = Arus::whereBetween('updated_at', [$tgl_awal, $tgl_akhir])->latest('id_arus')->paginate(20);
 
         // Simpan data ke dalam session
         Session::put('filtered_data', $data);
 
         // Redirect ke halaman tujuan (laporan)
-        return redirect('/laporan');
+        return redirect('/kas');
     }
     public function cetak()
     {
