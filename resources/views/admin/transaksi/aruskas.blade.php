@@ -8,13 +8,20 @@
                 <h1 class="py-3">
                     Filter Tanggal
                 </h1>
-                <form action="/filterKas" method="get" class="mb-4">
-                <input type="date" name="tgl_awal" id="tgl_awal" class="border rounded px-2 py-1">
-                <label for="">To:</label>
-                <input type="date" name="tgl_akhir" id="tgl_akhir" class="border rounded px-2 py-1">
-                <button type="submit"
-                    class="bg-kuning hover:bg-sudah text-black hover:text-white ml-2 px-4 py-1.5 rounded">Filter</button>
-            </form>
+                <div class=" mb-3 w-full flex gap=5 items-center justify-between   ">
+                    <div class="flex ">
+                        <form action="/filterKas" method="get" class="">
+                            <input type="date" name="tgl_awal" id="tgl_awal" class="border rounded px-2 py-1">
+                            <label for="">To:</label>
+                            <input type="date" name="tgl_akhir" id="tgl_akhir" class="border rounded px-2 py-1">
+                            <button type="submit"
+                                class="bg-kuning hover:bg-sudah text-black hover:text-white ml-2 px-4 py-1.5 rounded">Filter</button>
+                        </form>
+                    </div>
+                    <div class="text-belum">
+                        <i class="fa-solid fa-print fa-xl"></i>
+                    </div>
+                </div>
             </div>
             <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left">
