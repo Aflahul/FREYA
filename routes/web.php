@@ -53,7 +53,7 @@ Route::post('/sudahdibayar/{id_order}',[OrderController::class, 'markAsSudahDiba
 //Halaman Transaksi
 Route::get('/laporan', [TransaksiController::class, 'index']);
 Route::get('/filterINV', [TransaksiController::class, 'filterData']);
-Route::get('/cetakINV', [TransaksiController::class, 'cetak']);
+Route::get('/cetakINV/{id_order}', [TransaksiController::class, 'cetak']);
 
 //Halaman Arus Kas
 Route::get('/kas', [KasController::class, 'index']);
