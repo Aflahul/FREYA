@@ -16,11 +16,7 @@ class KasController extends Controller
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
 
-
-        // Mengambil data dari sesi jika ada
         $arus = Session::get('filtered_data');
-
-        // Jika data sesi tidak ada, ambil data dari database
         if (!$arus) {
             $arus = Arus::latest('id_arus')->paginate(20);
         }
@@ -28,7 +24,6 @@ class KasController extends Controller
         return view('admin.transaksi.aruskas', [
             'title' => 'Arus Kas',
             'profil' => $profil,
-            
             'tanggal' => $tanggal,
             'jam' => $jam,
             'arus' => $arus,
