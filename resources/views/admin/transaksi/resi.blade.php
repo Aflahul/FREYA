@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="style.css" />
+    
     <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
     <link href="https://unpkg.com/intro.js/themes/introjs-modern.css" rel="stylesheet">
     <link
@@ -49,7 +50,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="pl-10">
         <p class="font-bold text-xl text-gray-950">
@@ -59,7 +59,7 @@
     </div>
     <div class="my-4">
         <div class="w-full flex items-center h-7 bg-amber-400 justify-end">
-            <p class="text-gray-800 bg-white px-5 text-right mr-14 font-semibold text-2xl ">KODE RESI : 0000</p>
+            <p class="text-gray-800 bg-white px-5 text-right mr-14 font-semibold text-2xl ">KODE RESI : NT00<span>{{ $transaksi->id_order }}</span></p>
         </div>
     </div>
 
@@ -189,6 +189,10 @@
             <p class="text-xl font-bold text-gray-800">"Terima kasih atas kepercayaan anda"</p>
         </div>
     </div>
+
+    <script>
+        window.print();
+    </script>
 </body>
 
 </html>
