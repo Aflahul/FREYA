@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-8 mt-20 sm:ml-72">
+    <div class="p-8 mt-10 sm:ml-72">
         <form action="{{ route('UpdateProfil.update', $profil->id_laundry) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')

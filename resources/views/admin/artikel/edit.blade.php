@@ -2,7 +2,7 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-4 mt-20 sm:ml-72 flex flex-col sm:flex-row place-content-between">
+    <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between">
         <div class="p-4 drop-shadow-lg w-screen">
             <div class="bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-4 py-1">Edit Artikel</h2>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <!--Artikel-->
-        <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
+        {{-- <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
             <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left ">
                     <thead>
@@ -78,7 +78,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 

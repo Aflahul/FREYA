@@ -12,7 +12,7 @@ class Arus extends Model
     protected $table = 'tb_arus';
 
     // Jika ada kolom created_at dan updated_at dalam tabel
-    public $timestamps = false;
+    // public $timestamps = false;
 
     protected $fillable = ['kode', 'nama', 'arus', 'total','saldo'];
 }

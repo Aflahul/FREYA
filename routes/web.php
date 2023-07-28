@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PesanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ArtikelController;
@@ -24,6 +23,7 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/forgot-password', [LoginController::class, 'lupapw'])->name('password.request');
+
 //-----------Admin---------------------------------------------------------------------------------------------------------------
 //Halaman Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index']);
@@ -45,30 +45,20 @@ Route::delete('/deletePengeluaran/{id_pengeluaran}', [PengeluaranController::cla
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/createOrder', [OrderController::class, 'create']);
 Route::post('/storeOrder', [OrderController::class, 'store'])->name('storeOrder');
-// Route::get('/EditOrder/{id_order}', [OrderController::class, 'edit']);
 Route::delete('/deleteOrder/{id_order}', [OrderController::class, 'destroy']);
 Route::get('/EditOrder/{id_order}', [OrderController::class, 'edit']);
 Route::put('/UpdateOrder/{id_order}', [OrderController::class, 'update'])->name('UpdateOrder.update');
-// Route::post('/selesai/{id_order}', 'OrderController@markAsSelesai')->name('updateStatus');
 Route::post('/selesai/{id_order}',[OrderController::class, 'markAsSelesai']);
 Route::post('/sudahdibayar/{id_order}',[OrderController::class, 'markAsSudahDibayar']);
-
-
-// Route::get('/orderSelesai/{id_order}', [OrderController::class, 'selesai']);
 //Halaman Transaksi
 Route::get('/laporan', [TransaksiController::class, 'index']);
-Route::get('/createTransaksi', [TransaksiController::class, 'create']);
-Route::post('/storeTransaksi', [TransaksiController::class, 'store']);
-Route::get('/EditTransaksi/{id_transaksi}', [TransaksiController::class, 'edit']);
-Route::put('/UpdateTransaksi/{id_transaksi}', [TransaksiController::class, 'update'])->name('UpdateTransaksi.update');
-Route::delete('/deleteTransaksi/{id_transaksi}', [TransaksiController::class, 'destroy']);
+Route::get('/filterINV', [TransaksiController::class, 'filterData']);
+Route::get('/cetakINV', [TransaksiController::class, 'cetak']);
+
 //Halaman Arus Kas
 Route::get('/kas', [KasController::class, 'index']);
-Route::get('/createKas', [KasController::class, 'create']);
-Route::post('/storeKas', [KasController::class, 'store']);
-Route::get('/EditKas/{id_arus}', [KasController::class, 'edit']);
-Route::put('/UpdateKas/{id_arus}', [KasController::class, 'update'])->name('UpdateKas.update');
-Route::delete('/deleteKas/{id_arus}', [KasController::class, 'destroy']);
+Route::get('/filterKas', [KasController::class, 'filterData']);
+Route::get('/cetakKas', [KasController::class, 'cetak']);
 //Halaman profil laundry
 Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/EditProfil/{id_profil}', [ProfilController::class, 'edit']);
@@ -80,13 +70,6 @@ Route::post('/storeProduk', [ProdukController::class, 'store']);
 Route::get('/EditProduk/{id_layanan}', [ProdukController::class, 'edit']);
 Route::put('/UpdateProduk/{id_layanan}', [ProdukController::class, 'update'])->name('UpdateProduk.update');
 Route::delete('/deleteProduk/{id_layanan}', [ProdukController::class, 'destroy']);
-//Halaman Pesan
-// Route::get('/pesan', [PesanController::class, 'index']);
-// Route::get('/createPesan', [PesanController::class, 'create']);
-// Route::post('/StorePesan', [PesanController::class, 'store']);
-// Route::get('/EditPesan/{id_pesan}', [PesanController::class, 'edit']);
-// Route::put('/UpdatePesan/{id_pesan}', [PesanController::class, 'update'])->name('UpdatePesan.update');
-// Route::delete('/deletePesan/{id_pesan}', [PesanController::class, 'destroy']);
 //Halaman Artikel
 Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/createArtikel', [ArtikelController::class, 'create']);
