@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-4 mt-20 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
+    <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
         <div class="p-4 drop-shadow-lg w-fit ">
             <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-4 py-1">Edit Produk & Layanan</h2>
@@ -31,7 +31,7 @@
                     <div class="mb-3">
                         <label for="harga" class="block">harga:</label>
                         <input type="number" id="harga" name="harga" class="border rounded-md w-full px-2 py-0.5"
-                            value="{{ old('harga', $produk->harga) }}" min="1000" step="1000" >
+                            value="{{ old('harga', $produk->harga) }}" min="1000" step="1000">
                     </div>
                     <div class="mb-3">
                         <label for="durasi" class="block">Durasi:</label>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="flex justify-end py-2">
                         <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpan</button>
-
+                        <a href="/produk" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a>
                     </div>
                 </form>
             </div>

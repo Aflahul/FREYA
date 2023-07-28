@@ -1,13 +1,18 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-4 mt-20 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
+    <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
         <div class="p-4 drop-shadow-lg w-fit ">
             <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-5 py-2">Tambah Pengeluaran</h2>
                 <form action="{{ route('UpdatePengeluaran.update', $pengeluaran->id_pengeluaran) }}" method="POST">
                     @csrf
                     @method('PUT')
+                    <div class="mb-4">
+                        <label for="desk" class="block">Kode Pengeluaran</label>
+                        <p class="text-sudah border rounded-md bg-gray-100 font-bold text-xl py-1 px-2">
+                            {{ old('desk', $pengeluaran->kd_pengeluaran) }}</p>
+                    </div>
                     <div class="mb-4">
                         <label for="pengeluaran" class="block">pengeluaran:</label>
                         <select id="pengeluaran" name="pengeluaran" class="border w-full rounded-md px-2 py-1">
@@ -43,8 +48,8 @@
                         <input type="number" id="jumlah" name="jumlah" class="border w-full rounded-md px-2 py-1"
                             value="{{ old('jumlah', $pengeluaran->jumlah) }}">
                     </div>
-                    <div class="flex justify-start py-2">
-                        <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpannn</button>
+                    <div class="py-2 flex justify-start ">
+                        <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Simpan</button>
                         <a href="/pengeluaran" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a>
                     </div>
                 </form>
@@ -69,30 +74,30 @@
                     <tbody>
                         @foreach ($pengeluarans as $data)
                             <tr>
-                                <td class="p-2 w-24 text-lg font-bold disabled: ">
+                                <td class=" w-24 text-lg font-bold disabled: ">
                                     <p class="text-sudah">{{ $data->kd_pengeluaran }}</p>
                                 </td>
-                                <td class="p-2 text-left ">
+                                <td class=" text-left ">
                                     <p class="font-base text-base">{{ $data->pengeluaran }}</p>
                                 </td>
-                                <td class="p-2 text-left  ">
+                                <td class=" text-left  ">
                                     <p class="">{{ \Illuminate\Support\Str::limit($data->desk, 15) }}</p>
                                 </td>
-                                <td class="p-2 text-left  ">
+                                <td class=" text-left  ">
                                     @if ($operator !== '')
                                         <p>{{ $operator }}</p>
                                     @else
                                         <p>Operator tidak tersedia</p>
                                     @endif
                                 </td>
-                                <td class="p-2 text-left ">
+                                <td class=" text-left ">
                                     <p class="font-base text-base">{{ $data->waktu }}</p>
                                 </td>
-                                <td class="p-2 text-left ">
+                                <td class=" text-left ">
                                     <p class="font-base text-base">Rp. {{ $data->jumlah }}</p>
                                 </td>
                                 <form action="/deletePengeluaran/{{ $data->id_pengeluaran }}" method="post">
-                                    <td class="py-2 text-center text-belum flex gap-2 ">
+                                    <td class=" text-center text-belum flex gap-2 ">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
