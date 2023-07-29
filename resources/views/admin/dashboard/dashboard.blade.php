@@ -6,7 +6,8 @@
             <span class="py-1 rounded justify-end text-xs"><i>{{ $tanggal }}</i></span>
             <!-- Di dalam template Blade Laravel -->
             @if (session('success'))
-                <div class="border hover:bg-sudah hover:text-white   border-sudah p-1 w-fit my-1 text-sudah rounded px-5 py-2">
+                <div
+                    class="border hover:bg-sudah hover:text-white   border-sudah p-1 w-fit my-1 text-sudah rounded px-5 py-2">
                     {{ session('success') }} <b><i>{{ auth()->user()->username }}</i></b>
                 </div>
             @endif
@@ -71,8 +72,10 @@
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-2xl font-bold tracking-tight pt-1">1</h5>
-                                <p class="font-normal">Income</p>
+                                <h5 class="text-2xl font-bold tracking-tight pt-1">??
+
+                                </h5>
+                                <p class="font-normal">Profit</p>
                             </div>
                         </div>
                     </div>
@@ -81,32 +84,32 @@
                 <div class="drop-shadow overflow-x-auto mb-3">
                     <div class="bg-tabel  rounded-[8px]">
                         <table class="w-full text-sm text-left">
-                            <thead class=" border-b-2 rounded-t-[8px] ">
-                                <div
-                                    class="px-4 pt-2 pb-1 flex justify-between items-center bg-white border-t-4 border-sudah rounded-t-[8px]">
-                                    <h1 class="font-bold ">Data Order terbaru</h1>
+                            <thead>
+                                 <div
+                                    class="px-4 pt-2 pb-1 shadow uppercase text-center items-center bg-white border-t-4 border-sudah rounded-t-[8px]">
+                                    <p class="font-bold text-center">Sedang Proses</p>
                                 </div>
-                                <tr class="border-b-2">
-                                    <th scope="col" class="pb-2 px-2">Pelanggan</th>
-                                    <th scope="col" class="pb-2 px-2">Jenis Laundry</th>
-                                    <th scope="col" class="pb-2 px-2">Waktu Masuk</th>
-                                    <th scope="col" class="pb-2 px-2">Durasi</th>
+                                <tr class="pt-1 rounded-t-[8px]">
+                                    <th scope="col" class="pt-2 px-2">Pelanggan</th>
+                                    <th scope="col" class="pt-2 text-center px-2">Jenis Laundry</th>
+                                    <th scope="col" class="pt-2 text-center px-2">Masuk</th>
+                                    <th scope="col" class="pt-2 text-right px-2">Estimasi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($proses->sortByDesc('created_at')->take(5) as $item)
+                                @foreach ($order as $item)
                                     <tr>
                                         <td class="px-2 text-left ">
                                             <p class="font-base text-base">{{ $item->pelanggan->namapel }}</p>
                                         </td>
-                                        <td class="px-2 text-left bg-selesai">
+                                        <td class="px-2 text-center ">
                                             <p class="">{{ $item->produk->nama_layanan }}</p>
                                         </td>
-                                        <td class="px-2 text-left ">
-                                            <p class="font-base text-base">{{ $item->created_at }}</p>
+                                        <td class="px-2 text-center ">
+                                            <p class="font-base text-base">{{ $item->created_at->format('d/m/Y') }}</p>
                                         </td>
-                                        <td class="px-2 text-left bg-selesai">
-                                            <p class=""><span>{{ $item->durasi }}</span> Hari</p>
+                                        <td class="px-2 text-right ">
+                                            <p class="">{{ $item->estimasi_selesai->format('d/m/Y') }}</p>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -114,52 +117,60 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="4"
-                                        class="hover:bg-kuning text-center text-garis drop-shadow-lg  font-medium rounded-b-[8px] text-sm px-2 py-1">
+                                        class="hover:bg-kuning text-center text-garis drop-shadow-lg font-medium rounded-b-[8px] text-sm px-2 py-1">
                                         <a href="/laporan" class="" type="button">Lihat Semua</a>
                                     </td>
                                 </tr>
                             </tfoot>
                         </table>
+
                     </div>
                 </div>
                 <div class="drop-shadow overflow-x-auto">
                     <div class="bg-tabel  rounded-[8px]">
                         <table class="w-full text-sm text-left">
-                            <thead class=" border-b-2 rounded-t-[8px] ">
+                            <thead >
                                 <div
-                                    class="px-4 pt-2 pb-1 flex justify-between items-center bg-white border-t-4 border-sudah rounded-t-[8px]">
-                                    <h1 class="font-bold ">Arus Kas terakhir</h1>
+                                    class="px-4 pt-2 pb-1 shadow uppercase text-center items-center bg-white border-t-4 border-sudah rounded-t-[8px]">
+                                    <p class="font-bold text-center">Arus Kas terakhir</p>
                                 </div>
-                                <tr class=" ">
-                                    <th scope="col" class="px-6 py-2">
-                                        Tanggal
+                                <tr class="pt-1 rounded-t-[8px]">
+                                    <th scope="col" class="px-2 pt-2">
+                                        Kode
                                     </th>
-                                    <th scope="col" class="px-6 py-2 text-center">
-                                        Jenis Transaksi
+                                    <th scope="col" class="px-2 pt-2 text-center">
+                                        Aktivitas
                                     </th>
-                                    <th scope="col" class="px-6 py-2 text-right">
+                                    <th scope="col" class="px-2 pt-2 text-center">
                                         Total
+                                    </th>
+                                    <th scope="col" class="px-2 pt-2 text-right">
+                                        Laba/Rugi
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-latar">
-                                        12/02/2023
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        Pengeluaran Listrik
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        Rp. 00000
-                                    </td>
-                                </tr>
+                                @foreach ($arus as $item)
+                                    <tr>
+                                        <td class="px-2 w-40 text-md font-bold uppercase">
+                                            <p class="text-sudah">{{ $item->kode }}</p>
+                                        </td>
+                                        <td class="px-2 text-center  ">
+                                            <p class="">{{ $item->arus }}</p>
+                                        </td>
+                                        <td class="px-2 text-center ">
+                                            <p class="">Rp. {{ number_format($item->total, 0, ',', '.') }}</p>
+                                        </td>
+                                        <td class="px-2 py-1 text-right ">
+                                            <p class="">Rp. {{ number_format($item->saldo, 0, ',', '.') }}</p>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="3"
+                                    <td colspan="4"
                                         class="hover:bg-kuning text-center text-garis drop-shadow-lg  font-medium rounded-b-[8px] text-sm px-2 py-1">
                                         <a href="/laporan" class="" type="button">Lihat Semua</a>
                                     </td>

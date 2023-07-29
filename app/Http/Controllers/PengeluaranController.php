@@ -45,7 +45,7 @@ class PengeluaranController extends Controller
             'pengeluaran' => 'required',
             'desk' => 'required',
             'jumlah' => 'required',
-            'waktu' => 'required',
+            
         ]);
 
         // Generate kode pengeluaran
@@ -63,7 +63,7 @@ class PengeluaranController extends Controller
         $data->pengeluaran = $request->pengeluaran;
         $data->desk = $request->desk;
         $data->jumlah = $request->jumlah;
-        $data->waktu = $request->waktu;
+        
         $data->save();
 
         return redirect('/pengeluaran');
@@ -100,8 +100,7 @@ class PengeluaranController extends Controller
         $request->validate([
             'pengeluaran' => 'required',
             'desk' => 'required',
-            'jumlah' => 'required',
-            'waktu' => 'required'
+            'jumlah' => 'required'
         ]);
 
         $pengeluaran = Pengeluaran::find($id_pengeluaran);
@@ -114,7 +113,6 @@ class PengeluaranController extends Controller
         $pengeluaran->pengeluaran = $request->pengeluaran;
         $pengeluaran->desk = $request->desk;
         $pengeluaran->jumlah = $request->jumlah;
-        $pengeluaran->waktu = $request->waktu;
 
         $pengeluaran->save();
 

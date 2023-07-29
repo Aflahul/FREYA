@@ -13,7 +13,7 @@
 
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
 
-    
+
 </head>
 
 <body class="h-fit">
@@ -34,18 +34,33 @@
                     {{-- <p class="text-left bg-black rounded-md px-2 py-5font-bold text-4xl text-white">Logo</p> --}}
                 </div>
                 <div class="flex gap-3 ">
-                    <div>
-                        <p class="font-lg">Periode</p>
-                        <p class="font-lg">Total Pendapatan</p>
+                    @php
+                        $tgl_awal = \Carbon\Carbon::parse(session('tgl_awal'))->isoFormat('DD/MM/YYYY');
+                        $tgl_akhir = \Carbon\Carbon::parse(session('tgl_akhir'))->isoFormat('DD/MM/YYYY');
+                    @endphp
+                    <table>
+                        <tbody>
+                            <tr class="">
+                                <td>
+                                    <p class="font-lg">Periode Tanggal</p>
+                                </td>
+                                <td>
+                                    <p class="font-lg text-right font-medium">: {{ $tgl_awal }}-{{ $tgl_akhir }}</p>
+                                </td>
 
-                    </div>
-                    <div class="col-span-4">
-                        @php
-                            $totalPendapatan = 0; // Tambahkan variabel untuk menyimpan total pendapatan
-                        @endphp
-                        <p class="font-lg">: 12/12/1221 sampai 12/12/1212</p>
-                        <p class="font-lg">: <b><u>Rp. {{ $totalPendapatan }}</u></b></p>
-                    </div>
+                            </tr>
+                    
+                            <tr class="">
+                                <td>
+                                    <p class="font-lg">Total Pendapatan </p>
+                                </td>
+                                <td>
+                                    <p class="font-lg">: <b><u>Rp.{{ number_format($totalPendapatan, 0, ',', '.') }}</u></b>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="my-5 px-10">
@@ -82,18 +97,16 @@
                                         {{ $item->nama_layanan }}
                                     </td>
                                     <td class="flex justify-between w-24 px-4 py-1">
-                                        <p>Rp.</p><p>{{ $item->harga }}</p>
+                                        <p>Rp.</p>
+                                        <p>{{ number_format($item->harga, 0, ',', '.') }}</p>
                                     </td>
                                     <td class="px-4 py-1">
                                         {{ $item->total_order }} {{ $item->satuan }}
                                     </td>
                                     <td class="pr-8 py-1 text-right" id="total harga">
-                                        Rp. {{ $item->harga * $item->total_order }}
+                                        Rp. {{ number_format($item->harga * $item->total_order, 0, ',', '.') }}
                                     </td>
                                 </tr>
-                                @php
-                                    $totalPendapatan += $item->harga * $item->total_order; // Menambahkan total harga ke total pendapatan
-                                @endphp
                             @endforeach
                         <tfoot class="">
                             <tr class="bg-gray-100 ">
@@ -101,7 +114,7 @@
                                     <b>Total Pendapatan :</b>
                                 </td>
                                 <td class="py-2 text-right pr-8 rounded-br-md">
-                                    <b> Rp. {{ $totalPendapatan }}</b>
+                                    <b> Rp. {{ number_format($totalPendapatan, 0, ',', '.') }}</b>
                                 </td>
                             </tr>
                         </tfoot>

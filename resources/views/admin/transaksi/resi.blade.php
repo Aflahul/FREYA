@@ -57,8 +57,8 @@
                 {{-- <p>Pembayaran</p> --}}
             </div>
             <div class="col-span-3">
-                <p>: <span>{{ $transaksi->created_at }}</span></p>
-                <p>: <span>{{ $transaksi->updated_at }}</span></p>
+                <p>: <span>{{ $transaksi->created_at->format('d/m/Y') }}</span></p>
+                <p>: <span>{{ $transaksi->updated_at->format('d/m/Y') }}</span></p>
                 {{-- <p>: <span>Tunai / Transfer</span></p> --}}
             </div>
         </div>
@@ -97,7 +97,7 @@
                             {{ $transaksi->qty }} {{ $transaksi->produk->satuan }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $transaksi->produk->harga }}/{{ $transaksi->produk->satuan }}
+                            Rp. {{ number_format($transaksi->produk->harga,0, ',', '.') }}/{{ $transaksi->produk->satuan }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $transaksi->total }}
@@ -132,7 +132,7 @@
             </div>
             <div class="text-sm font-medium">
                 <div class="bg-amber-400 w-full h-8 items-center mt-2">
-                    <p class="text-base font-bold"> Rp. <span>{{ $transaksi->total }}</span></p>
+                    <p class="text-base font-bold"> Rp. <span>{{ number_format($transaksi->total,0, ',', '.') }}</span></p>
                 </div>
             </div>
         </div>

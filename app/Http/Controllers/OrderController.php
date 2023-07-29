@@ -17,32 +17,59 @@ class OrderController extends Controller
 
     public function markAsSelesai($id_order)
     {
+        // Cari order berdasarkan ID
         $order = Order::find($id_order);
 
         if (!$order) {
-            return redirect('/order')->with('error', 'Data order tidak ditemukan.');
+            // Handle jika order tidak ditemukan
+            // Contoh: Redirect dengan pesan error
+            return redirect('/order')->with('error', 'Order tidak ditemukan');
         }
 
-        $order->status = 'Selesai';
-        $order->save();
+        // Pastikan status sedang cuci
+        if ($order->status === 'Sedang Cuci') {
+            // Ubah status  menjadi sudah cuci
+            $order->status = 'Selesai Dicuci';
+            $order->save();
 
-        return redirect('/order')->with('success', 'Order berhasil diubah menjadi "Selesai".');
+            // Redirect dengan pesan sukses
+            return redirect('/order')->with('success', 'Status berhasil diubah');
+        }
+
+        // Jika status pembayaran adalah "Sudah Bayar", tambahkan qty ke total_orderan pada model Produk
+
+        // Redirect jika status sudah selesai atau jika status bukan "Sudah Dicuci"
+        return redirect('/order')->with('error', 'Status sudah selesai atau status_pembayaran bukan "Sudah Bayar"');
     }
+
+
+   
+
 
     public function markAsSudahDibayar($id_order)
     {
+        // Cari order berdasarkan ID
         $order = Order::find($id_order);
 
         if (!$order) {
-            return redirect('/order')->with('error', 'Data order tidak ditemukan.');
+            // Handle jika order tidak ditemukan
+            // Contoh: Redirect dengan pesan error
+            return redirect('/order')->with('error', 'Order tidak ditemukan');
         }
 
-        $order->status_pembayaran = 'Sudah Dibayar';
-        $order->save();
+        // Pastikan status pembayaran belum dibayar
+        if ($order->status_pembayaran === 'Belum Dibayar') {
+            // Ubah status pembayaran menjadi sudah bayar
+            $order->status_pembayaran = 'Sudah Bayar';
+            $order->save();
 
-        return redirect('/order')->with('success', 'Status pembayaran berhasil diubah menjadi "Sudah Dibayar".');
+            // Redirect dengan pesan sukses
+            return redirect('/order')->with('success', 'Status pembayaran berhasil diubah');
+        }
+
+        // Redirect jika status pembayaran sudah bayar atau jika status bukan "Sudah Dicuci"
+        return redirect('/order')->with('error', 'Status pembayaran sudah bayar atau status bukan "Sudah Dicuci"');
     }
-
     // Fungsi lain di sini ...
 
 
@@ -52,17 +79,11 @@ class OrderController extends Controller
         $datapel = Pelanggan::all();
         $data_layanan = Produk::all();
 
-        // $order = Order::with(['pelanggan', 'produk'])->paginate(10);
-        // $order = Order::with(['pelanggan', 'produk'])
-        // ->where('status', '!=', 'Selesai')
-        // ->where('status_pembayaran', '!=', 'Sudah Dibayar')
-        // ->paginate(10);
-
         // Ambil data order dari database dan urutkan berdasarkan tanggal pembuatan (created_at) terbaru
         $order = Order::with(['pelanggan', 'produk'])
             ->where(function ($query) {
-                $query->where('status', '!=', 'Selesai')
-                    ->orWhere('status_pembayaran', '!=', 'Sudah Dibayar');
+                $query->where('status', '!=', 'Selesai Dicuci')
+                    ->orWhere('status_pembayaran', '!=', 'Sudah Bayar');
             })
             // ->orderBy('created_at', 'desc') // Tambahkan baris ini untuk mengurutkan berdasarkan tanggal pembuatan terbaru
             ->get();
@@ -114,7 +135,7 @@ class OrderController extends Controller
             $total = $harga * $qty;
 
             // Periksa status pembayaran
-            $statusPembayaran = $request->has('status_pembayaran') ? 'Sudah Dibayar' : 'Belum Dibayar';
+            $statusPembayaran = $request->has('status_pembayaran') ? 'Sudah Bayar' : 'Belum Dibayar';
 
             // Membuat order baru
             $order = new Order;
@@ -137,11 +158,6 @@ class OrderController extends Controller
             $total_order = Order::where('id_pelanggan', $request->id_pelanggan)->count();
             $pelanggan->total_order = $total_order;
             $pelanggan->save();
-
-            // // Mengupdate nilai kolom "total_order" di tabel "tb_layanan"
-            $layanan->total_order += $qty; // Menambahkan nilai qty ke total_order yang sudah ada
-            $layanan->save();
-
 
             return redirect('/order')->with('success', 'Data order berhasil ditambahkan.');
         } else {
@@ -172,11 +188,11 @@ class OrderController extends Controller
         $profil = Profil::first();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
-        $user = Auth::user();
+      
         $orders = Order::with(['pelanggan', 'produk'])
             ->where(function ($query) {
-                $query->where('status', '!=', 'Selesai')
-                    ->orWhere('status_pembayaran', '!=', 'Sudah Dibayar');
+                $query->where('status', '!=', 'Selesai Dicuci')
+                    ->orWhere('status_pembayaran', '!=', 'Sudah Bayar');
             })
             // ->orderBy('created_at', 'desc')
             ->get();
@@ -193,7 +209,6 @@ class OrderController extends Controller
             'jam' => $jam,
             'datapel' => $datapel,
             'data_layanan' => $data_layanan,
-            'operator' => $user ? $user->username : ''
         ]);
     }
 

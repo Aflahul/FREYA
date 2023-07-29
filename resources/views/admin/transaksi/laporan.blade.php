@@ -2,11 +2,16 @@
 
 @section('content')
     <div class="p-4 mt-10 sm:ml-72">
-        <div class="p-4 overflow-x-auto">
+        <div class="px-4 pt-2 overflow-x-auto">
             <div class="mb-5  ">
                 <h1 class="py-3">
                     Filter Tanggal
                 </h1>
+                @if ($errors->has('filtered_produk_data'))
+                            <div class="alert alert-danger bg-red-500 p-1 my-2 text-white rounded text-center">
+                                {{ $errors->first('filtered_produk_data') }}
+                            </div>
+                        @endif
                 <div class=" mb-3 w-full flex gap=5 items-center justify-between   ">
                     <div class="flex  items-center">
                         <form action="/filterINV" method="get">
@@ -37,10 +42,10 @@
                     <table class="w-full text-sm text-left ">
                         <thead>
                             <tr class="border-b-2  ">
-                                <th scope="col" class="px-2 py-5">Kode Invoice</th>
-                                <th scope="col" class="px-2 py-5">Pelanggan</th>
+                                <th scope="col" class="px-2 py-5">Kode</th>
+                                <th scope="col" class="px-2 py-5">Tanggal</th>
                                 <th scope="col" class="px-2 py-5">Layanan</th>
-                                <th scope="col" class="px-2 py-5">Waktu</th>
+                                <th scope="col" class="px-2 py-5">Pelanggan</th>
                                 <th scope="col" class="px-2 py-5">Total</th>
                                 <th scope="col" class="px-2 py-5 text-center">Aksi</th>
                             </tr>
@@ -51,17 +56,17 @@
                                     <td class="px-2 text-md font-bold uppercase">
                                         <p class="text-sudah">{{ $item->kd_order }}</p>
                                     </td>
+                                    <td class="px-2">
+                                        <p>{{ $item->created_at->format('d/m/Y') }}</p>
+                                    </td>
+                                    <td class="px-2 py-1  ">
+                                        <p class="">{{ $item->produk->nama_layanan }}</p>
+                                    </td>
                                     <td class="px-2 py-1  ">
                                         <p class="">{{ $item->pelanggan->namapel }}</p>
                                     </td>
-                                    <td class="px-2 py-1  ">
-                                        <p class="">{{ $item->nama_layanan }}</p>
-                                    </td>
                                     <td class="px-2">
-                                        <p>{{ $item->created_at }}</p>
-                                    </td>
-                                    <td class="px-2">
-                                        <p class="font-bold text-base">Rp. {{ $item->total }}</p>
+                                        <p class="font-bold text-base">Rp. {{number_format($item->total,0, ',', '.')  }}</p>
                                     </td>
                                     <td class="text-belum text-center">
                                         <a href="/cetakINV/{{ $item->id_order }}">

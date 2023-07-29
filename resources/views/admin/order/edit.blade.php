@@ -79,8 +79,7 @@
             </div>
         </div>
         <!--pelanggan-->
-        
-         <div class="p-4 drop-shadow-lg relative overflow-x-auto">
+          <div class="p-4 drop-shadow-lg relative overflow-x-auto">
             <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left">
                     <thead>
@@ -88,9 +87,9 @@
                             <th scope="col" class="pt-6 pb-2 px-2 w-24">Kode Order</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Pelanggan</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Jenis Laundry</th>
-                            <th scope="col" class="pt-6 pb-2 px-2">Waktu Masuk</th>
-                            <th scope="col" class="pt-6 pb-2 px-2">Durasi</th>
-                            <th scope="col" class="pt-6 pb-2 px-2">Qty</th>
+                            <th scope="col" class="pt-6 pb-2 px-2">Masuk</th>
+                            <th scope="col" class="pt-6 pb-2 px-2">Estimasi</th>
+                            <th scope="col" class="pt-6 pb-2 px-2 ">Qty</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Total Harga</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Status</th>
                             <th scope="col" class="pt-6 pb-2 px-2 text-center">Aksi</th>
@@ -109,26 +108,28 @@
                                     <p class="">{{ $item->produk->nama_layanan }}</p>
                                 </td>
                                 <td class="px-2 text-left ">
-                                    <p class="font-base text-base">{{ $item->created_at }}</p>
+                                    <p class="font-base text-base">{{ $item->created_at->format('d/m/Y') }}</p>
                                 </td>
                                 <td class="px-2 text-left bg-selesai">
-                                    <p class=""><span>{{ $item->durasi }}</span> Hari</p>
+                                    <p class="">
+                                        {{ \Carbon\Carbon::parse($item->created_at)->addDays($item->durasi)->format('d/m/Y') }}
+                                    </p>
                                 </td>
-                                <td class="px-2 text-left ">
+
+                                <td class="px-2 text-left w-fit">
                                     <p class="font-base text-base">
-                                        <span>{{ $item->qty }}</span>
-                                        <span>{{ $item->satuan }}</span>
+                                       {{ $item->qty }}/{{ $item->produk->satuan }}
                                     </p>
                                 </td>
                                 <td class="px-2 text-left ">
-                                    <p class="font-base text-base">Rp. <span>{{ $item->total }}</span></p>
+                                    <p class="font-base text-base">Rp. <span>{{number_format($item->total,0, ',', '.')  }}</span></p>
                                 </td>
-                                <td class="px-2 font-base text-white text-xs text-center flex gap-2 w-fit">
+                                <td class="px-2 mt-2 font-base text-white text-xs text-center flex gap-2 w-fit">
                                     @if ($item->status == 'Sedang Cuci')
-                                        <form action="/selesai/{{ $item->id_order }}"
-                                            method="POST">
+                                        <form action="/selesai/{{ $item->id_order }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="px-3 py-0.5 w-fit bg-w3 rounded-xl " onclick="return confirm('Yakin ingin ubah Status?')">
+                                            <button type="submit" class="px-3 py-0.5 w-fit bg-w3 rounded-xl"
+                                                onclick="return confirm('Yakin ingin ubah Status?')">
                                                 {{ $item->status }}
                                             </button>
                                         </form>
@@ -136,10 +137,10 @@
                                         <p class="px-3 py-0.5 w-fit bg-sudah rounded-xl">{{ $item->status }}</p>
                                     @endif
                                     @if ($item->status_pembayaran == 'Belum Dibayar')
-                                        <form action="/sudahdibayar/{{ $item->id_order }}"
-                                            method="POST">
+                                        <form action="/sudahdibayar/{{ $item->id_order }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="px-3 py-0.5 w-fit bg-w3 rounded-xl" onclick="return confirm('Yakin ingin ubah Status?')">
+                                            <button type="submit" class="px-3 py-0.5 w-fit bg-w3 rounded-xl"
+                                                onclick="return confirm('Yakin ingin ubah Status?')">
                                                 {{ $item->status_pembayaran }}
                                             </button>
                                         </form>
@@ -148,7 +149,7 @@
                                         </p>
                                     @endif
                                 </td>
-                                <form action="/deleteOrder/{{ $item->id_order }}" method="post" >
+                                <form action="/deleteOrder/{{ $item->id_order }}" method="post">
                                     <td class="py-2 text-left  text-belum w-fit">
                                         @csrf
                                         @method('delete')
@@ -157,6 +158,9 @@
                                         </button>
                                         <a href="/EditOrder/{{ $item->id_order }}">
                                             <i class="fa-solid fa-edit fa-xl"></i>
+                                        </a>
+                                        <a href="/cetakNT/{{ $item->id_order }}">
+                                            <i class="fa-solid fa-print fa-lg"></i>
                                         </a>
                                     </td>
                                 </form>

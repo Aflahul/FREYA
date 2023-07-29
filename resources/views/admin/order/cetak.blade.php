@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="flex gap-5 text-left justify-between px-10 my-8">
-        <div class="grid grid-cols-5 gap-2">
+        <div class="flex basis-2/4">
             <div>
                 <p class="px-1 p-1">Nama</p>
                 <p class="px-1 p-1">Alamat</p>
@@ -48,23 +48,23 @@
                 <p class="px-1 p-1">: {{ $transaksi->pelanggan->kontak }}</p>
             </div>
         </div>
-        <div class="grid grid-cols-5 gap-2 text-left">
+        <div class="flex basis-2/4 place-content-end">
             <div class="col-span-2">
                 <p class="px-1 p-1">Kode Order</p>
                 <p class="px-1 p-1">Tgl Masuk</p>
                 <p class="px-1 p-1">Estimasi Selesai</p>
                 {{-- <p>Pembayaran</p> --}}
             </div>
-            <div class="col-span-3">
+            <div class="col-span-3 ">
                 <p class="px-1 p-1">: {{ $transaksi->kd_order }}</p>
-                <p class="px-1 p-1">: <span>{{ $transaksi->created_at }}</span></p>
-                <p class="px-1 p-1">: <span>{{ $transaksi->estimasi_selesai }}</span></p>
+                <p class="px-1 p-1">: <span>{{ $transaksi->created_at->format('d/m/Y') }}</span></p>
+                <p class="px-1 p-1">: <span>{{ $transaksi->estimasi_selesai->format('d/m/Y') }}</span></p>
 
             </div>
         </div>
     </div>
     <div class="my-5 px-10">
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg border">
+        <div class=" shadow-md sm:rounded-lg border">
             <table class="w-full text-sm text-center text-gray-800 ">
                 <thead class="text-xs text-white uppercase bg-gray-700 ">
                     <tr>
@@ -100,7 +100,7 @@
                             {{ $transaksi->produk->harga }}/{{ $transaksi->produk->satuan }}
                         </td>
                         <td class="px-6 py-4">
-                            Rp. {{ $transaksi->total }}
+                            Rp. {{number_format($transaksi->total,0, ',', '.')  }}
                         </td>
                     </tr>
                 </tbody>
@@ -132,7 +132,7 @@
             </div>
             <div class="text-sm font-medium">
                 <div class="bg-amber-400 w-full h-8 items-center mt-2">
-                    <p class="text-base font-bold"> Rp. <span>{{ $transaksi->total }}</span></p>
+                    <p class="text-base font-bold"> Rp. <span>{{number_format($transaksi->total,0, ',', '.')  }}</span></p>
                 </div>
             </div>
         </div>

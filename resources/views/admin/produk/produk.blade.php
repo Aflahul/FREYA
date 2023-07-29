@@ -87,7 +87,7 @@
                                     <p class="font-light text-xs">{{ $data->durasi }} Hari</p>
                                 </td>
                                 <td class="pl-1 ">
-                                    <p class="font-light text-xs">Rp. {{ $data->harga }} /{{ $data->satuan }}</p>
+                                    <p class="font-light text-xs">Rp. {{number_format( $data->harga,0, ',', '.')  }} /{{ $data->satuan }}</p>
                                 </td>
                                 <td class="text-center">
                                     <p class="font-bold text-base">{{ $data->total_order }} {{ $data->satuan }}</p>

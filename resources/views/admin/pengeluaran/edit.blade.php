@@ -36,13 +36,7 @@
                         <input type="text" id="desk" name="desk" class="border w-full rounded-md px-2 py-1"
                             value="{{ old('desk', $pengeluaran->desk) }}">
                     </div>
-                    <div class="mb-4">
-                        <label for="waktu" class="block">waktu:</label>
-                        <input type="datetime-local" id="waktu" name="waktu"
-                            class="border w-full rounded-md px-2 py-1"
-                            value="{{ old('waktu', isset($pengeluaran) ? date('Y-m-d\TH:i', strtotime($pengeluaran->waktu)) : '') }}">
-                    </div>
-
+                
                     <div class="mb-4">
                         <label for="jumlah" class="block">jumlah:</label>
                         <input type="number" id="jumlah" name="jumlah" class="border w-full rounded-md px-2 py-1"
@@ -91,10 +85,10 @@
                                     @endif
                                 </td>
                                 <td class=" text-left ">
-                                    <p class="font-base text-base">{{ $data->waktu }}</p>
+                                    <p class="font-base text-base">{{ $data->created_ad }}</p>
                                 </td>
                                 <td class=" text-left ">
-                                    <p class="font-base text-base">Rp. {{ $data->jumlah }}</p>
+                                    <p class="font-base text-base">Rp.{{number_format($data->jumlah,0, ',', '.')  }} </p>
                                 </td>
                                 <form action="/deletePengeluaran/{{ $data->id_pengeluaran }}" method="post">
                                     <td class=" text-center text-belum flex gap-2 ">

@@ -21,6 +21,7 @@ class PengeluaranObserver
             'nama' => $pengeluaran->pengeluaran,
             'arus' => 'Keluar',
             'total' => $pengeluaran->jumlah,
+            'tgl' => $pengeluaran->created_at,
             'saldo' => $saldoBaru
         ]);
     }

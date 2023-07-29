@@ -13,7 +13,7 @@
 
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
 
-    
+
 </head>
 
 <body class="h-fit">
@@ -34,18 +34,35 @@
                     {{-- <p class="text-left bg-black rounded-md px-2 py-5font-bold text-4xl text-white">Logo</p> --}}
                 </div>
                 <div class="flex gap-3 ">
-                    <div>
-                        <p class="font-lg">Periode</p>
-                        <p class="font-lg">Total Laba/Rugi</p>
+                    @php
+                        $tgl_awalKAS = \Carbon\Carbon::parse(session('tgl_awalKAS'))->isoFormat('DD/MM/YYYY');
+                        $tgl_akhirKAS = \Carbon\Carbon::parse(session('tgl_akhirKAS'))->isoFormat('DD/MM/YYYY');
+                    @endphp
+                    <table>
+                        <tbody>
+                            <tr class="">
+                                <td>
+                                    <p class="font-lg">Periode Tanggal</p>
+                                </td>
+                                <td>
+                                    <p class="font-lg text-right">:
+                                        <b>{{ $tgl_awalKAS }}</b>-<b>{{ $tgl_akhirKAS }}</b>
+                                    </p>
+                                </td>
 
-                    </div>
-                    <div class="col-span-4">
-                        @php
-                            $totalPendapatan = 0; // Tambahkan variabel untuk menyimpan total pendapatan
-                        @endphp
-                        <p class="font-lg">: 12/12/1221 sampai 12/12/1212</p>
-                        <p class="font-lg">: <b><u>Rp. {{ $totalPendapatan }}</u></b></p>
-                    </div>
+                            </tr>
+
+                            <tr class="">
+                                <td>
+                                    <p class="font-lg">Total Laba/Rugi </p>
+                                </td>
+                                <td>
+                                    <p class="font-lg">: <b><u>Rp.{{ number_format($laba, 0, ',', '.') }}</u></b>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="my-5 px-10">
@@ -57,16 +74,19 @@
                                     No
                                 </th>
                                 <th scope="col" class="px-2 py-3">
-                                    Nama Layanan
+                                    Kode
                                 </th>
                                 <th scope="col" class="px-2 py-3">
-                                    Harga Satuan
+                                    Tanggal
                                 </th>
                                 <th scope="col" class="px-2 py-3">
-                                    Total Qty
+                                    Nama Aktivitas
+                                </th>
+                                <th scope="col" class="px-2 py-3">
+                                    Arus
                                 </th>
                                 <th scope="col" class="pr-8 text-right py-3 rounded-tr-md">
-                                    Total Harga
+                                    Total
                                 </th>
 
                             </tr>
@@ -79,29 +99,29 @@
                                         {{ $loop->iteration }}
                                     </td>
                                     <td class="px-4 py-1">
-                                        {{ $item->nama_layanan }}
+                                        {{ $item->kode }}
                                     </td>
-                                    <td class="flex justify-between w-24 px-4 py-1">
-                                        <p>Rp.</p><p>{{ $item->harga }}</p>
+                                    <td class="flex w-fit px-4 py-1">
+                                        <p>{{ $item->tgl }}</p>
                                     </td>
                                     <td class="px-4 py-1">
-                                        {{ $item->total_order }} {{ $item->satuan }}
+                                        {{ $item->nama }}
+                                    </td>
+                                    <td class="px-4 py-1">
+                                        {{ $item->arus }}
                                     </td>
                                     <td class="pr-8 py-1 text-right" id="total harga">
-                                        Rp. {{ $item->harga * $item->total_order }}
+                                        Rp. {{ number_format($item->total, 0, ',', '.') }}
                                     </td>
                                 </tr>
-                                @php
-                                    $totalPendapatan += $item->harga * $item->total_order; // Menambahkan total harga ke total pendapatan
-                                @endphp
                             @endforeach
                         <tfoot class="">
                             <tr class="bg-gray-100 ">
-                                <td colspan="4" class="py-2 rounded-bl-md text-right px-4">
-                                    <b>Total Pendapatan :</b>
+                                <td colspan="5" class="py-2 rounded-bl-md text-right px-4">
+                                    <b>Total Laba/Rugi :</b>
                                 </td>
                                 <td class="py-2 text-right pr-8 rounded-br-md">
-                                    <b> Rp. {{ $totalPendapatan }}</b>
+                                    <b> Rp. {{ number_format($laba, 0, ',', '.') }}</b>
                                 </td>
                             </tr>
                         </tfoot>
