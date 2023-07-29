@@ -50,15 +50,19 @@ Route::get('/EditOrder/{id_order}', [OrderController::class, 'edit']);
 Route::put('/UpdateOrder/{id_order}', [OrderController::class, 'update'])->name('UpdateOrder.update');
 Route::post('/selesai/{id_order}',[OrderController::class, 'markAsSelesai']);
 Route::post('/sudahdibayar/{id_order}',[OrderController::class, 'markAsSudahDibayar']);
+Route::get('/cetakNT/{id_order}', [OrderController::class, 'cetak']);
 //Halaman Transaksi
 Route::get('/laporan', [TransaksiController::class, 'index']);
 Route::get('/filterINV', [TransaksiController::class, 'filterData']);
 Route::get('/cetakINV/{id_order}', [TransaksiController::class, 'cetak']);
+Route::get('/cetakTransaksi', [TransaksiController::class, 'cetakTransaksi']);
+Route::get('/resetfilterT', [TransaksiController::class, 'resetFilter']);
 
 //Halaman Arus Kas
 Route::get('/kas', [KasController::class, 'index']);
 Route::get('/filterKas', [KasController::class, 'filterData']);
 Route::get('/cetakKas', [KasController::class, 'cetak']);
+Route::get('/resetfilter', [KasController::class, 'resetFilter']);
 //Halaman profil laundry
 Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/EditProfil/{id_profil}', [ProfilController::class, 'edit']);

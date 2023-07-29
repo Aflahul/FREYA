@@ -5,7 +5,7 @@
         
         <div class="p-4 drop-shadow-lg w-fit ">
             <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
-                <h2 class="font-medium pt-2 m-4">Tambah Pelanggan</h2>
+                <h2 class="font-medium pt-2 mb-1">Tambah Pelanggan</h2>
             
                 <form action="/storePelanggan" method="POST">
                     @csrf
@@ -74,7 +74,7 @@
                                     <p class="font-bold text-base">{{ $data->total_order }}</p>
                                 </td>
                                 <form action="/deletePelanggan/{{ $data->id_pelanggan }}" method="post">
-                                    <td class="py-2 text-center text-belum  flex gap-2">
+                                    <td class="py-2 text-center text-belum justify-center  flex gap-2">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">

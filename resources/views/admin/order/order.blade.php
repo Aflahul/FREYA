@@ -127,6 +127,9 @@
                                         <a href="/EditOrder/{{ $item->id_order }}">
                                             <i class="fa-solid fa-edit fa-xl"></i>
                                         </a>
+                                        <a href="/cetakNT/{{ $item->id_order }}">
+                                            <i class="fa-solid fa-print fa-lg"></i>
+                                        </a>
                                     </td>
                                 </form>
                             </tr>

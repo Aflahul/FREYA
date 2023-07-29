@@ -4,7 +4,13 @@
     <div class="p-3 mt-1 sm:ml-[17rem]">
         <div class="px-4 mb-1 mt-10">
             <span class="py-1 rounded justify-end text-xs"><i>{{ $tanggal }}</i></span>
-            <p class="pb-4 font-normal ">Hi! <b><i>Admin,</i></b> Selamat datang</p>
+            <!-- Di dalam template Blade Laravel -->
+            @if (session('success'))
+                <div class="border hover:bg-sudah hover:text-white   border-sudah p-1 w-fit my-1 text-sudah rounded px-5 py-2">
+                    {{ session('success') }} <b><i>{{ auth()->user()->username }}</i></b>
+                </div>
+            @endif
+            <p class="pb-4 font-normal ">Hi! <b><i>{{ auth()->user()->username }},</i></b> Selamat datang</p>
             <hr>
         </div>
         <div class="px-4 flex gap-3 mt-3 ">

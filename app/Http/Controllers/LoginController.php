@@ -48,13 +48,13 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->level == 'admin') {
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('/dashboard')->with('success', 'Login berhasil sebagai');
             } elseif (Auth::user()->level == 'pegawai') {
-                return redirect()->intended('/dashboard_pegawai');
+                return redirect()->intended('/dashboard_pegawai')->with('success', 'Login berhasil sebagai');
             }
         }
         return back()->withErrors([
-            'loginError' => 'Wrong username or password',
+            'loginError' => 'username atau password salah!!!',
         ]);
     }
 

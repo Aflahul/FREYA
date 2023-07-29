@@ -8,6 +8,8 @@ use App\Models\Produk;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Pelanggan;
+use App\Models\User;
+
 // use Illuminate\Support\Facades\DB;
 // try {
 //     DB::connection()->getPdo();
@@ -28,6 +30,7 @@ class DashboardController extends Controller
         ->get();
         $produk = Produk::all();
         $pelanggan = Pelanggan::all();
+        $user=User::all();
         $profil = Profil::first();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
@@ -35,6 +38,7 @@ class DashboardController extends Controller
             'title' => 'Dashboard',
             'profil' => $profil,
             'order' => $order,
+            'user' => $user,
             'proses' => $proses,
             'produk' => $produk,
             'tanggal' => $tanggal,

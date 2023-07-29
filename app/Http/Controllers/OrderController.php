@@ -138,9 +138,10 @@ class OrderController extends Controller
             $pelanggan->total_order = $total_order;
             $pelanggan->save();
 
-            // Update kolom "total_order" di tabel "tb_layanan"
-            $layanan->total_order += 1;
+            // // Mengupdate nilai kolom "total_order" di tabel "tb_layanan"
+            $layanan->total_order += $qty; // Menambahkan nilai qty ke total_order yang sudah ada
             $layanan->save();
+
 
             return redirect('/order')->with('success', 'Data order berhasil ditambahkan.');
         } else {
@@ -229,5 +230,23 @@ class OrderController extends Controller
         $order=Order::find($id_order);
         $order->delete();
         return redirect('/order');
+    }
+    public function cetak($id_order)
+    {
+        $profil = Profil::first();
+        // Jika Anda ingin memuat data pelanggan dan produk dalam satu query, gunakan with()
+        $transaksi = Order::with('pelanggan', 'produk')->findOrFail($id_order);
+
+        // Hitung estimasi tanggal selesai berdasarkan created_at dan durasi produk
+        $estimasiSelesai = Carbon::parse($transaksi->created_at)
+            ->addDays($transaksi->produk->durasi);
+
+        // Tambahkan estimasi tanggal selesai ke dalam variabel $transaksi
+        $transaksi->estimasi_selesai = $estimasiSelesai;
+
+        return view('admin.order.cetak', [
+            'transaksi' => $transaksi,
+            'profil' => $profil,
+        ]);
     }
 }

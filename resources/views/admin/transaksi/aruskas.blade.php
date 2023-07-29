@@ -8,18 +8,35 @@
                 <h1 class="py-3">
                     Filter Tanggal
                 </h1>
+                @if ($errors->has('filtered_data'))
+                            <div class="alert alert-danger bg-red-500 p-1 my-2 text-white rounded text-center">
+                                {{ $errors->first('filtered_data') }}
+                            </div>
+                        @endif
                 <div class=" mb-3 w-full flex gap=5 items-center justify-between   ">
                     <div class="flex ">
                         <form action="/filterKas" method="get" class="">
-                            <input type="date" name="tgl_awal" id="tgl_awal" class="border rounded px-2 py-1">
+                            <input type="date" name="tgl_awal" id="tgl_awal" class="border rounded px-1 py-1">
                             <label for="">To:</label>
-                            <input type="date" name="tgl_akhir" id="tgl_akhir" class="border rounded px-2 py-1">
+                            <input type="date" name="tgl_akhir" id="tgl_akhir" class="border rounded px-1 py-1">
                             <button type="submit"
-                                class="bg-kuning hover:bg-sudah text-black hover:text-white ml-2 px-4 py-1.5 rounded">Filter</button>
+                                class="bg-kuning hover:bg-sudah text-black hover:text-white ml-2 px-4 py-1 rounded">Filter</button>
+
+                            <a href="/resetfilter"
+                                class="bg-sudah hover:bg-belum text-white hover:text-white ml-0.5 px-4 py-1 rounded"
+                                type="submit">Reset
+                            </a>
+
+
                         </form>
+                        
                     </div>
-                    <div class="text-belum">
-                        <i class="fa-solid fa-print fa-xl"></i>
+                    <div class="">
+                        <a href="/cetakKas">
+                            <div class="bg-sudah px-4 py-1 h-fit rounded">Cetak Rekap Arus
+                                <i class="fa-solid fa-print "></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -28,6 +45,7 @@
                     <thead>
                         <tr class="border-b-2">
                             <th scope="col" class="pt-6 pb-2 px-2 w-24 ">Kode Arus</th>
+                            <th scope="col" class="pt-6 pb-2 px-2 ">Tanggal</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Nama Aktivitas</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Arus</th>
                             <th scope="col" class="pt-6 pb-2 px-2">Total </th>
@@ -39,6 +57,9 @@
                             <tr>
                                 <td class="px-2 w-40 text-md font-bold uppercase">
                                     <p class="text-sudah">{{ $item->kode }}</p>
+                                </td>
+                                <td class="px-2 text-left ">
+                                    <p class="">{{ $item->udated_at }}</p>
                                 </td>
                                 <td class="px-2 text-left ">
                                     <p class="">{{ $item->nama }}</p>

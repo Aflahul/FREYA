@@ -25,6 +25,11 @@
                 <div class="py-3 center shadow-lg rounded-xl">
                     <h3 class="py-3 text-2xl font-semibold">Hello, Freyers!</h3>
                     <div class="text-center pt-3">
+                        @if ($errors->has('loginError'))
+                            <div class="alert alert-danger border hover:bg-red-500 hover:text-white border-red-500 p-1 w-fit mx-auto mb-4 text-red-500 rounded flex justify-center items-center text-center px-5 py-2">
+                                {{ $errors->first('loginError') }}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="px-10 py-0 flex flex-col gap-3  justify-center">

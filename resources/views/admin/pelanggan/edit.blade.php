@@ -4,7 +4,7 @@
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between">
         <div class="p-4 drop-shadow-lg w-fit ">
             <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
-                <h2 class="font-medium pt-2 m-4">Tambah Pelanggan</h2>
+                <h2 class="font-medium pt-2 mb-1">Tambah Pelanggan</h2>
                 <form action="{{ route('UpdatePelanggan.update', $pelanggan->id_pelanggan) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -40,8 +40,7 @@
                             <th></th>
                             <th scope="col" class="py-5 text-left">Pelanggan</th>
                             <th scope="col" class="py-5">Alamat</th>
-                            <th scope="col" class="py-5">Sedang Cuci</th>
-                            <th scope="col" class="py-5">Total Transaksi</th>
+                            <th scope="col" class="py-5">Total Order</th>
                             <th scope="col" class="py-5">Aksi</th>
                         </tr>
                     </thead>
@@ -61,13 +60,10 @@
                                     <p>{{ $data->alamat }}</p>
                                 </td>
                                 <td class="text-center">
-                                    <p>{{ $data->sedang_cuci ? 'Ya' : 'Tidak' }}</p>
-                                </td>
-                                <td class="text-center">
-                                    <p class="font-bold text-base">{{ $data->total_cuci }}</p>
+                                    <p class="font-bold text-base">{{ $data->total_order }}</p>
                                 </td>
                                 <form action="/deletePelanggan/{{ $data->id_pelanggan }}" method="post">
-                                    <td class="py-2 text-center text-belum flex gap-2">
+                                    <td class="py-2 text-center text-belum flex justify-center   gap-2">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">

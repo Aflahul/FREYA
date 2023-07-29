@@ -6,7 +6,9 @@ use Carbon\Carbon;
 use App\Models\Arus;
 use App\Models\Profil;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Dompdf\Dompdf;
 
 class KasController extends Controller
 {
@@ -35,7 +37,7 @@ class KasController extends Controller
         $tgl_akhir = $request->input('tgl_akhir');
 
         // Mengambil data sesuai dengan rentang tanggal
-        $data = Arus::whereBetween('updated_at', [$tgl_awal, $tgl_akhir])->latest('id_arus')->paginate(20);
+        $data = Arus::whereBetween('created_at', [$tgl_awal, $tgl_akhir])->latest('id_arus')->paginate(20);
 
         // Simpan data ke dalam session
         Session::put('filtered_data', $data);
@@ -45,7 +47,26 @@ class KasController extends Controller
     }
     public function cetak()
     {
-        //belum ada bladenya ini
-        // return view('admin.transaksi.cetakKas');
+        $profil = Profil::first();
+        
+        $arus = Session::get('filtered_data');
+        if (!$arus) {
+            return redirect()->back()->withErrors(['filtered_data' => 'Lakukan filter data terlebih dahulu.']);
+        }
+
+        return view('admin.transaksi.cetakkas', [
+            'arus' => $arus,
+            'profil' => $profil,
+        ]);
+    }
+    public function resetFilter()
+    {
+        // Hapus sesi filter data untuk Order
+        Session::forget('filtered_data');
+
+        
+
+        // Redirect kembali ke halaman sebelumnya dengan pesan sukses (opsional)
+        return redirect('/kas')->with('success', 'Filter data telah direset.');
     }
 }

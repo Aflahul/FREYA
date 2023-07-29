@@ -12,60 +12,60 @@
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
 </head>
 
-<body class="h-fit">
-    <div class="">
-        <div class="flex justify-start gap-3">
-            <div class="">
-                <p class="font-bold text-xl text-gray-950">
-                    @if ($profil->logo)
-                        <img class="h-14 rounded" src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}"
-                            alt="logo">
-                    @else
-                        <img class="h-14 rounded" src="{{ asset('assets/img/default-logo.jpg') }}" alt="default logo">
-                    @endif
-                </p>
-            </div>
-            <div class=" flex flex-col">
-                <p class="text-xl font-medium text-gray-950">Bersih Rapi Wangi</p>
-                <p class="text-base font-semibold text-slate-800">Siap Antar Jemput!!! | :{{ $profil->kontak }}</p>
-            </div>
+<body class="px-4 h-fit">
+    <div class="flex justify-start gap-3">
+        <div class="">
+            <p class="font-bold text-xl text-gray-950">
+                @if ($profil->logo)
+                    <img class="h-14 rounded" src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}"
+                        alt="logo">
+                @else
+                    <img class="h-14 rounded" src="{{ asset('assets/img/default-logo.jpg') }}" alt="default logo">
+                @endif
+            </p>
         </div>
-    <div class="my-4">
-        <div class="w-full flex items-center h-7 bg-amber-400 justify-end">
-            <p class="text-gray-800 bg-white px-5 text-right mr-14 font-semibold text-2xl ">KODE RESI :
-                NT00<span>{{ $transaksi->id_order }}</span></p>
+        <div class=" flex flex-col">
+            <p class="text-xl font-medium text-gray-950">Bersih Rapi Wangi</p>
+            <p class="text-base font-semibold text-slate-800">Siap Antar Jemput!!! | :{{ $profil->kontak }}</p>
         </div>
     </div>
+    <div class="my-4">
+        <div class="w-screen flex items-center h-7 bg-amber-400 justify-end">
+            <p class="text-gray-800 bg-white px-5 text-right mr-14 font-bold text-xl ">KODE RESI :
+                NT00<span>{{ $transaksi->id_order }}</span></p>
+        </div>
     </div>
     <div class="flex gap-5 text-left justify-between px-10 my-8">
         <div class="grid grid-cols-5 gap-2">
             <div>
-                <p>Nama</p>
-                <p>Alamat</p>
-                <p>No. HP</p>
+                <p class="px-1 p-1">Nama</p>
+                <p class="px-1 p-1">Alamat</p>
+                <p class="px-1 p-1">No. HP</p>
             </div>
             <div class="col-span-4">
-                <p>: {{ $transaksi->pelanggan->namapel }}</p>
-                <p>: {{ $transaksi->pelanggan->alamat }}</p>
-                <p>: {{ $transaksi->pelanggan->kontak }}</p>
+                <p class="px-1 p-1">: {{ $transaksi->pelanggan->namapel }}</p>
+                <p class="px-1 p-1">: {{ $transaksi->pelanggan->alamat }}</p>
+                <p class="px-1 p-1">: {{ $transaksi->pelanggan->kontak }}</p>
             </div>
         </div>
         <div class="grid grid-cols-5 gap-2 text-left">
             <div class="col-span-2">
-                <p>Tgl Masuk</p>
-                <p>Tgl Selesai</p>
+                <p class="px-1 p-1">Kode Order</p>
+                <p class="px-1 p-1">Tgl Masuk</p>
+                <p class="px-1 p-1">Estimasi Selesai</p>
                 {{-- <p>Pembayaran</p> --}}
             </div>
             <div class="col-span-3">
-                <p>: <span>{{ $transaksi->created_at }}</span></p>
-                <p>: <span>{{ $transaksi->updated_at }}</span></p>
-                {{-- <p>: <span>Tunai / Transfer</span></p> --}}
+                <p class="px-1 p-1">: {{ $transaksi->kd_order }}</p>
+                <p class="px-1 p-1">: <span>{{ $transaksi->created_at }}</span></p>
+                <p class="px-1 p-1">: <span>{{ $transaksi->estimasi_selesai }}</span></p>
+
             </div>
         </div>
     </div>
     <div class="my-5 px-10">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg border">
-            <table class="w-full text-sm text-left text-gray-500 ">
+            <table class="w-full text-sm text-center text-gray-800 ">
                 <thead class="text-xs text-white uppercase bg-gray-700 ">
                     <tr>
                         <th scope="col" class="px-4 py-3">
@@ -81,7 +81,7 @@
                             Harga Satuan
                         </th>
                         <th scope="col" class="px-2 py-3">
-                            Jumlah (Rp)
+                            Jumlah
                         </th>
                     </tr>
                 </thead>
@@ -100,7 +100,7 @@
                             {{ $transaksi->produk->harga }}/{{ $transaksi->produk->satuan }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $transaksi->total }}
+                            Rp. {{ $transaksi->total }}
                         </td>
                     </tr>
                 </tbody>

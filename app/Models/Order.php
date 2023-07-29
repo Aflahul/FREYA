@@ -20,7 +20,7 @@ class Order extends Model
     {
         return $this->belongsTo(Produk::class, 'id_layanan');
     }
-
+    
     protected static function boot()
     {
         parent::boot();

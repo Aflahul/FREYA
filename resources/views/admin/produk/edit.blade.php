@@ -23,15 +23,27 @@
                         <input type="text" id="desk3" name="desk3"
                             class="border rounded-md w-full px-2 py-0.5 my-0.5" value="{{ old('desk3', $produk->desk3) }}">
                     </div>
-                    <div class="mb-3">
-                        <label for="satuan" class="block">satuan:</label>
-                        <input type="text" id="satuan" name="satuan" class="border rounded-md w-full px-2 py-0.5"
-                            value="{{ old('satuan', $produk->satuan) }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="harga" class="block">harga:</label>
-                        <input type="number" id="harga" name="harga" class="border rounded-md w-full px-2 py-0.5"
-                            value="{{ old('harga', $produk->harga) }}" min="1000" step="1000">
+                    <div class="mb-3 flex">
+                        <div class="">
+                            <label for="harga" class="block">Harga:</label>
+                            <input type="number" id="harga" name="harga" class="border rounded-md w-full px-2 py-0.5"
+                                value="{{ old('harga', $produk->harga) }}" min="1000" step="1000">
+                        </div>
+                        <div class="">
+                            <label class="ml-2 block">/Unit:</label>
+                            <div class="ml-2 flex">
+                                <label class="inline-flex items-center mr-4">
+                                    <input type="radio" name="satuan" value="Pcs" class="form-radio text-blue-500"
+                                        {{ old('satuan', $produk->satuan) === 'Pcs' || !$produk->satuan ? 'checked' : '' }}>
+                                    <span class="ml-2">Pcs</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="satuan" value="Kg" class="form-radio text-blue-500"
+                                        {{ old('satuan', $produk->satuan) === 'Kg' ? 'checked' : '' }}>
+                                    <span class="ml-2">Kg</span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="durasi" class="block">Durasi:</label>

@@ -15,4 +15,5 @@ class Produk extends Model
     {
         return $this->hasMany(Order::class, 'nama_layanan');
     }
+    
 }
