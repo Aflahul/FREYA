@@ -14,12 +14,12 @@
                             value="{{ old('nama_laundry', $profil->nama_laundry) }}" required>
                     </div>
                     
-                    
-                    <div class="mb-6 w-64">
+                    <div class="mb-6">
                         <label for="kontak" class="block mb-2 text-base font-medium text-sudah">Kontak</label>
                         <input type="tel" id="kontak" name="kontak"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sudah focus:border-sudah block w-full p-2.5"
                             value="{{ old('kontak', $profil->kontak) }}" required>
+                            <span class="font-extralight text-xs  ml-2"><i>* Sertakan Kode negara tanpa tanda plus "+"</i> </span>
                     </div>
                     <div class="mb-6">
                         <label for="alamat" class="block mb-2 text-base font-medium text-sudah">Alamat</label>

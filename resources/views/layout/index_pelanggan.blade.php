@@ -31,7 +31,7 @@
 
 </head>
 
-<body class="font-sans">
+<body class="font-mono font-thin">
     <header>
         @include('partials/user/nav')
     </header>

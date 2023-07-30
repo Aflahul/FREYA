@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.index_pegawai')
 
 @section('content')
     <div class="p-3 mt-1 sm:ml-[17rem]">
@@ -8,7 +8,7 @@
             @if (session('success'))
                 <div
                     class="border hover:bg-sudah hover:text-white   border-sudah p-1 w-fit my-1 text-sudah rounded px-5 py-2">
-                    {{ session('success') }} <b><i>Admin</i></b>
+                    {{ session('success') }} <b><i>Karyawan</i></b>
                 </div>
             @endif
             <p class="pb-4 font-normal ">Hi! <b><i>{{ ucfirst(auth()->user()->username) }},</i></b> Selamat datang</p>

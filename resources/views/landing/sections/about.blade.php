@@ -5,33 +5,36 @@
         <footer class=" bg-gelap text-white dark:bg-gray-800">
             <div class="mx-auto max-w-screen-xl">
                 <div class="flex flex-col justify-between md:flex-row gap-5  ">
-                    <div class="flex flex-col justify-between md:flex-row gap-5 mb-1 md:mb-0 ">
-                        <a href="#home" class="">
-                            @if ($profil->logo)
-                                <img class="h-32" src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}"
-                                    alt="logo">
-                            @else
-                                <img class="h-32" src="{{ asset('assets/img/default-logo.jpg') }}" alt="default logo">
-                            @endif
-                        </a>
-                        {{-- <div>
-                            <p>Bersih, Wangi, Rapi, Cepat, <br>
-                                dan Profesional</p>
-                        </div> --}}
+                    <div class="flex flex-col mb-1 md:mb-0 ">
+                        <div>
+                            <a href="#home" class="">
+                                @if ($profil->logo)
+                                    <img class="h-32"
+                                        src="{{ 'data:image/jpeg;base64,' . base64_encode($profil->logo) }}"
+                                        alt="logo">
+                                @else
+                                    <img class="h-32" src="{{ asset('assets/img/default-logo.jpg') }}"
+                                        alt="default logo">
+                                @endif
+                            </a>
+                        </div>
+                        <div class="py-1 font-medium text-lg">{!! html_entity_decode($profil->tagline) !!}</div>
+
                     </div>
                     <div class="flex flex-col justify-end md:flex-row gap-5">
                         <div class="max-w-[14rem]">
-                            <h2 class="mb-3  font-bold">Kontak
-                            </h2>
-                            <ul class="">
+                            <p class="font-bold text-lg ">Kontak
+                            </p>
+                            <ul class="font-light text-sm">
                                 <li class="">
-                                    <a href="#" class="hover:underline">
-                                        <i class="fa-brands fa-whatsapp"></i>
+                                    <a href="https://wa.me/{{ $profil->kontak }}?text=Assalamualaikum%20Freya%20Laundry!%0ASaya%20ingin%20menggunakan%20jasa%20anda%2C%20apakah%20bisa%20jemput%20sekarang%3F"
+                                        class="hover:underline">
+                                        <i class="fa-brands fa-whatsapp"></i><span> +{{ $profil->kontak }}</span>
                                     </a>
-                                    <span> 0811488396</span>
                                 </li>
                                 <li class="">
-                                    <a href="https://www.google.com/maps/place/Hidroponik+Bikaru+Farm/@-3.3747353,120.3137375,19.58z/data=!4m14!1m7!3m6!1s0x2d96a57f8fa5b39d:0x822ba9f8d81fd3e9!2sHidroponik+Bikaru+Farm!8m2!3d-3.3746462!4d120.3139374!16s%2Fg%2F11rsfc11ps!3m5!1s0x2d96a57f8fa5b39d:0x822ba9f8d81fd3e9!8m2!3d-3.3746462!4d120.3139374!16s%2Fg%2F11rsfc11ps?entry=ttu" class="hover:underline ">
+                                    <a href="https://www.google.com/maps/place/Hidroponik+Bikaru+Farm/@-3.3747353,120.3137375,19.58z/data=!4m14!1m7!3m6!1s0x2d96a57f8fa5b39d:0x822ba9f8d81fd3e9!2sHidroponik+Bikaru+Farm!8m2!3d-3.3746462!4d120.3139374!16s%2Fg%2F11rsfc11ps!3m5!1s0x2d96a57f8fa5b39d:0x822ba9f8d81fd3e9!8m2!3d-3.3746462!4d120.3139374!16s%2Fg%2F11rsfc11ps?entry=ttu"
+                                        class="hover:underline ">
                                         <i class="fa-solid fa-location-dot"></i>
                                         <span class=" break-words">{{ $profil->alamat }}</span>
                                     </a>
@@ -40,15 +43,16 @@
                             </ul>
                         </div>
                         <div>
-                            <h2 class="mb-3  font-bold">Produk & Layanan
-                            </h2>
-                            <ul class="">
+                            <p class="font-bold text-lg ">Produk & Layanan
+                            </p>
+                            <ul class="font-light">
                                 @foreach ($produk as $cards)
                                     <li class="">
-                                        <a href="#paket" class="hover:underline">{{ $cards->nama_layanan }}</a>
+                                        <a href="#paket" class="text-sm hover:underline">{{ $cards->nama_layanan }}</a>
                                     </li>
                                 @endforeach
                             </ul>
+                            {{-- {{ $produk->links() }} --}}
                         </div>
 
                     </div>

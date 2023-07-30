@@ -30,10 +30,10 @@
             </div>
             <div class=" ">
                 <p class="py-5 font-semibold text-3xl">{{ $profil->nama_laundry }}</p>
-                <div class="py-2 font-medium text-lg">{!! html_entity_decode($profil->tagline) !!}</div>
                 
                 <div class="pb-5  text-sm">{!! html_entity_decode($profil->desk) !!} </div>
-                <a class=" p-2 bg-belum rounded-md  text-white " href="">Pesan Sekarang</a>
+                <a class=" p-2 bg-belum rounded-md  text-white " href="https://wa.me/{{ $profil->kontak }}?text=Assalamualaikum%20Freya%20Laundry!%0ASaya%20ingin%20menggunakan%20jasa%20anda%2C%20apakah%20bisa%20jemput%20sekarang%3F"
+                                        >Pesan Sekarang</a>
             </div>
         </div>
     </div>
