@@ -69,7 +69,7 @@
                                         <p class="font-bold text-base">Rp. {{number_format($item->total,0, ',', '.')  }}</p>
                                     </td>
                                     <td class="text-belum text-center">
-                                        <a href="/cetakINV/{{ $item->id_order }}">
+                                        <a href="/cetakNT/{{ $item->id_order }}">
                                             <i class="fa-solid fa-print fa-lg"></i>
                                         </a>
                                     </td>

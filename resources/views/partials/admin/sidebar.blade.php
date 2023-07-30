@@ -86,7 +86,8 @@
                     <a href="/profil"
                         class="flex items-center rounded-lg  {{ $title == 'Profil Laundry' ? 'text-sidebar font-bold drop-shadow-lg py-1' : 'text-white py-1 hover:text-kuning hover:font-bold' }}">
                         <div class="w-6 object-center pl-5 ">
-                            <i id="icon-menu" class="fa-solid fa-file-lines"></i>
+                            {{-- <i id="icon-menu" class="fa-solid fa-file-lines"></i> --}}
+                           <i id="icon-menu" class="fa-solid fa-gear"></i>
                         </div>
                         <span class="flex-1 ml-6 whitespace-nowrap">Profil Laundry</span>
                     </a>
@@ -95,7 +96,7 @@
                     <a href="/produk"
                         class="flex items-center rounded-lg  {{ $title == 'Produk & Layanan' ? 'text-sidebar font-bold drop-shadow-lg py-1' : 'text-white py-1 hover:text-kuning hover:font-bold' }}">
                         <div class="w-6 object-center pl-5 ">
-                            <i id="icon-menu" class="fa-solid fa-file-lines"></i>
+                           <i id="icon-menu" class="fa-solid fa-gear"></i>
                         </div>
                         <span class="flex-1 ml-6 whitespace-nowrap">Produk & Layanan</span>
                     </a>
@@ -108,7 +109,7 @@
                     <a href="/artikel"
                         class="flex items-center rounded-lg  {{ $title == 'Artikel' ? 'text-sidebar font-bold drop-shadow-lg py-1' : 'text-white py-1 hover:text-kuning hover:font-bold' }}">
                         <div class="w-6 object-center pl-5 ">
-                            <i id="icon-menu" class="fa-solid fa-file-lines"></i>
+                           <i id="icon-menu" class="fa-solid fa-gear"></i>
                         </div>
                         <span class="flex-1 ml-6 whitespace-nowrap">Artikel</span>
                     </a>
@@ -117,7 +118,8 @@
                     <a href="/user"
                         class="flex items-center rounded-lg  {{ $title == 'User' ? 'text-sidebar font-bold drop-shadow-lg py-1' : 'text-white py-1 hover:text-kuning hover:font-bold' }}">
                         <div class="w-6 object-center pl-5 ">
-                            <i id="icon-menu" class="fa-solid fa-file-lines"></i>
+                            
+                            <i id="icon-menu" class="fa-solid fa-gear"></i>
                         </div>
                         <span class="flex-1 ml-6 whitespace-nowrap">User</span>
                     </a>

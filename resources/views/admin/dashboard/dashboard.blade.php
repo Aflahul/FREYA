@@ -139,14 +139,15 @@
                                         Kode
                                     </th>
                                     <th scope="col" class="px-2 pt-2 text-center">
+                                        Sumber Arus
+                                    </th>
+                                    <th scope="col" class="px-2 pt-2 text-center">
                                         Aktivitas
                                     </th>
                                     <th scope="col" class="px-2 pt-2 text-center">
                                         Total
                                     </th>
-                                    <th scope="col" class="px-2 pt-2 text-right">
-                                        Laba/Rugi
-                                    </th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -156,14 +157,15 @@
                                             <p class="text-sudah">{{ $item->kode }}</p>
                                         </td>
                                         <td class="px-2 text-center  ">
+                                            <p class="">{{ $item->nama }}</p>
+                                        </td>
+                                        <td class="px-2 text-center  ">
                                             <p class="">{{ $item->arus }}</p>
                                         </td>
                                         <td class="px-2 text-center ">
                                             <p class="">Rp. {{ number_format($item->total, 0, ',', '.') }}</p>
                                         </td>
-                                        <td class="px-2 py-1 text-right ">
-                                            <p class="">Rp. {{ number_format($item->saldo, 0, ',', '.') }}</p>
-                                        </td>
+                                       
                                     </tr>
                                 @endforeach
 

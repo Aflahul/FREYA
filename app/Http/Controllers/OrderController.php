@@ -248,6 +248,8 @@ class OrderController extends Controller
     }
     public function cetak($id_order)
     {
+        $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
+        $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
         $profil = Profil::first();
         // Jika Anda ingin memuat data pelanggan dan produk dalam satu query, gunakan with()
         $transaksi = Order::with('pelanggan', 'produk')->findOrFail($id_order);
@@ -262,6 +264,8 @@ class OrderController extends Controller
         return view('admin.order.cetak', [
             'transaksi' => $transaksi,
             'profil' => $profil,
+            'tanggal' => $tanggal,
+            'jam' => $jam,
         ]);
     }
 }
