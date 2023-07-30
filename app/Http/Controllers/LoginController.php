@@ -4,38 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 
 class LoginController extends Controller
+
+
 {
-     public function showLoginForm()
+    public function showLoginForm()
     {
         return view('auth.login');
     }
-    
-    // public function login(Request $request)
-    // {
-        
-    //     $credentials = $request->validate([
-    //         'username' => ['required'],
-    //         'password' => ['required'],
-    //     ]);
-
-    //     if (Auth::attempt($credentials)) {
-            
-    //         $user = Auth::user();
-
-    //         // Update kolom last_login dengan waktu saat ini
-    //         $user->last_login = Carbon::now();
-    //         $user->save();
-
-    //         // Redirect ke halaman dashboard atau halaman yang sesuai
-    //         return redirect('/user');
-    //     } else {
-    //         // Jika autentikasi gagal, redirect kembali ke halaman login dengan pesan error
-    //         return redirect()->route('login')->with('error', 'Username atau password salah');
-    //     }
-    // }
 
     public function login(Request $request)
     {
@@ -47,21 +24,22 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            if (Auth::user()->level == 'admin') {
-                return redirect()->intended('/dashboard')->with('success', 'Login berhasil sebagai');
-            } elseif (Auth::user()->level == 'pegawai') {
-                return redirect()->intended('/dashboard_pegawai')->with('success', 'Login berhasil sebagai');
-            }
+            return redirect('/dashboard')->with('success', 'Login berhasil.');
         }
+
         return back()->withErrors([
-            'loginError' => 'username atau password salah!!!',
+            'loginError' => 'Username atau password salah!!!',
         ]);
     }
 
-    // public function logout(Request $request)
-    // {
-    //     Auth::logout();
+    public function logout(Request $request)
+    {
+        Auth::logout();
 
-    //     return redirect()->route('login')->with('success', 'Anda telah berhasil logout.');
-    // }
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Logout berhasil.');
+    }
 }

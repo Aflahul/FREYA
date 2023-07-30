@@ -4,7 +4,18 @@
             <p class="text-xl pl-3 font-bold ">{{ $title }}</p>
             <div class="flex items-center">
                 <i class="fas fa-user-circle fa-xl"></i>
-                <div class="text-lg font-semibold rounded-md p-1 ">{{ $jam }}</div>
+                <span class="ml-2 font-semibold ">{{ ucfirst(auth()->user()->username) }}</span>
+                
+                <div class=" font-semibold rounded-md p-1 mx-2">{{ $jam }}</div>
+                <div class="">
+
+                    <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-700">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </form>
+                </div>
             </div>
         </div>
     </nav>

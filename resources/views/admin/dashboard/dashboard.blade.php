@@ -1,17 +1,17 @@
 @extends('layout.index')
 
 @section('content')
-    <div class="p-3 mt-1 sm:ml-[17rem]">
+    <div class="p-3 mt-1 sm:ml-[17rem] text-sm">
         <div class="px-4 mb-1 mt-10">
             <span class="py-1 rounded justify-end text-xs"><i>{{ $tanggal }}</i></span>
             <!-- Di dalam template Blade Laravel -->
             @if (session('success'))
                 <div
                     class="border hover:bg-sudah hover:text-white   border-sudah p-1 w-fit my-1 text-sudah rounded px-5 py-2">
-                    {{ session('success') }} <b><i>Admin</i></b>
+                    {{ session('success') }} 
                 </div>
             @endif
-            <p class="pb-4 font-normal ">Hi! <b><i>{{ ucfirst(auth()->user()->username) }},</i></b> Selamat datang</p>
+            <p class="pb-4  ">Hi! <b><i>{{ ucfirst(auth()->user()->username) }},</i></b> Selamat datang</p>
             <hr>
         </div>
         <div class="px-4 flex gap-3 mt-3 ">
@@ -27,8 +27,8 @@
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-2xl font-bold tracking-tight pt-1">{{ count($pelanggan) }}</h5>
-                                <p class="font-normal">Pelanggan</p>
+                                <h5 class="text-xl font-bold tracking-tight pt-1">{{ count($pelanggan) }}</h5>
+                                <p class="">Pelanggan</p>
                             </div>
                         </div>
                     </div>
@@ -42,8 +42,8 @@
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-2xl font-bold tracking-tight pt-1">{{ count($produk) }}</h5>
-                                <p class="font-normal">Layanan</p>
+                                <h5 class="text-xl font-bold tracking-tight pt-1">{{ count($produk) }}</h5>
+                                <p class="">Layanan</p>
                             </div>
                         </div>
                     </div>
@@ -57,8 +57,8 @@
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-2xl font-bold tracking-tight pt-1">{{ count($proses) }}</h5>
-                                <p class="font-normal">Proses</p>
+                                <h5 class="text-xl font-bold tracking-tight pt-1">{{ count($proses) }}</h5>
+                                <p class="">Proses</p>
                             </div>
                         </div>
                     </div>
@@ -72,10 +72,10 @@
                                 </div>
                             </div>
                             <div class="text-center flex flex-col justify-between md:text-right">
-                                <h5 class="text-2xl font-bold tracking-tight pt-1">
+                                <h5 class="text-xl font-bold tracking-tight pt-1">
                                    {{ ($arus->saldo < 0 ? '-' : '') . number_format(abs($arus->saldo), 0, ',', '') }}
                                                                     </h5>
-                                <p class="font-normal">Profit</p>
+                                <p class="">Profit</p>
                             </div>
                         </div>
                     </div>
@@ -100,13 +100,13 @@
                                 @foreach ($order as $item)
                                     <tr>
                                         <td class="px-2 text-left ">
-                                            <p class="font-base text-base">{{ $item->pelanggan->namapel }}</p>
+                                            <p class=" ">{{ $item->pelanggan->namapel }}</p>
                                         </td>
                                         <td class="px-2 text-center ">
                                             <p class="">{{ $item->produk->nama_layanan }}</p>
                                         </td>
                                         <td class="px-2 text-center ">
-                                            <p class="font-base text-base">{{ $item->created_at->format('d/m/Y') }}</p>
+                                            <p class=" ">{{ $item->created_at->format('d/m/Y') }}</p>
                                         </td>
                                         <td class="px-2 text-right ">
                                             <p class="">{{ $item->estimasi_selesai->format('d/m/Y') }}</p>
@@ -201,12 +201,12 @@
                                             </div>
                                         </td>
                                         <td class="text-left px-2">
-                                            <p class="font-bold text-sudah text-base ">{{ $pel->namapel }}</p>
-                                            <p class="font-light">{{ $pel->kontak }}</p>
+                                            <p class="font-bold text-sudah  ">{{ $pel->namapel }}</p>
+                                            <p class="font-light text-xs">{{ $pel->kontak }}</p>
                                         </td>
                                         <td class="py-0.5 text-right pr-4">
-                                            <p class="font-light">Total Transaksi : {{ $pel->total_order }}</p>
-                                            <p class="font-base text-base">{{ $pel->alamat }}</p>
+                                            <p class="font-medium">Total Transaksi : {{ $pel->total_order }}</p>
+                                            <p class="font-light text-xs ">{{ $pel->alamat }}</p>
                                         </td>
                                     </tr>
                                 @endforeach

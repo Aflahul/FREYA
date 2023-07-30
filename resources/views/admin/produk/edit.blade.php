@@ -92,7 +92,7 @@
                                     <p class="font-light text-xs">Rp. {{ $data->harga }} /{{ $data->satuan }}</p>
                                 </td>
                                 <td class="px-2">
-                                    <p class="font-bold text-base">{{ $data->total_order }}</p>
+                                    <p class="font-bold text-base">{{ number_format($data->total_order, 0, '.', ',') }} {{ $data->satuan }}</p>
                                 </td>
                                 <form action="/deleteProduk/{{ $data->id_layanan }}" method="post">
                                     <td class="py-2 text-center text-belum flex gap-2 ">

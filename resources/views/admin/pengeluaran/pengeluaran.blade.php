@@ -60,7 +60,7 @@
                                 </td>
                                 
                                 <td class="px-1 text-left ">
-                                    <p class="font-base text-base">{{ $data->created_at }}</p>
+                                    <p class="font-base text-base">{{ $data->created_at->format('d/m/Y') }}</p>
                                 </td>
                                 <td class="px-1 text-left ">
                                     <p class="font-base text-base">Rp. {{ number_format($data->jumlah,0, ',', '.') }}</p>

@@ -15,9 +15,16 @@
 
 </head>
 
-<body class="bg-latar">
+<body class="bg-latar text-sm">
     @include('partials/admin/navbar')
-    @include('partials/admin/sidebar')
+    
+    @if(Auth::check())
+        @if(Auth::user()->level === 'admin')
+            @include('partials/admin/sidebar') <!-- Sidebar untuk admin -->
+        @elseif(Auth::user()->level === 'pegawai')
+            @include('partials/pegawai/sidebar') <!-- Sidebar untuk pegawai -->
+        @endif
+    @endif
     @yield('content')
     <script>
         // Mengatur zona waktu JavaScript ke UTC+8

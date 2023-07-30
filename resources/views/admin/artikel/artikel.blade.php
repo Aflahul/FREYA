@@ -53,18 +53,18 @@
                                     <p class="font-semibold text-sudah">{{ $data->judul }}</p>
                                 </td>
                                 <td class="px-2 py-2">
-                                    <p>{{ $data->created_at }}</p>
+                                    <p>{{ $data->created_at->format('d/m/Y') }}</p>
                                 </td>
-                                <div class="place-content-end">
+                                <div class="item-center place-content-end">
                                     <form action="/deleteArtikel/{{ $data->id_artikel }}" method="post">
                                         <td class="py-2 text-center text-belum flex gap-2">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
-                                                <i class="fa-solid fa-trash-can fa-xl"></i>
+                                                <i class="fa-solid fa-trash-can "></i>
                                             </button>
                                             <a href="/EditArtikel/{{ $data->id_artikel }}">
-                                                <i class="fa-solid fa-edit fa-xl"></i>
+                                                <i class="fa-solid fa-edit "></i>
                                             </a>
                                         </td>
                                     </form>
