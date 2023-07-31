@@ -1,5 +1,5 @@
 <section id="tracking" class="bg-kuningpudar w-screen h-1/2">
-    <div class="container max-w-screen-xl items-center justify-between mx-auto px-7 h-fit">
+    <div class="container max-w-screen-xl items-center justify-between mx-auto px-3 sm:px-7 h-fit">
         <p class="py-2 font-semibold text-2xl">Tracking</p>
         <p class="py-1 text-lg">Cek Status Laundry anda disini</p>
         <form class="py-3 pt-1 flex flex-col items-center" action="{{ route('landing.search-invoice') }}" method="POST">
@@ -42,17 +42,17 @@
                     <li class="w-full">
                         <div class="flex flex-col ">
                             <div
-                                class="flex w-full items-baseline text-blue-600  after:content-[''] after:w-full after:h-1 after:border-b after:{{ $status['status'] === 'Selesai' ? 'border-green-500' : 'border-gray-200' }} after:border-4 after:inline-block ">
+                                class="flex w-full items-baseline text-blue-600  after:content-[''] after:w-full after:h-1 after:border-b after:{{ $status['status'] === 'Selesai Dicuci' ? 'border-green-500' : 'border-gray-200' }} after:border-4 after:inline-block ">
                                 <div class="flex flex-col justify-center">
                                     <span
-                                        class="flex items-center justify-center w-10 h-10 {{ $status['status'] === 'Selesai' ? 'bg-green-500' : 'bg-gray-200' }}  rounded-full lg:h-12 lg:w-12  shrink-0">
+                                        class="flex items-center justify-center w-10 h-10 {{ $status['status'] === 'Selesai Dicuci' ? 'bg-green-500' : 'bg-gray-200' }}  rounded-full lg:h-12 lg:w-12  shrink-0">
                                         <i
-                                            class="fa-solid {{ $status['status'] === 'Selesai' ? 'fa-check' : 'fa-x' }} text-white"></i>
+                                            class="fa-solid {{ $status['status'] === 'Selesai Dicuci' ? 'fa-check' : 'fa-x' }} text-white"></i>
                                     </span>
                                 </div>
                             </div>
                             <span
-                                class="min-w-[10rem] font-medium whitespace-nowrap">{{ $status['status'] === 'Selesai' ? 'Selesai Cuci' : 'Sedang Cuci' }}</span>
+                                class="min-w-[10rem] font-medium whitespace-nowrap">{{ $status['status'] === 'Selesai Dicuci' ? 'Selesai Dicuci' : 'Sedang Dicuci' }}</span>
                         </div>
                     </li>
 
@@ -60,17 +60,17 @@
                     <li class="w-full">
                         <div class="flex justify-center flex-col">
                             <div
-                                class="flex w-full items-baseline text-blue-600  after:content-[''] after:w-full after:h-1 after:border-b after:{{ $status['status_pembayaran'] === 'Sudah Dibayar' ? 'border-green-500' : 'border-gray-200' }} after:border-4 after:inline-block ">
+                                class="flex w-full items-baseline text-blue-600  after:content-[''] after:w-full after:h-1 after:border-b after:{{ $status['status_pembayaran'] === 'Sudah Bayar' ? 'border-green-500' : 'border-gray-200' }} after:border-4 after:inline-block ">
                                 <div class="flex flex-col justify-center">
                                     <span
-                                        class="flex items-center justify-center w-10 h-10 {{ $status['status_pembayaran'] === 'Sudah Dibayar' ? 'bg-green-500' : 'bg-gray-200' }} rounded-full lg:h-12 lg:w-12  shrink-0">
+                                        class="flex items-center justify-center w-10 h-10 {{ $status['status_pembayaran'] === 'Sudah Bayar' ? 'bg-green-500' : 'bg-gray-200' }} rounded-full lg:h-12 lg:w-12  shrink-0">
                                         <i
-                                            class="fa-solid {{ $status['status_pembayaran'] === 'Sudah Dibayar' ? 'fa-check' : 'fa-x' }} text-white"></i>
+                                            class="fa-solid {{ $status['status_pembayaran'] === 'Sudah Bayar' ? 'fa-check' : 'fa-x' }} text-white"></i>
                                     </span>
                                 </div>
                             </div>
                             <span
-                                class="min-w-[10rem] font-medium whitespace-nowrap">{{ $status['status_pembayaran'] === 'Sudah Dibayar' ? 'Sudah Dibayar' : 'Belum Dibayar' }}</span>
+                                class="min-w-[10rem] font-medium whitespace-nowrap">{{ $status['status_pembayaran'] === 'Sudah Bayar' ? 'Sudah Dibayar' : 'Belum Dibayar' }}</span>
                         </div>
                     </li>
 
@@ -80,14 +80,14 @@
                             {{-- <div class="flex w-full items-baseline text-blue-600 "> --}}
                             <div class="flex flex-col justify-center">
                                 <span
-                                    class="flex items-center justify-center w-10 h-10 {{ $status['status'] === 'Selesai' && $status['status_pembayaran'] === 'Sudah Dibayar' ? 'bg-green-500' : 'bg-gray-200' }}  rounded-full lg:h-12 lg:w-12  shrink-0">
+                                    class="flex items-center justify-center w-10 h-10 {{ $status['status'] === 'Selesai Dicuci' && $status['status_pembayaran'] === 'Sudah Bayar' ? 'bg-green-500' : 'bg-gray-200' }}  rounded-full lg:h-12 lg:w-12  shrink-0">
                                     <i
-                                        class="fa-solid {{ $status['status'] === 'Selesai' && $status['status_pembayaran'] === 'Sudah Dibayar' ? 'fa-check' : 'fa-x' }} text-white"></i>
+                                        class="fa-solid {{ $status['status'] === 'Selesai Dicuci' && $status['status_pembayaran'] === 'Sudah Bayar' ? 'fa-check' : 'fa-x' }} text-white"></i>
                                 </span>
 
                                 {{-- </div> --}}
                                 <span
-                                    class="min-w-fit font-medium whitespace-nowrap">{{ $status['status'] === 'Selesai' && $status['status_pembayaran'] === 'Sudah Dibayar' ? 'Selesai' : 'Sedang Proses' }}</span>
+                                    class="min-w-fit font-medium whitespace-nowrap">{{ $status['status'] === 'Selesai   Dicuci' && $status['status_pembayaran'] === 'Sudah Dibayar' ? 'Selesai' : 'Selesai' }}</span>
                             </div>
                         </div>
                     </li>

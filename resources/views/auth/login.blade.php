@@ -47,9 +47,9 @@
                                     <input type="password" name="password" placeholder="Masukkan Kata sandi"
                                         class="p-1.5 pl-10 text-sm rounded-2xl bg-white text-black border-0 shadow-md  w-full" />
                                 </div>
-                                <a href="#{{ route('password.request') }}"
+                                {{-- <a href="#{{ route('password.request') }}"
                                     class="-mt-2.5 pb-3 text-left text-sm text-cyan-600 underline">Lupa Kata Sandi
-                                    Anda?</a>
+                                    Anda?</a> --}}
                             </div>
                             <button type="submit"
                                 class="bg-belum p-1 px-5 text-white  rounded-2xl border-cyan-700 focus:ring-2 m-4">Masuk</button>

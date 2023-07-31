@@ -17,44 +17,53 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $role = Auth::user()->level; // Mendapatkan peran (level) dari pengguna yang login
+        // Mengambil data user yang sedang login dan perannya (level)
+        $role = Auth::user()->level;
+
+        // Mengambil data dari berbagai model
         $produk = Produk::all();
         $pelanggan = Pelanggan::all();
         $user = User::all();
         $profil = Profil::first();
+
+        // Mengambil data tanggal dan jam saat ini dengan format yang diinginkan
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
 
-        // Ambil 5 data arus terbaru
+        // Mengambil 5 data arus terbaru
         $arus = Arus::orderBy('id_arus', 'desc')->first('saldo');
         $aruss = Arus::orderBy('id_arus', 'desc')->limit(3)->get();
 
-        // Ambil 5 data order terbaru
-        $order = Order::latest()->limit(3)->get();
-        $orderModel = new Order();
+        // Mengambil 5 data order terbaru
+        // $order = Order::latest()->limit(3)->get();
+        // $orderModel = new Order();
 
         // Filter data order berdasarkan status "Sedang Cuci" dan/atau status pembayarannya "Belum Dibayar"
-        $proses = $orderModel->where('status', 'Sedang Cuci')
-            ->orWhere('status_pembayaran', 'Belum Dibayar')
-            ->get();
+        $proses = Order::with(['pelanggan', 'produk'])
+        ->where('status', '!=', 'Selesai Dicuci')
+        ->where('status_pembayaran',
+            '!=',
+            'Sudah Bayar'
+        )
+        ->orderBy('created_at', 'desc')
+        ->get();
+
 
         // Proses estimasi tanggal selesai berdasarkan created_at dan durasi produk.
-        foreach ($order as $item) {
-            $estimasiSelesai = Carbon::parse($item->created_at)
-                ->addDays($item->produk->durasi);
-
+        foreach ($proses as $item) {
+            $estimasiSelesai = Carbon::parse($item->created_at)->addDays($item->produk->durasi);
             // Tambahkan estimasi tanggal selesai ke dalam variabel $item (data order saat ini)
             $item->estimasi_selesai = $estimasiSelesai;
         }
-
+        // dd($proses);
         $view = 'admin.dashboard.dashboard';
         // Tetap menggunakan view dashboard.blade.php yang berisi konten yang sama
-
-        // Siapkan data untuk dikirimkan ke tampilan (view)
+       
+        // Siapkan data untuk di$ddkirimkan ke tampilan (view)
         return view($view, [
             'title' => 'Dashboard',
             'profil' => $profil,
-            'order' => $order,
+            // 'order' => $order,
             'user' => $user,
             'proses' => $proses,
             'produk' => $produk,

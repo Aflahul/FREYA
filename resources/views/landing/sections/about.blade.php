@@ -1,5 +1,5 @@
 <section id="about" class="bg-gelap w-screen">
-    <div class="container py-5 max-w-screen-xl items-center justify-between mx-auto px-7 h-fit">
+    <div class="container py-5 max-w-screen-xl items-center justify-between mx-auto px-3 sm:px-7 h-fit">
         <p class=" font-semibold text-2xl  text-white ">Tentang Kami</p>
         <hr class="my-1 border-gray-200 sm:mx-auto dark:border-gray-700 " />
         <footer class=" bg-gelap text-white dark:bg-gray-800">

@@ -22,13 +22,14 @@ Route::post('/search-invoice', [LandingController::class, 'searchInvoice'])->nam
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/dashboard', [DashboardController::class, 'index']);
 // Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
 // Route::get('/forgot-password', [LoginController::class, 'lupapw'])->name('password.request');
 
 //-----------Admin---------------------------------------------------------------------------------------------------------------
 //Halaman Dashboard
-// Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
+// Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+// Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
 //Halaman pelanggan
 Route::get('/pelanggan', [PelangganController::class, 'index']);
 Route::get('/createPelanggan', [PelangganController::class, 'create']);

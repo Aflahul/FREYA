@@ -20,8 +20,6 @@
                             class="border rounded-md w-full px-2 py-0.5 my-0.5" value="{{ old('desk', $produk->desk) }}">
                         <input type="text" id="desk2" name="desk2"
                             class="border rounded-md w-full px-2 py-0.5 my-0.5" value="{{ old('desk2', $produk->desk2) }}">
-                        <input type="text" id="desk3" name="desk3"
-                            class="border rounded-md w-full px-2 py-0.5 my-0.5" value="{{ old('desk3', $produk->desk3) }}">
                     </div>
                     <div class="mb-3 flex">
                         <div class="">
@@ -78,11 +76,12 @@
                                 <td class="px-2 py-1">
                                     <p class="font-bold text-sudah">{{ $data->nama_layanan }}</p>
                                 </td>
-                                <td class="px-1 text-left ">
+                                <td class="text-left ">
                                     <p class="font-light text-xs">
-                                        {{ \Illuminate\Support\Str::limit($data->desk, 5) }}
-                                        {{ \Illuminate\Support\Str::limit($data->desk2, 5) }}
-                                        {{ \Illuminate\Support\Str::limit($data->desk3, 5) }}
+                                        {{ \Illuminate\Support\Str::limit($data->desk, 10) }}
+                                    </p>
+                                    <p class="font-light text-xs">
+                                        {{ \Illuminate\Support\Str::limit($data->desk2, 10) }}
                                     </p>
                                 </td>
                                 <td class="px-1 text-left ">

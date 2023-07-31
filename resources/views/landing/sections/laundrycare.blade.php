@@ -1,17 +1,19 @@
 <section id="laundrycare" class="bg-white shadow-2xl inset-y w-screen ">
-    <div class="container py-3 max-w-screen-xl items-center justify-between mx-auto px-7 h-fit ">
+    <div class="container py-3 max-w-screen-xl items-center justify-between m-0 sm:mx-auto px-3 sm:px-7 h-fit ">
         <div class="max-w-screen ">
             <p class="py-2 font-semibold text-2xl ">LaundryCare</p>
-            <p class="py-1 font-medium   text-lg">Menyajikan informasi tips & trick menjaga keawetan hubungan.
-            <div class="flex place-content-start place-items-center pt-10 gap-5 text-white ">
+            <p class="py-1 font-medium  ">Menyajikan informasi tips & trick seputar laundry.
+            <div class="flex place-content-start place-items-center pt-3 gap-5 text-white ">
                 <div id="panahkiri" class="scroll-arrow left text-gray-200 hover:text-sudah hidden lg:block   ">
                     <i class="fa-solid fa-chevron-left fa-2xl"></i>
                 </div>
+
+                
                 <div id="cardartikel"
-                    class="flex justify-between gap-5 overflow-x-auto overscroll-none py-5 max-w-screen drop-shadow-2xl inset-y hide-scrollbar">
+                    class="flex justify-between gap-5 overflow-x-auto overscroll-none py-5 max-w-screen   drop-shadow-2xl inset-y hide-scrollbar">
                     @foreach ($artikel as $data)
                         <a href="#"
-                            class="min-w-[18rem] max-w-[18rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 article-link"
+                            class="min-w-[18rem] max-w-[18rem] hover:backdrop-brightness-50 hover:mt-2 hover:-mb-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 article-link"
                             data-title="{{ $data->judul }}" data-date="{{ $data->created_at }}"
                             data-content="{{ html_entity_decode($data->Isi) }}">
                             <div id="gambar">
@@ -41,8 +43,8 @@
         </div>
     </div>
     <!-- Komponen Modal -->
-    <div id="modal" class="fixed inset-0 z-10 flex justify-center items-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white p-8 rounded-lg shadow-lg max-w-[80rem] min-w-[50rem] max-h-[36rem] overflow-y-auto">
+    <div id="modal" class="fixed inset-0 z-10 flex justify-center  items-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg  w-screen max-w-[80rem] sm:min-w-[50rem] h-full sm:max-h-[36rem] overflow-y-auto">
             <!-- Konten Modal -->
             
             <p id="modalTitle" class="text-2xl font-semibold mb-4 "></p>

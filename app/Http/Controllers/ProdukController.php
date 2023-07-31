@@ -53,7 +53,6 @@ class ProdukController extends Controller
         $produk->nama_layanan = $request->nama_layanan;
         $produk->desk = $request->desk;
         $produk->desk2 = $request->desk2;
-        $produk->desk3 = $request->desk3;
         $produk->satuan = $request->satuan;
         $produk->harga = $request->harga;
         $produk->durasi = $request->durasi;
@@ -96,7 +95,6 @@ class ProdukController extends Controller
         $produk->nama_layanan = $request->input('nama_layanan');
         $produk->desk = $request->input('desk');
         $produk->desk2 = $request->input('desk2');
-        $produk->desk3 = $request->input('desk3');
         $produk->durasi = $request->input('durasi');
         $produk->satuan = $request->input('satuan');
         $produk->harga = $request->input('harga');

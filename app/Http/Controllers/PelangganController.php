@@ -53,7 +53,6 @@ class PelangganController extends Controller
         $pelanggan->namapel = $request->namapel;
         $pelanggan->kontak = $request->kontak;
         $pelanggan->alamat = $request->alamat;
-        $pelanggan->sedang_cuci = 'Tidak';
 
         // Simpan data ke dalam database
         $pelanggan->save();

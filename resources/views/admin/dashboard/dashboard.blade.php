@@ -97,7 +97,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($order as $item)
+                                @foreach ($proses as $item)
                                     <tr>
                                         <td class="px-2 text-left ">
                                             <p class=" ">{{ $item->pelanggan->namapel }}</p>

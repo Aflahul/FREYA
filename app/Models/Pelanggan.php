@@ -13,7 +13,6 @@ class Pelanggan extends Model
     protected $fillable = [
         'namapel',
         'kontak',
-        
         'alamat',
         ];
     public function orders()

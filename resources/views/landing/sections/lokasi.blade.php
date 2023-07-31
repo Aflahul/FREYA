@@ -1,5 +1,5 @@
 <section id="lokasi" class=" w-screen ">
-    <div class="container  py-2 max-w-screen-xl items-center justify-between mx-auto px-7 h-fit ">
+    <div class="container  py-2 max-w-screen-xl items-center justify-between mx-auto px-3 sm:px-7 h-fit ">
         <div class="max-w-screen  ">
             <p class="py-1 font-semibold text-2xl ">Lokasi Kami</p>
             <p class=" font-medium   text-lg">Lokasi kami mudah dijangkau.

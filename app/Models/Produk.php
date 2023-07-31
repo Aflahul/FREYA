@@ -9,7 +9,7 @@ class Produk extends Model
 {
     protected $table = 'tb_layanan';
     protected $primaryKey = 'id_layanan';
-    protected $fillable = [ 'durasi', 'nama_layanan', 'desk', 'desk2', 'desk3', 'satuan', 'harga'];
+    protected $fillable = [ 'durasi', 'nama_layanan', 'desk', 'desk2', 'satuan', 'harga'];
 
     public function orders()
     {

@@ -72,7 +72,7 @@
                 <div>
                     <p class=" ">Kode Order</p>
                     <p class=" ">Kasir</p>
-                    <p class=" ">Estimasi Selesai</p>
+                    <p class=" ">Selesai</p>
                 </div>
                 <div class="ml-2">
                     <p class=" font-bold">: {{ $transaksi->kd_order }}</p>

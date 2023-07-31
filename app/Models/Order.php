@@ -26,9 +26,9 @@ class Order extends Model
         parent::boot();
 
         static::created(function ($order) {
-            // Mengubah kolom "sedang cuci" menjadi "nyuci" di tabel tb_pelanggan
-            $order->pelanggan->sedang_cuci = 'Sedang Cuci';
-            $order->pelanggan->save();
+            // // Mengubah kolom "sedang cuci" menjadi "nyuci" di tabel tb_pelanggan
+            // $order->pelanggan->sedang_cuci = 'Sedang Cuci';
+            // $order->pelanggan->save();
 
             // Mengupdate kolom "total order" di tabel tb_pelanggan
             $order->pelanggan->total_order = $order->pelanggan->orders->count();

@@ -149,12 +149,8 @@ class OrderController extends Controller
             $order->status_pembayaran = $statusPembayaran;
             $order->save();
 
-            // Mengupdate nilai kolom "sedang_cuci" di tabel tb_pelanggan
-            $pelanggan = Pelanggan::find($request->id_pelanggan);
-            $pelanggan->sedang_cuci = 'sedang cuci';
-            $pelanggan->save();
-
             // Mengupdate nilai kolom "total_order" di tabel tb_pelanggan
+            $pelanggan = Pelanggan::find($request->id_pelanggan);
             $total_order = Order::where('id_pelanggan', $request->id_pelanggan)->count();
             $pelanggan->total_order = $total_order;
             $pelanggan->save();
@@ -165,6 +161,7 @@ class OrderController extends Controller
             return redirect()->back()->withErrors(['id_layanan' => 'Produk tidak ditemukan.']);
         }
     }
+
 
     public function selesai($id_order)
     {

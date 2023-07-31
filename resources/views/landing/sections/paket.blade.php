@@ -1,5 +1,5 @@
 <section id="paket" class="bg-gelap shadow-2xl inset-y w-screen ">
-    <div class="container  py-4 max-w-screen-xl items-center justify-between mx-auto px-7 h-fit">
+    <div class="container  py-4 max-w-screen-xl items-center justify-between mx-auto px-3 sm:px-7 h-fit">
         <div class="flex flex-col lg:flex-row gap-5 justify-between">
             <div id="kartunya" 
                 class="flex order-2 justify-between gap-5 overflow-x-auto overscroll-none min-h-[18rem] max-h-[18rem] py-5 wscreen lg:w-2/3 drop-shadow-2xl inset-y hide-scrollbar">
@@ -44,7 +44,7 @@
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
                                     <span
-                                        class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">{{ $cards->desk3 }}</span>
+                                        class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">{{ $cards->durasi }} Hari</span>
                                 </li>
 
                             </ul>
@@ -53,9 +53,9 @@
                     </div>
                 @endforeach
             </div>
-            <div id="keterngan" class="w-screen lg:w-1/3 pt-4 order-1">
+            <div id="keterngan" class="sm:w-1/3 pt-4 order-1">
                 <p class="py-2 font-semibold text-2xl text-white">Produk dan Layanan</p>
-                <p class="py-1 font-medium  text-white text-lg">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
+                <p class="py-1 font-medium text-white ">Kami menawarkan berbagai macam pilihan paket laundry sesuaikan kebutuhan anda.
                 <div class="lg:flex hidden justify-start items-start pt-10 gap-5 text-belum ">
                     <div class="scroll-arrow left bg-white h-fit w-fit rounded-full drop-shadow hover:text-w3 hover:bg-gelap  ">
                         <i class="fas fa-chevron-circle-left fa-2xl "></i>
