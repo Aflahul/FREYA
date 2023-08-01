@@ -29,6 +29,8 @@
 
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body class="font-mono font-thin">
@@ -42,7 +44,7 @@
 
     </footer>
 
-    <script>
+    {{-- <script>
         // Fungsi untuk mencari id section dari elemen yang diklik
         function findSectionId(element) {
             if (element.hasAttribute('id')) {
@@ -69,7 +71,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
 
 </body>

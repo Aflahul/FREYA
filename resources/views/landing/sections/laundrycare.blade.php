@@ -1,4 +1,4 @@
-<section id="laundrycare" class="bg-white shadow-2xl inset-y w-screen ">
+<section id="laundrycare" class="bg-white shadow-2xl inset-y w-screen  ">
     <div class="container py-3 max-w-screen-xl items-center justify-between m-0 sm:mx-auto px-3 sm:px-7 h-fit ">
         <div class="max-w-screen ">
             <p class="py-2 font-semibold text-2xl ">LaundryCare</p>
@@ -8,9 +8,9 @@
                     <i class="fa-solid fa-chevron-left fa-2xl"></i>
                 </div>
 
-                
+
                 <div id="cardartikel"
-                    class="flex justify-between gap-5 overflow-x-auto overscroll-none py-5 max-w-screen   drop-shadow-2xl inset-y hide-scrollbar">
+                    class="flex justify-between gap-5 overflow-x-auto overscroll-none py-5 max-w-screen font-serif  drop-shadow-2xl inset-y hide-scrollbar">
                     @foreach ($artikel as $data)
                         <a href="#"
                             class="min-w-[18rem] max-w-[18rem] hover:backdrop-brightness-50 hover:mt-2 hover:-mb-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 article-link"
@@ -27,7 +27,7 @@
                             </div>
                             <div class="px-5 pb-2 text-black">
                                 <p id="judul"
-                                    class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                                     {{ $data->judul }}</p>
                                 <p id="tanggal" class="mb-1 text-[9px] font-light font-italic ">
                                     {{ $data->created_at }}</p>
@@ -43,10 +43,12 @@
         </div>
     </div>
     <!-- Komponen Modal -->
-    <div id="modal" class="fixed inset-0 z-10 flex justify-center  items-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white p-8 rounded-lg shadow-lg  w-screen max-w-[80rem] sm:min-w-[50rem] h-full sm:max-h-[36rem] overflow-y-auto">
+    <div id="modal"
+        class="fixed inset-0 z-10 flex justify-center  items-center bg-black bg-opacity-50 hidden font-serif">
+        <div
+            class="bg-white p-8 rounded-lg shadow-lg  w-screen max-w-[80rem] sm:min-w-[50rem] h-full sm:max-h-[36rem] overflow-y-auto">
             <!-- Konten Modal -->
-            
+
             <p id="modalTitle" class="text-2xl font-semibold mb-4 "></p>
             <p id="modalDate" class="text-xs mb-2"></p>
             <div id="modalImage" class="mb-4 flex items-center justify-center">
@@ -60,68 +62,69 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const articleLinks = document.querySelectorAll(".article-link");
-            const modal = document.getElementById("modal");
-            const modalTitle = document.getElementById("modalTitle");
-            const modalDate = document.getElementById("modalDate");
-            const modalImage = document.getElementById("modalImage").querySelector("img");
-            const modalContent = document.getElementById("modalContent");
-            const modalClose = document.getElementById("modalClose");
-            const cardContainer = document.getElementById('cardartikel');
-            const leftArrow = document.getElementById('panahkiri');
-            const rightArrow = document.getElementById('panahkanan');
 
-            // Fungsi untuk menggerakkan container ke kiri
-            function scrollLeft() {
-                cardContainer.scrollLeft -= 200; // Sesuaikan dengan lebar konten yang ingin digerakkan
-            }
-
-            // Fungsi untuk menggerakkan container ke kanan
-            function scrollRight() {
-                cardContainer.scrollLeft += 200; // Sesuaikan dengan lebar konten yang ingin digerakkan
-            }
-
-            // Tambahkan event listener untuk tombol panah kiri
-            leftArrow.addEventListener('click', scrollLeft);
-
-            // Tambahkan event listener untuk tombol panah kanan
-            rightArrow.addEventListener('click', scrollRight);
-
-            // Fungsi untuk menutup modal
-            function closeModal() {
-                modal.classList.add("hidden");
-            }
-
-            // Tambahkan event listener untuk tombol tutup
-            modalClose.addEventListener("click", closeModal);
-
-            // Tambahkan event listener untuk latar belakang gelap (menutup modal ketika di klik di luar konten modal)
-            modal.addEventListener("click", function(event) {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-
-            articleLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    const title = this.dataset.title;
-                    const date = this.dataset.date;
-                    const content = this.dataset.content;
-                    const imageSrc = this.querySelector("img").getAttribute("src");
-
-                    modalTitle.textContent = title;
-                    modalDate.textContent = date;
-                    modalImage.setAttribute("src", imageSrc); // Set the image source
-                    modalContent.innerHTML = content;
-                    modal.classList.remove("hidden");
-                });
-            });
-        });
-    </script>
 
 
 
 </section>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const articleLinks = document.querySelectorAll(".article-link");
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDate = document.getElementById("modalDate");
+        const modalImage = document.getElementById("modalImage").querySelector("img");
+        const modalContent = document.getElementById("modalContent");
+        const modalClose = document.getElementById("modalClose");
+        const cardContainer = document.getElementById('cardartikel');
+        const leftArrow = document.getElementById('panahkiri');
+        const rightArrow = document.getElementById('panahkanan');
+
+        // Fungsi untuk menggerakkan container ke kiri
+        function scrollLeft() {
+            cardContainer.scrollLeft -= 200; // Sesuaikan dengan lebar konten yang ingin digerakkan
+        }
+
+        // Fungsi untuk menggerakkan container ke kanan
+        function scrollRight() {
+            cardContainer.scrollLeft += 200; // Sesuaikan dengan lebar konten yang ingin digerakkan
+        }
+
+        // Tambahkan event listener untuk tombol panah kiri
+        leftArrow.addEventListener('click', scrollLeft);
+
+        // Tambahkan event listener untuk tombol panah kanan
+        rightArrow.addEventListener('click', scrollRight);
+
+        // Fungsi untuk menutup modal
+        function closeModal() {
+            modal.classList.add("hidden");
+        }
+
+        // Tambahkan event listener untuk tombol tutup
+        modalClose.addEventListener("click", closeModal);
+
+        // Tambahkan event listener untuk latar belakang gelap (menutup modal ketika di klik di luar konten modal)
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        articleLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                const title = this.dataset.title;
+                const date = this.dataset.date;
+                const content = this.dataset.content;
+                const imageSrc = this.querySelector("img").getAttribute("src");
+
+                modalTitle.textContent = title;
+                modalDate.textContent = date;
+                modalImage.setAttribute("src", imageSrc); // Set the image source
+                modalContent.innerHTML = content;
+                modal.classList.remove("hidden");
+            });
+        });
+    });
+</script>

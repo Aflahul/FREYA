@@ -8,7 +8,9 @@
                 <div id="map" class="w-screen z-0 h-96"></div>
             </div>
         </div>
-        <script>
+        
+</section>
+<script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Inisialisasi peta
                 var map = L.map('map').setView([{{ $profil->latitude }}, {{ $profil->longitude }}], 13);
@@ -20,7 +22,5 @@
                 var marker = L.marker([{{ $profil->latitude }}, {{ $profil->longitude }}]).addTo(map);
             });
         </script>
-</section>
-
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
