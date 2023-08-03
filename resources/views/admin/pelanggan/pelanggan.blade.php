@@ -4,26 +4,26 @@
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between">
         
         <div class="p-4 drop-shadow-lg w-fit ">
-            <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class=" bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-2 mb-1">Tambah Pelanggan</h2>
             
                 <form action="/storePelanggan" method="POST">
                     @csrf
                     <div class="mb-4 border-t-2 pt-2">
                         <label for="namapel" class="block">Nama Pelanggan:</label>
-                        <input type="text" id="namapel" name="namapel" class="border rounded-md px-2 py-1">
+                        <input type="text" id="namapel" name="namapel" class="border bg-inherit rounded-md px-2 py-1">
                     </div>
                     <div class="mb-4">
                         <label for="kontak" class="block">kontak:</label>
-                        <input type="text" id="kontak" name="kontak" class="border rounded-md px-2 py-1">
+                        <input type="text" id="kontak" name="kontak" class="border bg-inherit rounded-md px-2 py-1">
                     </div>
 
                     <div class="mb-4">
                         <label for="alamat" class="block">alamat:</label>
-                        <input type="text" id="alamat" name="alamat" class="border rounded-md px-2 py-1">
+                        <input type="text" id="alamat" name="alamat" class="border bg-inherit rounded-md px-2 py-1">
                     </div>
                     <div class="flex justify-start py-2">
-                        <button type="submit" class="px-3 py-1 bg-green-500 text-white rounded-md mr-2">Tambahkan</button>
+                        <button type="submit" class="px-3 py-1 bg-green-500 text-white  rounded-md mr-2">Tambahkan</button>
                         {{-- <a href="/pelanggan" class="px-3 py-1 bg-red-500 text-white rounded-md">Batal</a> --}}
                     </div>
                 </form>
@@ -40,7 +40,7 @@
                 </select>
                 <label for="rows" class="ml-2">entries</label>
             </div> --}}
-            <div class="bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left overflow-x-auto ">
                     <thead>
                         <tr class="border-b-2 text-center text-base ">
@@ -54,7 +54,7 @@
                     </thead>
                     <tbody>
                         @foreach ($pelanggan as $data)
-                            <tr class="object-center">
+                            <tr class="object-center  odd:bg-slate-200 even:bg-latar ">
                                 <td class="w-10 py-2">
                                     <div class="pl-4 text-sudah">
                                         <i class="fas fa-user-circle fa-2x"></i>
@@ -73,7 +73,12 @@
                                 <td class="text-center">
                                     <p class="font-bold text-base">{{ $data->total_order }}</p>
                                 </td>
-                                <form action="/deletePelanggan/{{ $data->id_pelanggan }}" method="post">
+                                <td class="text-center py-2 text-belum">
+                                    <a href="/EditPelanggan/{{ $data->id_pelanggan }}">
+                                            <i class="fa-solid fa-edit fa-xl"></i>
+                                        </a>
+                                </td>
+                                {{-- <form action="/deletePelanggan/{{ $data->id_pelanggan }}" method="post">
                                     <td class="py-2 text-center text-belum justify-center  flex gap-2">
                                         @csrf
                                         @method('delete')
@@ -84,7 +89,7 @@
                                             <i class="fa-solid fa-edit fa-xl"></i>
                                         </a>
                                     </td>
-                                </form>
+                                </form> --}}
                             </tr>
                         @endforeach
                     </tbody>

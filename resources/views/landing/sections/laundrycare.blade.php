@@ -1,4 +1,4 @@
-<section id="laundrycare" class="bg-white shadow-2xl inset-y w-screen  ">
+<section id="laundrycare" class="bg-latar shadow-2xl inset-y w-screen  ">
     <div class="container py-3 max-w-screen-xl items-center justify-between m-0 sm:mx-auto px-3 sm:px-7 h-fit ">
         <div class="max-w-screen ">
             <p class="py-2 font-semibold text-2xl ">LaundryCare</p>
@@ -13,7 +13,7 @@
                     class="flex justify-between gap-5 overflow-x-auto overscroll-none py-5 max-w-screen font-serif  drop-shadow-2xl inset-y hide-scrollbar">
                     @foreach ($artikel as $data)
                         <a href="#"
-                            class="min-w-[18rem] max-w-[18rem] hover:backdrop-brightness-50 hover:mt-2 hover:-mb-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 article-link"
+                            class="min-w-[18rem] max-w-[18rem] hover:backdrop-brightness-50 hover:border-blue-600 hover:mt-2 hover:-mb-2 bg-latar border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 article-link"
                             data-title="{{ $data->judul }}" data-date="{{ $data->created_at }}"
                             data-content="{{ html_entity_decode($data->Isi) }}">
                             <div id="gambar">
@@ -46,7 +46,7 @@
     <div id="modal"
         class="fixed inset-0 z-10 flex justify-center  items-center bg-black bg-opacity-50 hidden font-serif">
         <div
-            class="bg-white p-8 rounded-lg shadow-lg  w-screen max-w-[80rem] sm:min-w-[50rem] h-full sm:max-h-[36rem] overflow-y-auto">
+            class="bg-latar p-8 rounded-lg shadow-lg  w-screen max-w-[80rem] sm:min-w-[50rem] h-full sm:max-h-[36rem] overflow-y-auto">
             <!-- Konten Modal -->
 
             <p id="modalTitle" class="text-2xl font-semibold mb-4 "></p>

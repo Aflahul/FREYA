@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col place-content-between ">
-        <div class="p-4 drop-shadow flex relative flex-col place-content-between ">
-            <div class="bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+        <div class="p-4 drop-shadow-lg flex relative flex-col place-content-between ">
+            <div class="bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-4 py-2"> Tambah Order </h2>
                 <form action="/storeOrder" method="POST" class="flex flex-col border-t-2">
                     @csrf
@@ -11,7 +11,7 @@
                         <div class="mb-4">
                             <label for="id_pelanggan" class="block pt-2">Pilih Nama Pelanggan</label>
                             <select id="id_pelanggan" name="id_pelanggan"
-                                class="border rounded-md px-2 py-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2 form-control @error('id_pelanggan') is-invalid @enderror">
+                                class="border bg-inherit rounded-md px-2 py-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2 form-control @error('id_pelanggan') is-invalid @enderror">
                                 <option value="">Pilih Nama Pelanggan..</option>
                                 <!-- Daftar nama pelanggan akan ditampilkan di sini -->
                             </select>
@@ -21,24 +21,24 @@
                             <label for="id_layanan" class="block pt-2">Pilih
                                 Jenis Layanan</label>
                             <select name="id_layanan" id="id_layanan"
-                                class="border rounded-md px-2 py-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2 form-control @error('nama_layanan') is-invalid @enderror">
-                                <option value="">Pilih Jenis Layanan..</option>
+                                class="border bg-inherit rounded-md px-2 py-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2 form-control @error('nama_layanan') is-invalid @enderror">
+                                <option value="" class="bg-inherit">Pilih Jenis Layanan..</option>
                                 @foreach ($data_layanan as $datas)
-                                    <option value="{{ $datas->id_layanan }}">{{ $datas->nama_layanan }}</option>
+                                    <option class="bg-inherit" value="{{ $datas->id_layanan }}">{{ $datas->nama_layanan }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-4">
                             <label for="qty" class="block pt-2">Qty:</label>
-                            <input class="border rounded-md px-2 py-1" type="number" name="qty" id="qty"
+                            <input class="border bg-inherit rounded-md px-2 py-1" type="number" name="qty" id="qty"
                                 onchange="calculateTotal()" min="0.01" step="0.01" value="1">
                         </div>
 
                         <div class="py-2 place-content-end flex flex-col">
                             <div class="flex items-center mr-4">
                                 <input checked id="teal-checkbox" type="checkbox" name="status_pembayaran" value=""
-                                    class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2">
-                                <label for="teal-checkbox" class="ml-2 text-sm font-medium text-gray-900 py-2">Bayar
+                                    class="w-4 h-4 text-teal-600 bg-inherit border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2">
+                                <label for="teal-checkbox" class="ml-2 bg-inherit text-sm font-medium text-gray-900 py-2">Bayar
                                     Sekarang</label>
                             </div>
                             <button type="submit"
@@ -50,7 +50,7 @@
         </div>
 
         <div class="p-4 drop-shadow-lg relative overflow-x-auto">
-            <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
+            <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left">
                     <thead>
                         <tr class="border-b-2">
@@ -67,7 +67,7 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
-                            <tr>
+                            <tr class=" odd:bg-slate-200 even:bg-latar ">
                                 <td class="px-2 w-24 font-bold uppercase">
                                     <p class="text-sudah">{{ $item->kd_order }}</p>
                                 </td>

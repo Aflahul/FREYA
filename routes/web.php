@@ -22,97 +22,118 @@ Route::post('/search-invoice', [LandingController::class, 'searchInvoice'])->nam
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/dashboard', [DashboardController::class, 'index']);
-// Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
-// Route::get('/forgot-password', [LoginController::class, 'lupapw'])->name('password.request');
 
-//-----------Admin---------------------------------------------------------------------------------------------------------------
-//Halaman Dashboard
-// Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-// Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
-//Halaman pelanggan
-Route::get('/pelanggan', [PelangganController::class, 'index']);
+
+//PEMBATASAN AKSES
+//----Admin--------
+Route::middleware('admin')->group(
+    function () {
+        // Route::get('/dashboard', [DashboardController::class, 'index']);
+        // Route::get('/pelanggan', [PelangganController::class, 'index']);
+        // Route::get('/pengeluaran', [PengeluaranController::class, 'index']);
+        // Route::get('/order', [OrderController::class, 'index']);
+        Route::get('/laporan', [TransaksiController::class, 'index']);
+        Route::get('/kas', [KasController::class, 'index']);
+        Route::get('/profil', [ProfilController::class, 'index']);
+        Route::get('/produk', [ProdukController::class, 'index']);
+        Route::get('/artikel', [ArtikelController::class, 'index']);
+        Route::get('/user', [UserController::class, 'index']);
+    }
+);
+
+
+//----Pegawai--------
+Route::middleware('auth')->group(
+    function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/pelanggan', [PelangganController::class, 'index']);
+        Route::get('/pengeluaran', [PengeluaranController::class, 'index']);
+        Route::get('/order', [OrderController::class, 'index']);
+    }
+);
+
+
+//Halaman Pelanggan
 Route::get('/createPelanggan', [PelangganController::class, 'create']);
 Route::post('/storePelanggan', [PelangganController::class, 'store']);
 Route::get('/EditPelanggan/{id_pelanggan}', [PelangganController::class, 'edit']);
 Route::put('/UpdatePelanggan/{id_pelanggan}', [PelangganController::class, 'update'])->name('UpdatePelanggan.update');
 Route::delete('/deletePelanggan/{id_pelanggan}', [PelangganController::class, 'destroy']);
+
 //Halaman pengeluaran
-Route::get('/pengeluaran', [PengeluaranController::class, 'index']);
 Route::get('/createPengeluaran', [PengeluaranController::class, 'create']);
 Route::post('/storePengeluaran', [PengeluaranController::class, 'store']);
 Route::get('/EditPengeluaran/{id_pengeluaran}', [PengeluaranController::class, 'edit']);
 Route::put('/UpdatePengeluaran/{id_pengeluaran}', [PengeluaranController::class, 'update'])->name('UpdatePengeluaran.update');
 Route::delete('/deletePengeluaran/{id_pengeluaran}', [PengeluaranController::class, 'destroy']);
+
 //Halaman Order
-Route::get('/order', [OrderController::class, 'index']);
 Route::get('/createOrder', [OrderController::class, 'create']);
 Route::post('/storeOrder', [OrderController::class, 'store'])->name('storeOrder');
 Route::delete('/deleteOrder/{id_order}', [OrderController::class, 'destroy']);
 Route::get('/EditOrder/{id_order}', [OrderController::class, 'edit']);
 Route::put('/UpdateOrder/{id_order}', [OrderController::class, 'update'])->name('UpdateOrder.update');
-Route::post('/selesai/{id_order}',[OrderController::class, 'markAsSelesai']);
-Route::post('/sudahdibayar/{id_order}',[OrderController::class, 'markAsSudahDibayar']);
+Route::post('/selesai/{id_order}', [OrderController::class, 'markAsSelesai']);
+Route::post('/sudahdibayar/{id_order}', [OrderController::class, 'markAsSudahDibayar']);
 Route::get('/cetakNT/{id_order}', [OrderController::class, 'cetak']);
+
 //Halaman Transaksi
-Route::get('/laporan', [TransaksiController::class, 'index']);
 Route::get('/filterINV', [TransaksiController::class, 'filterData']);
 Route::get('/cetakINV/{id_order}', [TransaksiController::class, 'cetak']);
 Route::get('/cetakTransaksi', [TransaksiController::class, 'cetakTransaksi']);
 Route::get('/resetfilterT', [TransaksiController::class, 'resetFilter']);
 
 //Halaman Arus Kas
-Route::get('/kas', [KasController::class, 'index']);
 Route::get('/filterKas', [KasController::class, 'filterData']);
 Route::get('/cetakKas', [KasController::class, 'cetak']);
 Route::get('/resetfilter', [KasController::class, 'resetFilter']);
+
 //Halaman profil laundry
-Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/EditProfil/{id_profil}', [ProfilController::class, 'edit']);
 Route::put('/UpdateProfil/{id_profil}', [ProfilController::class, 'update'])->name('UpdateProfil.update');
+
 //Halaman produk
-Route::get('/produk', [ProdukController::class, 'index']);
 Route::get('/createProduk', [ProdukController::class, 'create']);
 Route::post('/storeProduk', [ProdukController::class, 'store']);
 Route::get('/EditProduk/{id_layanan}', [ProdukController::class, 'edit']);
 Route::put('/UpdateProduk/{id_layanan}', [ProdukController::class, 'update'])->name('UpdateProduk.update');
 Route::delete('/deleteProduk/{id_layanan}', [ProdukController::class, 'destroy']);
+
 //Halaman Artikel
-Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/createArtikel', [ArtikelController::class, 'create']);
 Route::post('/storeArtikel', [ArtikelController::class, 'store'])->name('artikel.store');
 Route::get('/EditArtikel/{id_artikel}', [ArtikelController::class, 'edit']);
 Route::put('/UpdateArtikel/{id_artikel}', [ArtikelController::class, 'update'])->name('UpdateArtikel.update');
 Route::delete('/deleteArtikel/{id_artikel}', [ArtikelController::class, 'destroy']);
+
 //Halaman user
-Route::get('/user', [UserController::class, 'index']);
 Route::get('/createUser', [UserController::class, 'create']);
 Route::post('/StoreUser', [UserController::class, 'store']);
 Route::get('/EditUser/{id_user}', [UserController::class, 'edit']);
 Route::put('/UpdateUser/{id_user}', [UserController::class, 'update'])->name('UpdateUser.update');
 Route::delete('/deleteUser/{id_user}', [UserController::class, 'destroy']);
 
-//---Pegawai----------------------------------------------------------------------------------------
-//Halaman Dashboard
-Route::get('/dashboard_pegawai', [DashboardController::class, 'index_pegawai']);
-//Halaman pelanggan
-Route::get('/pelanggan_pegawai', [PelangganController::class, 'index_pegawai']);
-Route::get('/createPelanggan_pegawai', [PelangganController::class, 'create_pegawai']);
-Route::post('/storePelanggan_pegawai', [PelangganController::class, 'store_pegawai']);
-Route::get('/EditPelanggan/{id_pelanggan}', [PelangganController::class, 'edit_pegawai']);
-Route::put('/UpdatePelanggan_pegawai/{id_pelanggan}', [PelangganController::class, 'update_pegawai'])->name('UpdatePelanggan_pegawai.update');
-Route::delete('/deletePelanggan_pegawai/{id_pelanggan}', [PelangganController::class, 'destroy_pegawai']);
-//Halaman pengeluaran
-Route::get('/pengeluaran_pegawai', [PengeluaranController::class, 'index_pegawai']);
-Route::get('/createPengeluaran_pegawai', [PengeluaranController::class, 'create_pegawai']);
-Route::post('/storePengeluaran_pegawai', [PengeluaranController::class, 'store_pegawai']);
-Route::get('/EditPengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'edit_pegawai']);
-Route::put('/UpdatePengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'update_pegawai'])->name('UpdatePengeluaran_pegawai.update');
-Route::delete('/deletePengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'destroy_pegawai']);
-//Halaman Order
-Route::get('/order_pegawai', [OrderController::class, 'index_pegawai']);
-Route::get('/createOrder_pegawai', [OrderController::class, 'create_pegawai']);
-Route::post('/storeOrder_pegawai', [OrderController::class, 'store_pegawai']);
-Route::get('/EditOrder_pegawai/{id_order}', [OrderController::class, 'edit_pegawai']);
-Route::put('/UpdateOrder_pegawai/{id_order}', [OrderController::class, 'update_pegawai'])->name('UpdateOrder_pegawai.update');
-Route::delete('/deleteOrder_pegawai/{id_order}', [OrderController::class, 'destroy_pegawai']);
+// //---Pegawai----------------------------------------------------------------------------------------
+// //Halaman Dashboard
+// Route::get('/dashboard_pegawai', [DashboardController::class, 'index_pegawai']);
+// //Halaman pelanggan
+// Route::get('/pelanggan_pegawai', [PelangganController::class, 'index_pegawai']);
+// Route::get('/createPelanggan_pegawai', [PelangganController::class, 'create_pegawai']);
+// Route::post('/storePelanggan_pegawai', [PelangganController::class, 'store_pegawai']);
+// Route::get('/EditPelanggan/{id_pelanggan}', [PelangganController::class, 'edit_pegawai']);
+// Route::put('/UpdatePelanggan_pegawai/{id_pelanggan}', [PelangganController::class, 'update_pegawai'])->name('UpdatePelanggan_pegawai.update');
+// Route::delete('/deletePelanggan_pegawai/{id_pelanggan}', [PelangganController::class, 'destroy_pegawai']);
+// //Halaman pengeluaran
+// Route::get('/pengeluaran_pegawai', [PengeluaranController::class, 'index_pegawai']);
+// Route::get('/createPengeluaran_pegawai', [PengeluaranController::class, 'create_pegawai']);
+// Route::post('/storePengeluaran_pegawai', [PengeluaranController::class, 'store_pegawai']);
+// Route::get('/EditPengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'edit_pegawai']);
+// Route::put('/UpdatePengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'update_pegawai'])->name('UpdatePengeluaran_pegawai.update');
+// Route::delete('/deletePengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'destroy_pegawai']);
+// //Halaman Order
+// Route::get('/order_pegawai', [OrderController::class, 'index_pegawai']);
+// Route::get('/createOrder_pegawai', [OrderController::class, 'create_pegawai']);
+// Route::post('/storeOrder_pegawai', [OrderController::class, 'store_pegawai']);
+// Route::get('/EditOrder_pegawai/{id_order}', [OrderController::class, 'edit_pegawai']);
+// Route::put('/UpdateOrder_pegawai/{id_order}', [OrderController::class, 'update_pegawai'])->name('UpdateOrder_pegawai.update');
+// Route::delete('/deleteOrder_pegawai/{id_order}', [OrderController::class, 'destroy_pegawai']);

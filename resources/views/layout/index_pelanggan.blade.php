@@ -21,7 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title id="page-title">Freya Laundry |</title>
+    <title id="page-title">Freya Laundry</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('asset/css/fontawesome.css') }}" rel="stylesheet">
 
@@ -33,7 +33,7 @@
 
 </head>
 
-<body class="font-mono font-thin">
+<body class="font-mono font-thin bg-latar">
     <header>
         @include('partials/user/nav')
     </header>

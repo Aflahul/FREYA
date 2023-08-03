@@ -4,7 +4,7 @@
         <p class="py-1 text-lg">Cek Status Laundry anda disini</p>
         <form class="py-3 pt-1 flex flex-col items-center" action="{{ route('landing.search-invoice') }}" method="POST">
             @csrf
-            <div class="pl-3 flex items-center bg-white border border-1 w-full rounded-lg text-black">
+            <div class="pl-3 flex items-center bg-latar border border-1 w-full rounded-lg text-black">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="search" id="default-search" name="invoice_number"
                     class="w-full p-2 text-sm border border-white text-gray-900"

@@ -30,7 +30,7 @@
                 @foreach ($produk as $cards)
                     <div class="w-full ">
                         <div
-                            class="drop-shadow-lg min-w-[18rem]  max-w-[18rem] max-h-[16rem] min-h-[16rem] p-4 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-100 hover:-mt-2 hover:drop-shadow-xl">
+                            class="drop-shadow-lg min-w-[18rem]  max-w-[18rem] max-h-[16rem] min-h-[16rem] p-4 bg-latar border border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-100 hover:-mt-2 hover:drop-shadow-xl">
                             <h5 class="mb-2 text-blue-700 text-xl uppercase font-bold">{{ $cards->nama_layanan }}
                             </h5>
                             <div class="pt-2 flex items-baseline text-gray-900 dark:text-white">

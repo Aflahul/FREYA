@@ -2,21 +2,21 @@
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
         <div class="p-4 drop-shadow-lg w-fit ">
-            <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class=" bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-3 py-2">Tambah User</h2>
                 <form action="/StoreUser" method="POST">
                     @csrf
                     <div class="mb-4 border-t-2 pt-2">
                         <label for="username" class="block">Username:</label>
-                        <input type="text" id="username" name="username" class="border rounded-md px-2 py-1">
+                        <input type="text" id="username" name="username" class="border bg-latar rounded-md px-2 py-1">
                     </div>
                     <div class="mb-4">
                         <label for="password" class="block">Password:</label>
-                        <input type="password" id="password" name="password" class="border rounded-md px-2 py-1">
+                        <input type="password" id="password" name="password" class="border bg-latar rounded-md px-2 py-1">
                     </div>
                     <div class="mb-4">
                         <label for="level" class="block">Level:</label>
-                        <select id="level" name="level" class="border rounded-md px-2 py-1">
+                        <select id="level" name="level" class="border rounded-md bg-latar px-2 py-1">
                             <option value="admin">Admin</option>
                             <option value="pegawai">Pegawai</option>
                         </select>
@@ -30,7 +30,7 @@
         </div>
         <!--user-->
         <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
-            <div class="bg-white border-t-[6px] border-sudah rounded-[4px] overflow-x-auto px-1">
+            <div class="bg-latar border-t-[6px] border-sudah rounded-[4px] overflow-x-auto ">
                 <table class="w-full text-sm text-left ">
                     <thead>
                         <tr class="border-b-2 text-semibold">
@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
-                            <tr>
+                            <tr class=" odd:bg-slate-200 even:bg-latar ">
                                 <td class="px-2 py-2">
                                     <p class="font-semibold text-sudah">{{ $user->username }}</p>
                                 </td>
