@@ -57,7 +57,7 @@
                                         <p class="text-sudah">{{ $item->kd_order }}</p>
                                     </td>
                                     <td class="px-2">
-                                        <p>{{ $item->created_at->format('d/m/Y') }}</p>
+                                        <p>{{ $item->updated_at->format('d/m/Y') }}</p>
                                     </td>
                                     <td class="px-2 py-1  ">
                                         <p class="">{{ $item->produk->nama_layanan }}</p>

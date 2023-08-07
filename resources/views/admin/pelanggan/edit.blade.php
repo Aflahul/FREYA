@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between">
         <div class="p-4 drop-shadow-lg w-fit ">
-            <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class=" bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-2 mb-1">Tambah Pelanggan</h2>
                 <form action="{{ route('UpdatePelanggan.update', $pelanggan->id_pelanggan) }}" method="POST">
                     @csrf
@@ -33,7 +33,7 @@
         </div>
         <!--pelanggan-->
         <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
-            <div class="bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class="bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left overflow-x-auto ">
                     <thead>
                         <tr class="border-b-2 text-center text-base ">
@@ -46,7 +46,7 @@
                     </thead>
                     <tbody>
                         @foreach ($pelanggans as $data)
-                            <tr class="object-center">
+                       <tr class=" odd:bg-slate-200 even:bg-latar ">
                                 <td class="w-10 py-2">
                                     <div class="pl-4 text-sudah">
                                         <i class="fas fa-user-circle fa-2x"></i>

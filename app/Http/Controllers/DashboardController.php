@@ -40,13 +40,10 @@ class DashboardController extends Controller
 
         // Filter data order berdasarkan status "Sedang Cuci" dan/atau status pembayarannya "Belum Dibayar"
         $proses = Order::with(['pelanggan', 'produk'])
-        ->where('status', '!=', 'Selesai Dicuci')
-        ->where('status_pembayaran',
-            '!=',
-            'Sudah Bayar'
-        )
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->where('status', '!=', 'Selesai Cuci')
+            ->where('status_pembayaran', '!=', 'Sudah Bayar')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
 
         // Proses estimasi tanggal selesai berdasarkan created_at dan durasi produk.
@@ -58,7 +55,7 @@ class DashboardController extends Controller
         // dd($proses);
         $view = 'admin.dashboard.dashboard';
         // Tetap menggunakan view dashboard.blade.php yang berisi konten yang sama
-       
+
         // Siapkan data untuk di$ddkirimkan ke tampilan (view)
         return view($view, [
             'title' => 'Dashboard',

@@ -130,7 +130,7 @@
     <div class="flex justify-center">
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit"
+            <button type="submit" onclick="return confirm('Yakin ingin logout?')"
                 class="text-black bg-kuning rounded px-2 py-1 hover:text-black hover:-mt-1 hover:shadow-lg shadow text-center font-semibold">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </button>

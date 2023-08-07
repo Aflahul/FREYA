@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
         <div class="p-4 drop-shadow-lg basis-1/4 ">
-            <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class=" bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-5 py-2">Tambah Pengeluaran</h2>
                 <form action="{{ route('UpdatePengeluaran.update', $pengeluaran->id_pengeluaran) }}" method="POST">
                     @csrf
@@ -52,7 +52,7 @@
         <!--pengeluaran-->
         <div class="p-4 drop-shadow-lg basis-3/4">
 
-            <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
+            <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
                 <table class="p-2 w-full text-sm text-left overflow-x-auto ">
                     <thead>
                         <tr class="border-b-2">
@@ -67,7 +67,7 @@
                     </thead>
                     <tbody>
                         @foreach ($pengeluarans as $data)
-                            <tr>
+                               <tr class=" odd:bg-slate-200 even:bg-latar ">
                                 <td class=" w-24 text-lg font-bold disabled: ">
                                     <p class="text-sudah">{{ $data->kd_pengeluaran }}</p>
                                 </td>

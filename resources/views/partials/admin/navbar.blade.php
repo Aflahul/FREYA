@@ -11,7 +11,7 @@
 
                     <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="text-red-500 hover:text-red-700">
+                            <button type="submit" class="text-red-500 hover:text-red-700" onclick="return confirm('Yakin ingin logout?')">
                                 <i class="fas fa-sign-out-alt"></i>
                             </button>
                         </form>

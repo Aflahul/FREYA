@@ -22,7 +22,7 @@ class LandingController extends Controller
         $error = Session::get('error');
 
         $artikel = Artikel::all();
-        $produk = Produk::paginate(5);
+        $produk = Produk::all();
         $profil = Profil::first();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');

@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col place-content-between ">
         <div class="p-4 drop-shadow flex relative flex-col place-content-between ">
-            <div class="bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class="bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-4 py-2"> Edit Data </h2>
                 <form action="{{ route('UpdateOrder.update', $data->id_order) }}" method="POST">
                     @csrf
@@ -80,7 +80,7 @@
         </div>
         <!--pelanggan-->
           <div class="p-4 drop-shadow-lg relative overflow-x-auto">
-            <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
+            <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left">
                     <thead>
                         <tr class="border-b-2">
@@ -97,7 +97,7 @@
                     </thead>
                     <tbody>
                         @foreach ($orders as $item)
-                            <tr>
+                              <tr class=" odd:bg-slate-200 even:bg-latar ">
                                 <td class="px-2 w-24 font-bold uppercase">
                                     <p class="text-sudah">{{ $item->kd_order }}</p>
                                 </td>

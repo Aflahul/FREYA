@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between ">
         <div class="p-4 drop-shadow-lg w-fit ">
-            <div class=" bg-white px-3 border-t-[6px] border-sudah rounded-[4px]">
+            <div class=" bg-latar px-3 border-t-[6px] border-sudah rounded-[4px]">
                 <h2 class="font-medium pt-4 py-1">Edit Produk & Layanan</h2>
                 <form action="/UpdateProduk/{{ $produk->id_layanan }}" method="POST">
                     @csrf
@@ -58,7 +58,7 @@
         <!--layanan-->
         <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
 
-            <div class="bg-white border-t-[6px] border-sudah rounded-[4px]">
+            <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left ">
                     <thead>
                         <tr class="border-b-2 text-base ">
@@ -72,7 +72,7 @@
                     </thead>
                     <tbody>
                         @foreach ($produks as $data)
-                            <tr class=" object-center">
+                               <tr class=" odd:bg-slate-200 even:bg-latar ">
                                 <td class="px-2 py-1">
                                     <p class="font-bold text-sudah">{{ $data->nama_layanan }}</p>
                                 </td>
