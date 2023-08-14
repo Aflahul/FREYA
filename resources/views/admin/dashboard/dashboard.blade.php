@@ -98,7 +98,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($proses as $item)
-                                     <tr class=" odd:bg-slate-200 even:bg-latar ">
+                                    <tr class=" odd:bg-slate-200 even:bg-latar ">
                                         <td class="px-2 text-left ">
                                             <p class=" ">{{ $item->pelanggan->namapel }}</p>
                                         </td>
@@ -180,16 +180,6 @@
                                             Level Akses hanya Admin
                                         @endif
                                     </td>
-                                   
-
-
-
-
-
-                                    {{-- <td colspan="4"
-                                        class="hover:bg-kuning text-center text-garis drop-shadow-lg  font-medium rounded-b-[8px] text-sm px-2 py-1">
-                                        <a href="/laporan" class="" type="button">Lihat Semua</a>
-                                    </td> --}}
                                 </tr>
                             </tfoot>
                         </table>

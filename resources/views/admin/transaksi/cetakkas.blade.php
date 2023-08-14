@@ -5,15 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title id="page-title">Freya Laundry |</title>
+    <title id="page-title">Freya Laundry</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('asset/css/fontawesome.css') }}" rel="stylesheet">
-
     <script src="{{ asset('asset/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
-
-
 </head>
 
 <body class="h-fit">
@@ -31,7 +27,6 @@
                     @else
                         <img class="h-14 rounded" src="{{ asset('assets/img/default-logo.jpg') }}" alt="default logo">
                     @endif
-                    {{-- <p class="text-left bg-black rounded-md px-2 py-5font-bold text-4xl text-white">Logo</p> --}}
                 </div>
                 <div class="flex gap-3 ">
                     @php
@@ -125,9 +120,6 @@
                                 </td>
                             </tr>
                         </tfoot>
-
-
-
                         </tbody>
                     </table>
                 </div>

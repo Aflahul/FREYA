@@ -9,8 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('asset/css/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
-
-
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
 <body>
@@ -20,6 +19,7 @@
     <script>
         // Mengatur zona waktu JavaScript ke UTC+8
         Intl.DateTimeFormat().resolvedOptions().timeZone = 'UTC+8';
+        displayCopyright();
     </script>
 </body>
 

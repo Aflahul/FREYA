@@ -55,7 +55,6 @@
         </div>
         <!--layanan-->
         <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
-
             <div class="bg-latar border-t-[6px] border-sudah rounded-[4px] overflow-x-auto">
                 <table class="w-full text-sm text-left ">
                     <thead>
@@ -96,18 +95,6 @@
                                             <i class="fa-solid fa-edit fa-xl"></i>
                                         </a>
                                 </td>
-                                {{-- <form action="/deleteProduk/{{ $data->id_layanan }}" method="post">
-                                    <td class="text-center py-2 text-belum flex gap-2 ">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
-                                            <i class="fa-solid fa-trash-can fa-xl"></i>
-                                        </button>
-                                        <a href="/EditProduk/{{ $data->id_layanan }}">
-                                            <i class="fa-solid fa-edit fa-xl"></i>
-                                        </a>
-                                    </td>
-                                </form> --}}
                             </tr>
                         @endforeach
                     </tbody>

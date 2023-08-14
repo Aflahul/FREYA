@@ -76,9 +76,6 @@
 
                 <li class="pl-2.5 list-none">
                     <button type="button" class="flex flex-row items-center w-full text-kuning font-extrabold">
-                        {{-- <div class="w-6 object-c pl-5eenter">
-                        <i id="icon-menu" class="fa-solid fa-file-lines"></i>
-                    </div> --}}
                         <span class="flex-1 text-left whitespace-nowrap">Pengaturan</span>
                     </button>
 
@@ -101,10 +98,6 @@
                         <span class="flex-1 ml-6 whitespace-nowrap">Produk & Layanan</span>
                     </a>
                 </li>
-                {{-- <li class=" list-none">
-                        <a href="/pesan"
-                            class="flex items-center rounded-lg  {{ $title == 'Setting-Pesan' ? 'text-sidebar font-bold' : 'text-sidebar py-1 hover:text-kuning hover:font-bold' }}">Pesan</a>
-                    </li> --}}
                 <li class=" list-none">
                     <a href="/artikel"
                         class="flex items-center rounded-lg  {{ $title == 'Artikel' ? 'text-sidebar font-bold drop-shadow-lg py-1' : 'text-white py-1 hover:text-kuning hover:font-bold' }}">
@@ -136,6 +129,4 @@
             </button>
         </form>
     </div>
-
-
 </aside>

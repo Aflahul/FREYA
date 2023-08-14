@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
 use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\Produk;
 use App\Models\Profil;
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class TransaksiController extends Controller
@@ -99,7 +96,7 @@ class TransaksiController extends Controller
         foreach ($dataProduk as $produk) {
             $totalPendapatan += $produk->harga * $produk->total_order;
         }
-        session::put('pendapatan',$totalPendapatan); // Jika ada sesi filter data untuk Produk, maka gunakan data tersebut
+        session::put('pendapatan', $totalPendapatan); // Jika ada sesi filter data untuk Produk, maka gunakan data tersebut
         return view('admin.transaksi.cetaktransaksi', [
             'profil' => $profil,
             'produk' => $dataProduk,

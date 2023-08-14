@@ -53,10 +53,8 @@ class OrderController extends Controller
 
         if (!$order) {
             // Handle jika order tidak ditemukan
-            // Contoh: Redirect dengan pesan error
             return redirect('/order')->with('error', 'Order tidak ditemukan');
         }
-
         // Pastikan status pembayaran belum dibayar
         if ($order->status_pembayaran === 'Belum Dibayar') {
             // Ubah status pembayaran menjadi sudah bayar
@@ -70,8 +68,6 @@ class OrderController extends Controller
         // Redirect jika status pembayaran sudah bayar atau jika status bukan "Sudah Dicuci"
         return redirect('/order')->with('error', 'Status pembayaran sudah bayar atau status bukan "Sudah Dicuci"');
     }
-    // Fungsi lain di sini ...
-
 
     public function index()
 

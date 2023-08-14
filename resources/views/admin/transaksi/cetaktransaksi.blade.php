@@ -8,12 +8,8 @@
     <title id="page-title">Freya Laundry |</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('asset/css/fontawesome.css') }}" rel="stylesheet">
-
     <script src="{{ asset('asset/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
-
-
 </head>
 
 <body class="h-fit">
@@ -47,9 +43,7 @@
                                 <td>
                                     <p class="font-lg text-right font-medium">: {{ $tgl_awal }}-{{ $tgl_akhir }}</p>
                                 </td>
-
                             </tr>
-                    
                             <tr class="">
                                 <td>
                                     <p class="font-lg">Total Pendapatan </p>
@@ -83,11 +77,9 @@
                                 <th scope="col" class="pr-8 text-right py-3 rounded-tr-md">
                                     Total Harga
                                 </th>
-
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach ($produk as $item)
                                 <tr class="bg-white border-b ">
                                     <td class="px-4 py-1">

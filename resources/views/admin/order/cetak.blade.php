@@ -15,9 +15,8 @@
         @media print {
             body {
                 width: 210mm;
-                height: fit-content;/* Lebar halaman cetak 8cm */
-
-                /* Hapus padding untuk menghindari padding default */
+                height: fit-content;
+                /* Lebar halaman cetak  */
             }
         }
     </style>
@@ -124,7 +123,7 @@
                     tanggungjawab kami</div>
             </div>
         </div>
-        
+
     </div>
     <div class="w-screen ">
         <hr class="border-t-2 mt-0.5 border-dotted border-black ">

@@ -1,5 +1,4 @@
 @extends('layout.index')
-
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col place-content-between ">
         <div class="p-4 drop-shadow-lg flex relative flex-col place-content-between ">
@@ -48,7 +47,6 @@
                 </form>
             </div>
         </div>
-
         <div class="p-4 drop-shadow-lg relative overflow-x-auto">
             <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left">

@@ -1,5 +1,4 @@
 @extends('layout.index')
-
 @section('content')
     <div class="p-4 mt-10 sm:ml-72">
         <div class="px-4 pt-2 overflow-x-auto">

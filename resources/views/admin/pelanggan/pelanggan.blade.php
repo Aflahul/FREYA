@@ -31,15 +31,6 @@
         </div>
         <!--pelanggan-->
         <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
-            {{-- <div class="mb-3 px-3 flex items-center">
-                <label for="rows" class="mr-2">Show :</label>
-                <select id="rows" class="px-2 py-1 border rounded-[4px]">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                </select>
-                <label for="rows" class="ml-2">entries</label>
-            </div> --}}
             <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
                 <table class="w-full text-sm text-left overflow-x-auto ">
                     <thead>
@@ -78,18 +69,6 @@
                                             <i class="fa-solid fa-edit fa-xl"></i>
                                         </a>
                                 </td>
-                                {{-- <form action="/deletePelanggan/{{ $data->id_pelanggan }}" method="post">
-                                    <td class="py-2 text-center text-belum justify-center  flex gap-2">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
-                                            <i class="fa-solid fa-trash-can fa-xl"></i>
-                                        </button>
-                                        <a href="/EditPelanggan/{{ $data->id_pelanggan }}">
-                                            <i class="fa-solid fa-edit fa-xl"></i>
-                                        </a>
-                                    </td>
-                                </form> --}}
                             </tr>
                         @endforeach
                     </tbody>

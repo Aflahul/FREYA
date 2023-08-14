@@ -11,5 +11,4 @@ class Profil extends Model
     protected $table = 'tb_profil';
     protected $fillable = ['nama_laundry', 'tagline', 'desk', 'alamat', 'logo','kontak', 'latitude', 'longitude'];
     protected $primaryKey = 'id_laundry';
-   
 }

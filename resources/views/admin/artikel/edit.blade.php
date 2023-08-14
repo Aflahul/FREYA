@@ -1,6 +1,5 @@
 
 @extends('layout.index')
-
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between">
         <div class="p-4 drop-shadow-lg w-screen">
@@ -29,56 +28,6 @@
 
             </div>
         </div>
-        <!--Artikel-->
-        {{-- <div class="p-4 drop-shadow-lg w-screen overflow-x-auto">
-            <div class="bg-latar border-t-[6px] border-sudah rounded-[4px]">
-                <table class="w-full text-sm text-left ">
-                    <thead>
-                        <tr class="border-b-2 text-semibold ">
-                            <th scope="col" class="px-2 py-5 ">Gambar</th>
-                            <th scope="col" class="px-2 py-5 ">Judul Artikel</th>
-                            <th scope="col" class="px-2 py-5">Waktu</th>
-                            <th scope="col" class="pr-4 py-5 text-left">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($artikels as $data)
-                            <tr class="">
-                                <td class="px-2 py-2 max-h-5 max-w-5 rounded">
-                                    @if ($data->foto)
-                                        <img class="max-h-5 max-w-5" src="{{ asset('storage/' . $data->foto) }}"
-                                            alt="logo">
-                                    @else
-                                        <img class="max-h-5 max-w-5" src="{{ asset('assets/img/default-img.jpg') }}"
-                                            alt="default logo">
-                                    @endif
-                                </td>
-                                <td class="px-2 py-2">
-                                    <p class="font-semibold text-sudah">{{ $data->judul }}</p>
-                                </td>
-                                <td class="px-2 py-2">
-                                    <p>{{ $data->created_at }}</p>
-                                </td>
-                               <div class="place-content-end">
-                                    <form action="/deleteArtikel/{{ $data->id_artikel }}" method="post">
-                                        <td class="py-2 text-center text-belum flex gap-2">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" onclick="return confirm('Yakin ingin hapus data?')">
-                                                <i class="fa-solid fa-trash-can fa-xl"></i>
-                                            </button>
-                                            <a href="/EditArtikel/{{ $data->id_artikel }}">
-                                                <i class="fa-solid fa-edit fa-xl"></i>
-                                            </a>
-                                        </td>
-                                    </form>
-                                </div>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div> --}}
     </div>
 @endsection
 

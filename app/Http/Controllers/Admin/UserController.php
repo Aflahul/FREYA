@@ -41,7 +41,6 @@ class UserController extends Controller
         $request->validate([
             'username' => 'required',
             'password' => 'required',
-            // 'confir_password' => 'required',
             'level' => 'required'
 
         ]);
@@ -53,8 +52,6 @@ class UserController extends Controller
         ];
 
         $datas['password'] = bcrypt($datas['password']);
-
-        // dd($datas);
         // Simpan data pengguna ke dalam database
         User::create($datas);
         return redirect('/user');

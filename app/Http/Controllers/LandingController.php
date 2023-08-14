@@ -20,13 +20,11 @@ class LandingController extends Controller
     {
         // Mengambil pesan error dari session flash data (jika ada)
         $error = Session::get('error');
-
         $artikel = Artikel::all();
         $produk = Produk::all();
         $profil = Profil::first();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
-
         return view('landing.home', [
             'title' => 'Home',
             'artikel' => $artikel,

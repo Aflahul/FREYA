@@ -1,4 +1,3 @@
-{{--  --}}
 @extends('layout.index')
 @section('content')
     <div class="p-4 mt-10 sm:ml-72 flex flex-col sm:flex-row place-content-between">

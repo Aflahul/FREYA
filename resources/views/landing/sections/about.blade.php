@@ -63,7 +63,6 @@
                     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#"
                             class="hover:underline">Freya Laundry™</a>. All Rights Reserved.
                     </span>
-
                 </div>
             </div>
         </footer>

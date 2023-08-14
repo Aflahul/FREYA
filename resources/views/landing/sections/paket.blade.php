@@ -77,12 +77,8 @@
                 @endforeach
             </div>
         </div>
-
     </div>
-
-
 </section>
-
 <script>
     $(document).ready(function() {
         // Fungsi untuk scroll ke kiri

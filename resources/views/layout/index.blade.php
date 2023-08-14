@@ -11,7 +11,8 @@
     <link href="{{ asset('asset/css/all.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('asset/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-    <style>
+   <script src="{{ asset('js/app.js') }}" defer></script>
+   <style>
         .tinymce-editor {
             background-color: #F4F6FF;
         }
@@ -33,6 +34,7 @@
     <script>
         // Mengatur zona waktu JavaScript ke UTC+8
         Intl.DateTimeFormat().resolvedOptions().timeZone = 'UTC+8';
+        displayCopyright();
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

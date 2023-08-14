@@ -20,7 +20,6 @@ class ArtikelController extends Controller
         $artikel = Artikel::all();
         $tanggal = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y');
         $jam = Carbon::now()->locale('id')->isoFormat('HH:mm');
-        // dd($artikel);
         return view('admin.artikel.artikel', [
             'title' => 'Artikel',
             'artikel' => $artikel,
@@ -42,9 +41,6 @@ class ArtikelController extends Controller
         // Mengambil informasi gambar yang diunggah
         $foto = $request->file('foto');
         $foto_path = $foto->storeAs('public', $foto->getClientOriginalName(), 'public');
-        // $foto = time() . '.' . $request->foto->extension();
-
-        // $request->foto->move(public_path('asset/img/freya/uploads'), $foto);
         $data = [
             'judul' => $request->judul,
             // 'Isi' => htmlspecialchars_decode($request->Isi),
@@ -52,9 +48,7 @@ class ArtikelController extends Controller
             'foto' => $foto_path,
         ];
         // Simpan data ke dalam database
-        // dd($data);
         Artikel::create($data);
-        // dd($data);
         return redirect('/artikel')->with('success', 'Artikel berhasil ditambahkan.');
     }
 
@@ -66,7 +60,6 @@ class ArtikelController extends Controller
         $profil = Profil::first();
         $artikels = Artikel::all();
         $artikel = Artikel::where('id_artikel', $id_artikel)->first();
-        // dd($artikels);
         return view('admin.artikel.edit', [
             'title' => 'Setting-User',
             'artikel' => $artikel,
@@ -93,14 +86,12 @@ class ArtikelController extends Controller
 
         $artikel->save();
 
-        // dd($data);
         return redirect('/artikel')->with('success', 'Artikel berhasil ditambahkan.');
     }
 
     public function destroy($id_artikel)
     {
         $artikel = Artikel::find($id_artikel);
-        // dd($artikel);
         $artikel->delete();
         return redirect('/artikel');
     }

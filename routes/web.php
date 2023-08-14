@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -23,15 +22,10 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
 //PEMBATASAN AKSES
 //----Admin--------
 Route::middleware('admin')->group(
     function () {
-        // Route::get('/dashboard', [DashboardController::class, 'index']);
-        // Route::get('/pelanggan', [PelangganController::class, 'index']);
-        // Route::get('/pengeluaran', [PengeluaranController::class, 'index']);
-        // Route::get('/order', [OrderController::class, 'index']);
         Route::get('/laporan', [TransaksiController::class, 'index']);
         Route::get('/kas', [KasController::class, 'index']);
         Route::get('/profil', [ProfilController::class, 'index']);
@@ -40,7 +34,6 @@ Route::middleware('admin')->group(
         Route::get('/user', [UserController::class, 'index']);
     }
 );
-
 
 //----Pegawai--------
 Route::middleware('auth')->group(
@@ -51,7 +44,6 @@ Route::middleware('auth')->group(
         Route::get('/order', [OrderController::class, 'index']);
     }
 );
-
 
 //Halaman Pelanggan
 Route::get('/createPelanggan', [PelangganController::class, 'create']);
@@ -112,28 +104,3 @@ Route::post('/StoreUser', [UserController::class, 'store']);
 Route::get('/EditUser/{id_user}', [UserController::class, 'edit']);
 Route::put('/UpdateUser/{id_user}', [UserController::class, 'update'])->name('UpdateUser.update');
 Route::delete('/deleteUser/{id_user}', [UserController::class, 'destroy']);
-
-// //---Pegawai----------------------------------------------------------------------------------------
-// //Halaman Dashboard
-// Route::get('/dashboard_pegawai', [DashboardController::class, 'index_pegawai']);
-// //Halaman pelanggan
-// Route::get('/pelanggan_pegawai', [PelangganController::class, 'index_pegawai']);
-// Route::get('/createPelanggan_pegawai', [PelangganController::class, 'create_pegawai']);
-// Route::post('/storePelanggan_pegawai', [PelangganController::class, 'store_pegawai']);
-// Route::get('/EditPelanggan/{id_pelanggan}', [PelangganController::class, 'edit_pegawai']);
-// Route::put('/UpdatePelanggan_pegawai/{id_pelanggan}', [PelangganController::class, 'update_pegawai'])->name('UpdatePelanggan_pegawai.update');
-// Route::delete('/deletePelanggan_pegawai/{id_pelanggan}', [PelangganController::class, 'destroy_pegawai']);
-// //Halaman pengeluaran
-// Route::get('/pengeluaran_pegawai', [PengeluaranController::class, 'index_pegawai']);
-// Route::get('/createPengeluaran_pegawai', [PengeluaranController::class, 'create_pegawai']);
-// Route::post('/storePengeluaran_pegawai', [PengeluaranController::class, 'store_pegawai']);
-// Route::get('/EditPengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'edit_pegawai']);
-// Route::put('/UpdatePengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'update_pegawai'])->name('UpdatePengeluaran_pegawai.update');
-// Route::delete('/deletePengeluaran_pegawai/{id_pengeluaran}', [PengeluaranController::class, 'destroy_pegawai']);
-// //Halaman Order
-// Route::get('/order_pegawai', [OrderController::class, 'index_pegawai']);
-// Route::get('/createOrder_pegawai', [OrderController::class, 'create_pegawai']);
-// Route::post('/storeOrder_pegawai', [OrderController::class, 'store_pegawai']);
-// Route::get('/EditOrder_pegawai/{id_order}', [OrderController::class, 'edit_pegawai']);
-// Route::put('/UpdateOrder_pegawai/{id_order}', [OrderController::class, 'update_pegawai'])->name('UpdateOrder_pegawai.update');
-// Route::delete('/deleteOrder_pegawai/{id_order}', [OrderController::class, 'destroy_pegawai']);

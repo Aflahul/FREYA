@@ -94,10 +94,5 @@
                 </ol>
             @endif
         </div>
-
-
-
-
-
     </div>
 </section>

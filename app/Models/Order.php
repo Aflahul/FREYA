@@ -20,16 +20,11 @@ class Order extends Model
     {
         return $this->belongsTo(Produk::class, 'id_layanan');
     }
-    
+
     protected static function boot()
     {
         parent::boot();
-
         static::created(function ($order) {
-            // // Mengubah kolom "sedang cuci" menjadi "nyuci" di tabel tb_pelanggan
-            // $order->pelanggan->sedang_cuci = 'Sedang Cuci';
-            // $order->pelanggan->save();
-
             // Mengupdate kolom "total order" di tabel tb_pelanggan
             $order->pelanggan->total_order = $order->pelanggan->orders->count();
             $order->pelanggan->save();

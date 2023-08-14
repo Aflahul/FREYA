@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-
 class Pengeluaran extends Model
 {
     use HasFactory;
@@ -15,11 +14,8 @@ class Pengeluaran extends Model
     protected $primaryKey = 'id_pengeluaran';
     public $incrementing = false;
     protected $keyType = 'string';
-
     public function operator()
     {
         return $this->belongsTo(User::class, 'operator', 'id');
     }
-
-
 }

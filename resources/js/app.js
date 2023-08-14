@@ -40,3 +40,7 @@ tinymce.init({
   height: 200,
   
 });
+// resources/js/app.js
+function displayCopyright() {
+    console.log('© ' + new Date().getFullYear() + ' AFLAHUL MUKMIN. All rights reserved.');
+}

@@ -5,10 +5,8 @@
             <div class="flex items-center">
                 <i class="fas fa-user-circle fa-xl"></i>
                 <span class="ml-2 font-semibold ">{{ ucfirst(auth()->user()->username) }}</span>
-                
                 <div class=" font-semibold rounded-md p-1 mx-2">{{ $jam }}</div>
                 <div class="">
-
                     <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="text-red-500 hover:text-red-700" onclick="return confirm('Yakin ingin logout?')">
